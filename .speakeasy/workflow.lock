@@ -12,7 +12,7 @@ targets:
         sourceNamespace: livepeer-ai-oas
         sourceRevisionDigest: sha256:7ac58682b776e03b6609bbca82499bca46176c857e7e1c1ccdc7f916edf3de02
         sourceBlobDigest: sha256:26199d9d483dcc00982af07497f482f7d056c167e9e3c39543fafd1efada287c
-        outLocation: /home/ricks/development/livepeer/ai/livepeer-ai-python/livepeer-ai-python
+        outLocation: /home/ricks/development/livepeer/ai/livepeer-ai-python
 workflow:
     workflowVersion: 1.0.0
     sources:
