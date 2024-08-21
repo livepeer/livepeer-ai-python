@@ -7,6 +7,8 @@ management:
   generationVersion: 2.404.0
   releaseVersion: 0.1.4
   configChecksum: a4b1b6e1d971710b6648986f1a937812
+  repoURL: https://github.com/livepeer/livepeer-ai-python.git
+  installationURL: https://github.com/livepeer/livepeer-ai-python.git
 features:
   python:
     additionalDependencies: 1.0.0
