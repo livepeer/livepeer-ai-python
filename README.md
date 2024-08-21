@@ -51,7 +51,7 @@ res = s.text_to_image(request={
     "prompt": "<value>",
 })
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 ```
@@ -71,7 +71,7 @@ async def main():
     res = await s.text_to_image_async(request={
         "prompt": "<value>",
     })
-    if res is not None:
+    if res.image_response is not None:
         # handle response
         pass
 
@@ -117,7 +117,7 @@ res = s.image_to_image(request={
     },
 })
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 
@@ -144,7 +144,7 @@ res = s.text_to_image(request={
 },
     RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 
@@ -165,7 +165,7 @@ res = s.text_to_image(request={
     "prompt": "<value>",
 })
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 
@@ -208,7 +208,7 @@ except models.SDKError as e:
     # handle exception
     raise(e)
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 
@@ -241,7 +241,7 @@ res = s.text_to_image(request={
     "prompt": "<value>",
 })
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 
@@ -264,7 +264,7 @@ res = s.text_to_image(request={
     "prompt": "<value>",
 })
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 
@@ -376,7 +376,7 @@ res = s.text_to_image(request={
     "prompt": "<value>",
 })
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 
@@ -386,8 +386,9 @@ if res is not None:
 <!-- Start Debugging [debug] -->
 ## Debugging
 
-To emit debug logs for SDK requests and responses you can pass a logger object directly into your SDK object.
+You can setup your SDK to emit debug logs for SDK requests and responses.
 
+You can pass your own logger class directly into your SDK.
 ```python
 from livepeer_ai import LivepeerAi
 import logging

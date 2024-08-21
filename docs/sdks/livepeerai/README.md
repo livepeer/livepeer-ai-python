@@ -31,7 +31,7 @@ res = s.text_to_image(request={
     "prompt": "<value>",
 })
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 
@@ -49,7 +49,7 @@ if res is not None:
 
 ### Response
 
-**[models.ImageResponse](../../models/imageresponse.md)**
+**[models.TextToImageResponse](../../models/texttoimageresponse.md)**
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
@@ -80,7 +80,7 @@ res = s.image_to_image(request={
     },
 })
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 
@@ -98,7 +98,7 @@ if res is not None:
 
 ### Response
 
-**[models.ImageResponse](../../models/imageresponse.md)**
+**[models.ImageToImageResponse](../../models/imagetoimageresponse.md)**
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
@@ -128,7 +128,7 @@ res = s.image_to_video(request={
     },
 })
 
-if res is not None:
+if res.video_response is not None:
     # handle response
     pass
 
@@ -146,7 +146,7 @@ if res is not None:
 
 ### Response
 
-**[models.VideoResponse](../../models/videoresponse.md)**
+**[models.ImageToVideoResponse](../../models/imagetovideoresponse.md)**
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
@@ -177,7 +177,7 @@ res = s.upscale(request={
     },
 })
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 
@@ -195,7 +195,7 @@ if res is not None:
 
 ### Response
 
-**[models.ImageResponse](../../models/imageresponse.md)**
+**[models.UpscaleResponse](../../models/upscaleresponse.md)**
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
@@ -225,7 +225,7 @@ res = s.audio_to_text(request={
     },
 })
 
-if res is not None:
+if res.text_response is not None:
     # handle response
     pass
 
@@ -243,7 +243,7 @@ if res is not None:
 
 ### Response
 
-**[models.TextResponse](../../models/textresponse.md)**
+**[models.AudioToTextResponse](../../models/audiototextresponse.md)**
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |

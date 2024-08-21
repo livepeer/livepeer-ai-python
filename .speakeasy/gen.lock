@@ -3,15 +3,15 @@ id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
   docChecksum: c222ffbf28e5f62770dc8cbd99010f96
   docVersion: v0.1.2
-  speakeasyVersion: 1.372.0
-  generationVersion: 2.399.0
-  releaseVersion: 0.0.1
-  configChecksum: 7df6e43d97fb1f0e63c017ed688f22db
+  speakeasyVersion: 1.376.1
+  generationVersion: 2.402.5
+  releaseVersion: 0.1.0
+  configChecksum: 49bc380ee7af32c995c712411b8ca27c
 features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.2
-    core: 5.3.8
+    core: 5.4.1
     defaultEnabledRetries: 0.2.0
     devContainers: 3.0.0
     envVarSecurityUsage: 0.3.1
@@ -58,6 +58,7 @@ generatedFiles:
   - src/livepeer_ai/utils/url.py
   - src/livepeer_ai/utils/values.py
   - src/livepeer_ai/models/sdkerror.py
+  - src/livepeer_ai/models/text_to_imageop.py
   - src/livepeer_ai/models/imageresponse.py
   - src/livepeer_ai/models/media.py
   - src/livepeer_ai/models/httperror.py
@@ -65,15 +66,20 @@ generatedFiles:
   - src/livepeer_ai/models/httpvalidationerror.py
   - src/livepeer_ai/models/validationerror.py
   - src/livepeer_ai/models/texttoimageparams.py
+  - src/livepeer_ai/models/image_to_imageop.py
   - src/livepeer_ai/models/body_image_to_image_image_to_image_post.py
+  - src/livepeer_ai/models/image_to_videoop.py
   - src/livepeer_ai/models/videoresponse.py
   - src/livepeer_ai/models/body_image_to_video_image_to_video_post.py
+  - src/livepeer_ai/models/upscaleop.py
   - src/livepeer_ai/models/body_upscale_upscale_post.py
+  - src/livepeer_ai/models/audio_to_textop.py
   - src/livepeer_ai/models/textresponse.py
   - src/livepeer_ai/models/chunk.py
   - src/livepeer_ai/models/body_audio_to_text_audio_to_text_post.py
   - src/livepeer_ai/models/security.py
   - src/livepeer_ai/models/__init__.py
+  - docs/models/texttoimageresponse.md
   - docs/models/imageresponse.md
   - docs/models/media.md
   - docs/models/httperror.md
@@ -82,13 +88,17 @@ generatedFiles:
   - docs/models/loc.md
   - docs/models/validationerror.md
   - docs/models/texttoimageparams.md
+  - docs/models/imagetoimageresponse.md
   - docs/models/image.md
   - docs/models/bodyimagetoimageimagetoimagepost.md
+  - docs/models/imagetovideoresponse.md
   - docs/models/videoresponse.md
   - docs/models/bodyimagetovideoimagetovideopostimage.md
   - docs/models/bodyimagetovideoimagetovideopost.md
+  - docs/models/upscaleresponse.md
   - docs/models/bodyupscaleupscalepostimage.md
   - docs/models/bodyupscaleupscalepost.md
+  - docs/models/audiototextresponse.md
   - docs/models/textresponse.md
   - docs/models/chunk.md
   - docs/models/audio.md

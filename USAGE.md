@@ -12,7 +12,7 @@ res = s.text_to_image(request={
     "prompt": "<value>",
 })
 
-if res is not None:
+if res.image_response is not None:
     # handle response
     pass
 ```
@@ -32,7 +32,7 @@ async def main():
     res = await s.text_to_image_async(request={
         "prompt": "<value>",
     })
-    if res is not None:
+    if res.image_response is not None:
         # handle response
         pass
 

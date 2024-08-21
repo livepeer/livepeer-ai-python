@@ -3,7 +3,7 @@
 from .basesdk import BaseSDK
 from .httpclient import AsyncHttpClient, HttpClient
 from .sdkconfiguration import SDKConfiguration
-from .utils.logger import Logger, NoOpLogger
+from .utils.logger import Logger, get_default_logger
 from .utils.retries import RetryConfig
 import httpx
 from livepeer_ai import models, utils
@@ -47,7 +47,7 @@ class LivepeerAi(BaseSDK):
             async_client = httpx.AsyncClient()
 
         if debug_logger is None:
-            debug_logger = NoOpLogger()
+            debug_logger = get_default_logger()
 
         assert issubclass(
             type(async_client), AsyncHttpClient
@@ -92,7 +92,7 @@ class LivepeerAi(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> Optional[models.ImageResponse]:
+    ) -> models.TextToImageResponse:
         r"""Text To Image
 
         :param request: The request object to send.
@@ -151,7 +151,7 @@ class LivepeerAi(BaseSDK):
         
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Optional[models.ImageResponse])
+            return models.TextToImageResponse(image_response=utils.unmarshal_json(http_res.text, Optional[models.ImageResponse]), status_code=http_res.status_code, content_type=http_res.headers.get("Content-Type") or "", raw_response=http_res)
         if utils.match_response(http_res, ["400","401","500"], "application/json"):
             data = utils.unmarshal_json(http_res.text, models.HTTPErrorData)
             raise models.HTTPError(data=data)
@@ -172,7 +172,7 @@ class LivepeerAi(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> Optional[models.ImageResponse]:
+    ) -> models.TextToImageResponse:
         r"""Text To Image
 
         :param request: The request object to send.
@@ -231,7 +231,7 @@ class LivepeerAi(BaseSDK):
         
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Optional[models.ImageResponse])
+            return models.TextToImageResponse(image_response=utils.unmarshal_json(http_res.text, Optional[models.ImageResponse]), status_code=http_res.status_code, content_type=http_res.headers.get("Content-Type") or "", raw_response=http_res)
         if utils.match_response(http_res, ["400","401","500"], "application/json"):
             data = utils.unmarshal_json(http_res.text, models.HTTPErrorData)
             raise models.HTTPError(data=data)
@@ -252,7 +252,7 @@ class LivepeerAi(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> Optional[models.ImageResponse]:
+    ) -> models.ImageToImageResponse:
         r"""Image To Image
 
         :param request: The request object to send.
@@ -311,7 +311,7 @@ class LivepeerAi(BaseSDK):
         
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Optional[models.ImageResponse])
+            return models.ImageToImageResponse(image_response=utils.unmarshal_json(http_res.text, Optional[models.ImageResponse]), status_code=http_res.status_code, content_type=http_res.headers.get("Content-Type") or "", raw_response=http_res)
         if utils.match_response(http_res, ["400","401","500"], "application/json"):
             data = utils.unmarshal_json(http_res.text, models.HTTPErrorData)
             raise models.HTTPError(data=data)
@@ -332,7 +332,7 @@ class LivepeerAi(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> Optional[models.ImageResponse]:
+    ) -> models.ImageToImageResponse:
         r"""Image To Image
 
         :param request: The request object to send.
@@ -391,7 +391,7 @@ class LivepeerAi(BaseSDK):
         
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Optional[models.ImageResponse])
+            return models.ImageToImageResponse(image_response=utils.unmarshal_json(http_res.text, Optional[models.ImageResponse]), status_code=http_res.status_code, content_type=http_res.headers.get("Content-Type") or "", raw_response=http_res)
         if utils.match_response(http_res, ["400","401","500"], "application/json"):
             data = utils.unmarshal_json(http_res.text, models.HTTPErrorData)
             raise models.HTTPError(data=data)
@@ -412,7 +412,7 @@ class LivepeerAi(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> Optional[models.VideoResponse]:
+    ) -> models.ImageToVideoResponse:
         r"""Image To Video
 
         :param request: The request object to send.
@@ -471,7 +471,7 @@ class LivepeerAi(BaseSDK):
         
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Optional[models.VideoResponse])
+            return models.ImageToVideoResponse(video_response=utils.unmarshal_json(http_res.text, Optional[models.VideoResponse]), status_code=http_res.status_code, content_type=http_res.headers.get("Content-Type") or "", raw_response=http_res)
         if utils.match_response(http_res, ["400","401","500"], "application/json"):
             data = utils.unmarshal_json(http_res.text, models.HTTPErrorData)
             raise models.HTTPError(data=data)
@@ -492,7 +492,7 @@ class LivepeerAi(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> Optional[models.VideoResponse]:
+    ) -> models.ImageToVideoResponse:
         r"""Image To Video
 
         :param request: The request object to send.
@@ -551,7 +551,7 @@ class LivepeerAi(BaseSDK):
         
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Optional[models.VideoResponse])
+            return models.ImageToVideoResponse(video_response=utils.unmarshal_json(http_res.text, Optional[models.VideoResponse]), status_code=http_res.status_code, content_type=http_res.headers.get("Content-Type") or "", raw_response=http_res)
         if utils.match_response(http_res, ["400","401","500"], "application/json"):
             data = utils.unmarshal_json(http_res.text, models.HTTPErrorData)
             raise models.HTTPError(data=data)
@@ -572,7 +572,7 @@ class LivepeerAi(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> Optional[models.ImageResponse]:
+    ) -> models.UpscaleResponse:
         r"""Upscale
 
         :param request: The request object to send.
@@ -631,7 +631,7 @@ class LivepeerAi(BaseSDK):
         
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Optional[models.ImageResponse])
+            return models.UpscaleResponse(image_response=utils.unmarshal_json(http_res.text, Optional[models.ImageResponse]), status_code=http_res.status_code, content_type=http_res.headers.get("Content-Type") or "", raw_response=http_res)
         if utils.match_response(http_res, ["400","401","500"], "application/json"):
             data = utils.unmarshal_json(http_res.text, models.HTTPErrorData)
             raise models.HTTPError(data=data)
@@ -652,7 +652,7 @@ class LivepeerAi(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> Optional[models.ImageResponse]:
+    ) -> models.UpscaleResponse:
         r"""Upscale
 
         :param request: The request object to send.
@@ -711,7 +711,7 @@ class LivepeerAi(BaseSDK):
         
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Optional[models.ImageResponse])
+            return models.UpscaleResponse(image_response=utils.unmarshal_json(http_res.text, Optional[models.ImageResponse]), status_code=http_res.status_code, content_type=http_res.headers.get("Content-Type") or "", raw_response=http_res)
         if utils.match_response(http_res, ["400","401","500"], "application/json"):
             data = utils.unmarshal_json(http_res.text, models.HTTPErrorData)
             raise models.HTTPError(data=data)
@@ -732,7 +732,7 @@ class LivepeerAi(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> Optional[models.TextResponse]:
+    ) -> models.AudioToTextResponse:
         r"""Audio To Text
 
         :param request: The request object to send.
@@ -791,7 +791,7 @@ class LivepeerAi(BaseSDK):
         
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Optional[models.TextResponse])
+            return models.AudioToTextResponse(text_response=utils.unmarshal_json(http_res.text, Optional[models.TextResponse]), status_code=http_res.status_code, content_type=http_res.headers.get("Content-Type") or "", raw_response=http_res)
         if utils.match_response(http_res, ["400","401","413","500"], "application/json"):
             data = utils.unmarshal_json(http_res.text, models.HTTPErrorData)
             raise models.HTTPError(data=data)
@@ -812,7 +812,7 @@ class LivepeerAi(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
-    ) -> Optional[models.TextResponse]:
+    ) -> models.AudioToTextResponse:
         r"""Audio To Text
 
         :param request: The request object to send.
@@ -871,7 +871,7 @@ class LivepeerAi(BaseSDK):
         
         data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Optional[models.TextResponse])
+            return models.AudioToTextResponse(text_response=utils.unmarshal_json(http_res.text, Optional[models.TextResponse]), status_code=http_res.status_code, content_type=http_res.headers.get("Content-Type") or "", raw_response=http_res)
         if utils.match_response(http_res, ["400","401","413","500"], "application/json"):
             data = utils.unmarshal_json(http_res.text, models.HTTPErrorData)
             raise models.HTTPError(data=data)

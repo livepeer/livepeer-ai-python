@@ -1,9 +1,9 @@
-speakeasyVersion: 1.372.0
+speakeasyVersion: 1.376.1
 sources:
     livepeer_ai-OAS:
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:7ac58682b776e03b6609bbca82499bca46176c857e7e1c1ccdc7f916edf3de02
-        sourceBlobDigest: sha256:26199d9d483dcc00982af07497f482f7d056c167e9e3c39543fafd1efada287c
+        sourceRevisionDigest: sha256:cdc182b422436682f4d343800c3fd369e7e4c97a8c082bdaa916bb749ff1f9b3
+        sourceBlobDigest: sha256:e79605d14184030c02569e5f04d51cf4c2ecf820554cac6822c0519753983b97
         tags:
             - latest
 targets:
@@ -13,8 +13,15 @@ targets:
         sourceRevisionDigest: sha256:7ac58682b776e03b6609bbca82499bca46176c857e7e1c1ccdc7f916edf3de02
         sourceBlobDigest: sha256:26199d9d483dcc00982af07497f482f7d056c167e9e3c39543fafd1efada287c
         outLocation: /home/ricks/development/livepeer/ai/livepeer-ai-python
+    livepeer-python:
+        source: livepeer_ai-OAS
+        sourceNamespace: livepeer-ai-oas
+        sourceRevisionDigest: sha256:cdc182b422436682f4d343800c3fd369e7e4c97a8c082bdaa916bb749ff1f9b3
+        sourceBlobDigest: sha256:e79605d14184030c02569e5f04d51cf4c2ecf820554cac6822c0519753983b97
+        outLocation: /home/ricks/development/livepeer/ai/livepeer-ai-python
 workflow:
     workflowVersion: 1.0.0
+    speakeasyVersion: latest
     sources:
         livepeer_ai-OAS:
             inputs:
@@ -22,6 +29,6 @@ workflow:
             registry:
                 location: registry.speakeasyapi.dev/livepeer-8mq/livepeer-ai/livepeer-ai-oas
     targets:
-        livepeer-ai:
+        livepeer-python:
             target: python
             source: livepeer_ai-OAS
