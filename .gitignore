@@ -1,3 +1,4 @@
+# Speakeasy
 .venv/
 venv/
 src/*.egg-info/
@@ -8,6 +9,6 @@ __pycache__/
 pyrightconfig.json
 README-PYPI.md
 
-# IDE
+# IDEs
 .vscode
 *.code-workspace
