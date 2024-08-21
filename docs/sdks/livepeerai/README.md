@@ -1,5 +1,4 @@
-# LivepeerAi SDK
-
+# LivepeerAI SDK
 
 ## Overview
 
@@ -20,9 +19,9 @@ Text To Image
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAi
+from livepeer_ai import LivepeerAI
 
-s = LivepeerAi(
+s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -37,8 +36,6 @@ if res.image_response is not None:
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
@@ -46,10 +43,10 @@ if res.image_response is not None:
 | `request`                                                           | [models.TextToImageParams](../../models/texttoimageparams.md)       | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
-
 ### Response
 
 **[models.TextToImageResponse](../../models/texttoimageresponse.md)**
+
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
@@ -58,6 +55,7 @@ if res.image_response is not None:
 | models.HTTPValidationError | 422                        | application/json           |
 | models.SDKError            | 4xx-5xx                    | */*                        |
 
+
 ## image_to_image
 
 Image To Image
@@ -65,9 +63,9 @@ Image To Image
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAi
+from livepeer_ai import LivepeerAI
 
-s = LivepeerAi(
+s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -86,8 +84,6 @@ if res.image_response is not None:
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
@@ -95,10 +91,10 @@ if res.image_response is not None:
 | `request`                                                                                   | [models.BodyImageToImageImageToImagePost](../../models/bodyimagetoimageimagetoimagepost.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 | `retries`                                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                            | :heavy_minus_sign:                                                                          | Configuration to override the default retry behavior of the client.                         |
 
-
 ### Response
 
 **[models.ImageToImageResponse](../../models/imagetoimageresponse.md)**
+
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
@@ -107,6 +103,7 @@ if res.image_response is not None:
 | models.HTTPValidationError | 422                        | application/json           |
 | models.SDKError            | 4xx-5xx                    | */*                        |
 
+
 ## image_to_video
 
 Image To Video
@@ -114,9 +111,9 @@ Image To Video
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAi
+from livepeer_ai import LivepeerAI
 
-s = LivepeerAi(
+s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -134,8 +131,6 @@ if res.video_response is not None:
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
@@ -143,10 +138,10 @@ if res.video_response is not None:
 | `request`                                                                                   | [models.BodyImageToVideoImageToVideoPost](../../models/bodyimagetovideoimagetovideopost.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 | `retries`                                                                                   | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                            | :heavy_minus_sign:                                                                          | Configuration to override the default retry behavior of the client.                         |
 
-
 ### Response
 
 **[models.ImageToVideoResponse](../../models/imagetovideoresponse.md)**
+
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
@@ -155,6 +150,7 @@ if res.video_response is not None:
 | models.HTTPValidationError | 422                        | application/json           |
 | models.SDKError            | 4xx-5xx                    | */*                        |
 
+
 ## upscale
 
 Upscale
@@ -162,9 +158,9 @@ Upscale
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAi
+from livepeer_ai import LivepeerAI
 
-s = LivepeerAi(
+s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -183,8 +179,6 @@ if res.image_response is not None:
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                               | Type                                                                    | Required                                                                | Description                                                             |
@@ -192,10 +186,10 @@ if res.image_response is not None:
 | `request`                                                               | [models.BodyUpscaleUpscalePost](../../models/bodyupscaleupscalepost.md) | :heavy_check_mark:                                                      | The request object to use for the request.                              |
 | `retries`                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)        | :heavy_minus_sign:                                                      | Configuration to override the default retry behavior of the client.     |
 
-
 ### Response
 
 **[models.UpscaleResponse](../../models/upscaleresponse.md)**
+
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
@@ -204,6 +198,7 @@ if res.image_response is not None:
 | models.HTTPValidationError | 422                        | application/json           |
 | models.SDKError            | 4xx-5xx                    | */*                        |
 
+
 ## audio_to_text
 
 Audio To Text
@@ -211,9 +206,9 @@ Audio To Text
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAi
+from livepeer_ai import LivepeerAI
 
-s = LivepeerAi(
+s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -231,8 +226,6 @@ if res.text_response is not None:
 
 ```
 
-
-
 ### Parameters
 
 | Parameter                                                                               | Type                                                                                    | Required                                                                                | Description                                                                             |
@@ -240,10 +233,10 @@ if res.text_response is not None:
 | `request`                                                                               | [models.BodyAudioToTextAudioToTextPost](../../models/bodyaudiototextaudiototextpost.md) | :heavy_check_mark:                                                                      | The request object to use for the request.                                              |
 | `retries`                                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                        | :heavy_minus_sign:                                                                      | Configuration to override the default retry behavior of the client.                     |
 
-
 ### Response
 
 **[models.AudioToTextResponse](../../models/audiototextresponse.md)**
+
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |

@@ -1,8 +1,8 @@
-speakeasyVersion: 1.376.1
+speakeasyVersion: 1.377.0
 sources:
     livepeer_ai-OAS:
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:cdc182b422436682f4d343800c3fd369e7e4c97a8c082bdaa916bb749ff1f9b3
+        sourceRevisionDigest: sha256:2252c0a4efdf8964ad2153ca03ed71fe531dd05f4e52888940da66d2c3c9a158
         sourceBlobDigest: sha256:e79605d14184030c02569e5f04d51cf4c2ecf820554cac6822c0519753983b97
         tags:
             - latest
@@ -16,7 +16,7 @@ targets:
     livepeer-python:
         source: livepeer_ai-OAS
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:cdc182b422436682f4d343800c3fd369e7e4c97a8c082bdaa916bb749ff1f9b3
+        sourceRevisionDigest: sha256:2252c0a4efdf8964ad2153ca03ed71fe531dd05f4e52888940da66d2c3c9a158
         sourceBlobDigest: sha256:e79605d14184030c02569e5f04d51cf4c2ecf820554cac6822c0519753983b97
         outLocation: /home/ricks/development/livepeer/ai/livepeer-ai-python
 workflow:

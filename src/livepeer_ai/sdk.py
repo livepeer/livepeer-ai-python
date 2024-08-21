@@ -11,7 +11,7 @@ from livepeer_ai._hooks import HookContext, SDKHooks
 from livepeer_ai.types import BaseModel, OptionalNullable, UNSET
 from typing import Any, Callable, Dict, Optional, Union, cast
 
-class LivepeerAi(BaseSDK):
+class LivepeerAI(BaseSDK):
     r"""Livepeer AI Runner: An application to run AI pipelines"""
     def __init__(
         self,

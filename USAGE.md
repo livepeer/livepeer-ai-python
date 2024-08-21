@@ -1,9 +1,9 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
 # Synchronous Example
-from livepeer_ai import LivepeerAi
+from livepeer_ai import LivepeerAI
 
-s = LivepeerAi(
+s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -23,10 +23,10 @@ The same SDK client can also be used to make asychronous requests by importing a
 ```python
 # Asynchronous Example
 import asyncio
-from livepeer_ai import LivepeerAi
+from livepeer_ai import LivepeerAI
 
 async def main():
-    s = LivepeerAi(
+    s = LivepeerAI(
         http_bearer="<YOUR_BEARER_TOKEN_HERE>",
     )
     res = await s.text_to_image_async(request={
