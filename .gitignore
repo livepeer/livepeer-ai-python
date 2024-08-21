@@ -7,3 +7,7 @@ __pycache__/
 .DS_Store
 pyrightconfig.json
 README-PYPI.md
+
+# IDE
+.vscode
+*.code-workspace
