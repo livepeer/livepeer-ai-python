@@ -410,6 +410,6 @@ looking for the latest version.
 
 ## Contributions
 
-While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. We look forward to hearing your feedback. Feel free to open a [PR](https://github.com/livepeer/livepeer-ai-python/compare) or [an issue](https://github.com/livepeer/livepeer-ai-js/issues) with a proof of concept and we'll do our best to include it in a future release.
+While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. We look forward to hearing your feedback. Feel free to open a [PR](https://github.com/livepeer/livepeer-ai-python/compare) or [an issue](https://github.com/livepeer/livepeer-ai-python/issues) with a proof of concept and we'll do our best to include it in a future release.
 
 ### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=livepeer-ai&utm_campaign=python)
