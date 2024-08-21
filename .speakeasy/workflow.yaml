@@ -10,3 +10,7 @@ targets:
     livepeer-python:
         target: python
         source: livepeer_ai-OAS
+        codeSamples:
+            output: codeSamples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/livepeer-8mq/livepeer-ai/code-samples-python-livepeer-python
