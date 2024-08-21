@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "livepeer-ai"
-version = "0.1.3"
+version = "0.1.4"
 description = "Python Client SDK for the Livepeer AI API."
 authors = ["Livepeer",]
 readme = "README-PYPI.md"

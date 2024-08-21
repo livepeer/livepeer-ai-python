@@ -2,7 +2,7 @@ speakeasyVersion: 1.377.0
 sources:
     livepeer_ai-OAS:
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:2252c0a4efdf8964ad2153ca03ed71fe531dd05f4e52888940da66d2c3c9a158
+        sourceRevisionDigest: sha256:f935b84686090859578d89ad592a698315085140725eef75bc986b278d06c8eb
         sourceBlobDigest: sha256:e79605d14184030c02569e5f04d51cf4c2ecf820554cac6822c0519753983b97
         tags:
             - latest
@@ -13,11 +13,13 @@ targets:
         sourceRevisionDigest: sha256:7ac58682b776e03b6609bbca82499bca46176c857e7e1c1ccdc7f916edf3de02
         sourceBlobDigest: sha256:26199d9d483dcc00982af07497f482f7d056c167e9e3c39543fafd1efada287c
         outLocation: /home/ricks/development/livepeer/ai/livepeer-ai-python
-    livepeer-python:
+    livepeer-ai-python:
         source: livepeer_ai-OAS
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:2252c0a4efdf8964ad2153ca03ed71fe531dd05f4e52888940da66d2c3c9a158
+        sourceRevisionDigest: sha256:f935b84686090859578d89ad592a698315085140725eef75bc986b278d06c8eb
         sourceBlobDigest: sha256:e79605d14184030c02569e5f04d51cf4c2ecf820554cac6822c0519753983b97
+        codeSamplesNamespace: code-samples-python-livepeer-python
+        codeSamplesRevisionDigest: sha256:591e8faefb83c96ac59afb02ddd1ec51b58481a1c1630de2f4c76419bb73d0fd
         outLocation: /home/ricks/development/livepeer/ai/livepeer-ai-python
 workflow:
     workflowVersion: 1.0.0
@@ -29,6 +31,10 @@ workflow:
             registry:
                 location: registry.speakeasyapi.dev/livepeer-8mq/livepeer-ai/livepeer-ai-oas
     targets:
-        livepeer-python:
+        livepeer-ai-python:
             target: python
             source: livepeer_ai-OAS
+            codeSamples:
+                output: codeSamples.yaml
+                registry:
+                    location: registry.speakeasyapi.dev/livepeer-8mq/livepeer-ai/code-samples-python-livepeer-python

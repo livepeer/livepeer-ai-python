@@ -7,7 +7,7 @@ sources:
         registry:
             location: registry.speakeasyapi.dev/livepeer-8mq/livepeer-ai/livepeer-ai-oas
 targets:
-    livepeer-python:
+    livepeer-ai-python:
         target: python
         source: livepeer_ai-OAS
         codeSamples:
