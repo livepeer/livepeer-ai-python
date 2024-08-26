@@ -1,12 +1,11 @@
-speakeasyVersion: 1.377.0
+speakeasyVersion: 1.379.0
 sources:
     livepeer_ai-OAS:
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:eaa66566d7629ca0b84b572f39576e8b38b87667aaa688ea98cf87629f7647ea
-        sourceBlobDigest: sha256:88b77186fc98fe193435d3069ab2e85fe4d404e802e4e23761979e984649ff70
+        sourceRevisionDigest: sha256:6bd4223c4f6c0a9963663242f118035124c716e7c436049608219d24717cf099
+        sourceBlobDigest: sha256:a025967b0b9169763c785bb89478cb7716f70241d4e11d762734f3655b7fb0e5
         tags:
             - latest
-            - main
 targets:
     livepeer-ai:
         source: livepeer_ai-OAS
@@ -17,18 +16,18 @@ targets:
     livepeer-ai-python:
         source: livepeer_ai-OAS
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:eaa66566d7629ca0b84b572f39576e8b38b87667aaa688ea98cf87629f7647ea
-        sourceBlobDigest: sha256:88b77186fc98fe193435d3069ab2e85fe4d404e802e4e23761979e984649ff70
+        sourceRevisionDigest: sha256:6bd4223c4f6c0a9963663242f118035124c716e7c436049608219d24717cf099
+        sourceBlobDigest: sha256:a025967b0b9169763c785bb89478cb7716f70241d4e11d762734f3655b7fb0e5
         codeSamplesNamespace: code-samples-python-livepeer-python
-        codeSamplesRevisionDigest: sha256:4b4d5d53563acb0a29f44c857bb3b87e8455831c298a17c1b3d02a7f235caca0
-        outLocation: /github/workspace/repo
+        codeSamplesRevisionDigest: sha256:901ab5f5b4d211b224c6482b451f186affa42c56cdf08c25f191f875146987d5
+        outLocation: /home/ricks/development/livepeer/ai/livepeer-ai-python
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         livepeer_ai-OAS:
             inputs:
-                - location: https://raw.githubusercontent.com/livepeer/ai-worker/main/runner/gateway.openapi.json
+                - location: https://raw.githubusercontent.com/livepeer/ai-worker/main/runner/gateway.openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/livepeer-8mq/livepeer-ai/livepeer-ai-oas
     targets:

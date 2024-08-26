@@ -3,7 +3,7 @@ speakeasyVersion: latest
 sources:
     livepeer_ai-OAS:
         inputs:
-            - location: https://raw.githubusercontent.com/livepeer/ai-worker/main/runner/gateway.openapi.json
+            - location: https://raw.githubusercontent.com/livepeer/ai-worker/main/runner/gateway.openapi.yaml
         registry:
             location: registry.speakeasyapi.dev/livepeer-8mq/livepeer-ai/livepeer-ai-oas
 targets:

@@ -3,6 +3,12 @@ info:
   title: CodeSamples overlay for python target
   version: 0.0.0
 actions:
+  - target: $["paths"]["/audio-to-text"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "audio_to_text"
+          "source": "from livepeer_ai import LivepeerAI\n\ns = LivepeerAI(\n    http_bearer=\"<YOUR_BEARER_TOKEN_HERE>\",\n)\n\n\nres = s.audio_to_text(request={\n    \"audio\": {\n        \"file_name\": \"your_file_here\",\n        \"content\": open(\"<file_path>\", \"rb\"),\n    },\n})\n\nif res.text_response is not None:\n    # handle response\n    pass"
   - target: $["paths"]["/text-to-image"]["post"]
     update:
       "x-codeSamples":
@@ -27,9 +33,3 @@ actions:
         - "lang": "python"
           "label": "upscale"
           "source": "from livepeer_ai import LivepeerAI\n\ns = LivepeerAI(\n    http_bearer=\"<YOUR_BEARER_TOKEN_HERE>\",\n)\n\n\nres = s.upscale(request={\n    \"prompt\": \"<value>\",\n    \"image\": {\n        \"file_name\": \"your_file_here\",\n        \"content\": open(\"<file_path>\", \"rb\"),\n    },\n})\n\nif res.image_response is not None:\n    # handle response\n    pass"
-  - target: $["paths"]["/audio-to-text"]["post"]
-    update:
-      "x-codeSamples":
-        - "lang": "python"
-          "label": "audio_to_text"
-          "source": "from livepeer_ai import LivepeerAI\n\ns = LivepeerAI(\n    http_bearer=\"<YOUR_BEARER_TOKEN_HERE>\",\n)\n\n\nres = s.audio_to_text(request={\n    \"audio\": {\n        \"file_name\": \"your_file_here\",\n        \"content\": open(\"<file_path>\", \"rb\"),\n    },\n})\n\nif res.text_response is not None:\n    # handle response\n    pass"

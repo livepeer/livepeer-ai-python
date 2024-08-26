@@ -6,11 +6,19 @@ from typing import Any, List, TypedDict
 
 
 class ChunkTypedDict(TypedDict):
+    r"""A chunk of text with a timestamp."""
+    
     timestamp: List[Any]
+    r"""The timestamp of the chunk."""
     text: str
+    r"""The text of the chunk."""
     
 
 class Chunk(BaseModel):
+    r"""A chunk of text with a timestamp."""
+    
     timestamp: List[Any]
+    r"""The timestamp of the chunk."""
     text: str
+    r"""The text of the chunk."""
     

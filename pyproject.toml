@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "livepeer-ai"
-version = "0.1.4"
+version = "0.1.5"
 description = "Python Client SDK for the Livepeer AI API."
 authors = ["Livepeer",]
 readme = "README-PYPI.md"
+repository = "https://github.com/livepeer/livepeer-ai-python.git"
 packages = [
     { include = "livepeer_ai", from = "src" }
 ]

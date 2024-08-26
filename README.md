@@ -14,12 +14,12 @@ Welcome to the [Livepeer AI](https://livepeer.ai/) Python! This library offers a
 
 PIP
 ```bash
-pip install git+<UNSET>.git
+pip install git+https://github.com/livepeer/livepeer-ai-python.git
 ```
 
 Poetry
 ```bash
-poetry add git+<UNSET>.git
+poetry add git+https://github.com/livepeer/livepeer-ai-python.git
 ```
 <!-- End SDK Installation [installation] -->
 

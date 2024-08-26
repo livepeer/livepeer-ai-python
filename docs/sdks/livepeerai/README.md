@@ -14,7 +14,7 @@ Livepeer AI Runner: An application to run AI pipelines
 
 ## text_to_image
 
-Text To Image
+Generate images from text prompts.
 
 ### Example Usage
 
@@ -58,7 +58,7 @@ if res.image_response is not None:
 
 ## image_to_image
 
-Image To Image
+Apply image transformations to a provided image.
 
 ### Example Usage
 
@@ -106,7 +106,7 @@ if res.image_response is not None:
 
 ## image_to_video
 
-Image To Video
+Generate a video from a provided image.
 
 ### Example Usage
 
@@ -153,7 +153,7 @@ if res.video_response is not None:
 
 ## upscale
 
-Upscale
+Upscale an image by increasing its resolution.
 
 ### Example Usage
 
@@ -201,7 +201,7 @@ if res.image_response is not None:
 
 ## audio_to_text
 
-Audio To Text
+Transcribe audio files to text.
 
 ### Example Usage
 
