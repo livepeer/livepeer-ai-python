@@ -7,9 +7,15 @@ from typing import List, TypedDict
 
 
 class ImageResponseTypedDict(TypedDict):
+    r"""Response model for image generation."""
+    
     images: List[MediaTypedDict]
+    r"""The generated images."""
     
 
 class ImageResponse(BaseModel):
+    r"""Response model for image generation."""
+    
     images: List[Media]
+    r"""The generated images."""
     

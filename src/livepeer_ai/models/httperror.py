@@ -7,11 +7,12 @@ from livepeer_ai.types import BaseModel
 
 class HTTPErrorData(BaseModel):
     detail: APIError
+    r"""Detailed error information."""
     
 
 
 class HTTPError(Exception):
-    r"""Bad Request"""
+    r"""HTTP error response model."""
     data: HTTPErrorData
 
     def __init__(self, data: HTTPErrorData):

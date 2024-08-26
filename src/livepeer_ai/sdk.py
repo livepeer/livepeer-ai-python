@@ -95,6 +95,8 @@ class LivepeerAI(BaseSDK):
     ) -> models.TextToImageResponse:
         r"""Text To Image
 
+        Generate images from text prompts.
+
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -174,6 +176,8 @@ class LivepeerAI(BaseSDK):
         timeout_ms: Optional[int] = None,
     ) -> models.TextToImageResponse:
         r"""Text To Image
+
+        Generate images from text prompts.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -255,6 +259,8 @@ class LivepeerAI(BaseSDK):
     ) -> models.ImageToImageResponse:
         r"""Image To Image
 
+        Apply image transformations to a provided image.
+
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -334,6 +340,8 @@ class LivepeerAI(BaseSDK):
         timeout_ms: Optional[int] = None,
     ) -> models.ImageToImageResponse:
         r"""Image To Image
+
+        Apply image transformations to a provided image.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -415,6 +423,8 @@ class LivepeerAI(BaseSDK):
     ) -> models.ImageToVideoResponse:
         r"""Image To Video
 
+        Generate a video from a provided image.
+
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -494,6 +504,8 @@ class LivepeerAI(BaseSDK):
         timeout_ms: Optional[int] = None,
     ) -> models.ImageToVideoResponse:
         r"""Image To Video
+
+        Generate a video from a provided image.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -575,6 +587,8 @@ class LivepeerAI(BaseSDK):
     ) -> models.UpscaleResponse:
         r"""Upscale
 
+        Upscale an image by increasing its resolution.
+
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -654,6 +668,8 @@ class LivepeerAI(BaseSDK):
         timeout_ms: Optional[int] = None,
     ) -> models.UpscaleResponse:
         r"""Upscale
+
+        Upscale an image by increasing its resolution.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -735,6 +751,8 @@ class LivepeerAI(BaseSDK):
     ) -> models.AudioToTextResponse:
         r"""Audio To Text
 
+        Transcribe audio files to text.
+
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -814,6 +832,8 @@ class LivepeerAI(BaseSDK):
         timeout_ms: Optional[int] = None,
     ) -> models.AudioToTextResponse:
         r"""Audio To Text
+
+        Transcribe audio files to text.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method

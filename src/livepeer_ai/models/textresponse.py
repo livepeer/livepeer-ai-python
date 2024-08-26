@@ -7,11 +7,19 @@ from typing import List, TypedDict
 
 
 class TextResponseTypedDict(TypedDict):
+    r"""Response model for text generation."""
+    
     text: str
+    r"""The generated text."""
     chunks: List[ChunkTypedDict]
+    r"""The generated text chunks."""
     
 
 class TextResponse(BaseModel):
+    r"""Response model for text generation."""
+    
     text: str
+    r"""The generated text."""
     chunks: List[Chunk]
+    r"""The generated text chunks."""
     
