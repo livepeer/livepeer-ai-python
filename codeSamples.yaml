@@ -3,33 +3,117 @@ info:
   title: CodeSamples overlay for python target
   version: 0.0.0
 actions:
-  - target: $["paths"]["/audio-to-text"]["post"]
-    update:
-      "x-codeSamples":
-        - "lang": "python"
-          "label": "audio_to_text"
-          "source": "from livepeer_ai import LivepeerAI\n\ns = LivepeerAI(\n    http_bearer=\"<YOUR_BEARER_TOKEN_HERE>\",\n)\n\n\nres = s.audio_to_text(request={\n    \"audio\": {\n        \"file_name\": \"your_file_here\",\n        \"content\": open(\"<file_path>\", \"rb\"),\n    },\n})\n\nif res.text_response is not None:\n    # handle response\n    pass"
   - target: $["paths"]["/text-to-image"]["post"]
     update:
-      "x-codeSamples":
-        - "lang": "python"
-          "label": "text_to_image"
-          "source": "from livepeer_ai import LivepeerAI\n\ns = LivepeerAI(\n    http_bearer=\"<YOUR_BEARER_TOKEN_HERE>\",\n)\n\n\nres = s.text_to_image(request={\n    \"prompt\": \"<value>\",\n})\n\nif res.image_response is not None:\n    # handle response\n    pass"
+      x-codeSamples:
+        - lang: python
+          label: text_to_image
+          source: |-
+            from livepeer_ai import LivepeerAI
+
+            s = LivepeerAI(
+                http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+            )
+
+
+            res = s.text_to_image(request={
+                "prompt": "<value>",
+            })
+
+            if res.image_response is not None:
+                # handle response
+                pass
   - target: $["paths"]["/image-to-image"]["post"]
     update:
-      "x-codeSamples":
-        - "lang": "python"
-          "label": "image_to_image"
-          "source": "from livepeer_ai import LivepeerAI\n\ns = LivepeerAI(\n    http_bearer=\"<YOUR_BEARER_TOKEN_HERE>\",\n)\n\n\nres = s.image_to_image(request={\n    \"prompt\": \"<value>\",\n    \"image\": {\n        \"file_name\": \"your_file_here\",\n        \"content\": open(\"<file_path>\", \"rb\"),\n    },\n})\n\nif res.image_response is not None:\n    # handle response\n    pass"
+      x-codeSamples:
+        - lang: python
+          label: image_to_image
+          source: |-
+            from livepeer_ai import LivepeerAI
+
+            s = LivepeerAI(
+                http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+            )
+
+
+            res = s.image_to_image(request={
+                "prompt": "<value>",
+                "image": {
+                    "file_name": "your_file_here",
+                    "content": open("<file_path>", "rb"),
+                },
+            })
+
+            if res.image_response is not None:
+                # handle response
+                pass
   - target: $["paths"]["/image-to-video"]["post"]
     update:
-      "x-codeSamples":
-        - "lang": "python"
-          "label": "image_to_video"
-          "source": "from livepeer_ai import LivepeerAI\n\ns = LivepeerAI(\n    http_bearer=\"<YOUR_BEARER_TOKEN_HERE>\",\n)\n\n\nres = s.image_to_video(request={\n    \"image\": {\n        \"file_name\": \"your_file_here\",\n        \"content\": open(\"<file_path>\", \"rb\"),\n    },\n})\n\nif res.video_response is not None:\n    # handle response\n    pass"
+      x-codeSamples:
+        - lang: python
+          label: image_to_video
+          source: |-
+            from livepeer_ai import LivepeerAI
+
+            s = LivepeerAI(
+                http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+            )
+
+
+            res = s.image_to_video(request={
+                "image": {
+                    "file_name": "your_file_here",
+                    "content": open("<file_path>", "rb"),
+                },
+            })
+
+            if res.video_response is not None:
+                # handle response
+                pass
   - target: $["paths"]["/upscale"]["post"]
     update:
-      "x-codeSamples":
-        - "lang": "python"
-          "label": "upscale"
-          "source": "from livepeer_ai import LivepeerAI\n\ns = LivepeerAI(\n    http_bearer=\"<YOUR_BEARER_TOKEN_HERE>\",\n)\n\n\nres = s.upscale(request={\n    \"prompt\": \"<value>\",\n    \"image\": {\n        \"file_name\": \"your_file_here\",\n        \"content\": open(\"<file_path>\", \"rb\"),\n    },\n})\n\nif res.image_response is not None:\n    # handle response\n    pass"
+      x-codeSamples:
+        - lang: python
+          label: upscale
+          source: |-
+            from livepeer_ai import LivepeerAI
+
+            s = LivepeerAI(
+                http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+            )
+
+
+            res = s.upscale(request={
+                "prompt": "<value>",
+                "image": {
+                    "file_name": "your_file_here",
+                    "content": open("<file_path>", "rb"),
+                },
+            })
+
+            if res.image_response is not None:
+                # handle response
+                pass
+  - target: $["paths"]["/audio-to-text"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: audio_to_text
+          source: |-
+            from livepeer_ai import LivepeerAI
+
+            s = LivepeerAI(
+                http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+            )
+
+
+            res = s.audio_to_text(request={
+                "audio": {
+                    "file_name": "your_file_here",
+                    "content": open("<file_path>", "rb"),
+                },
+            })
+
+            if res.text_response is not None:
+                # handle response
+                pass
