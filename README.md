@@ -225,6 +225,7 @@ You can override the default server globally by passing a server index to the `s
 | # | Server | Variables |
 | - | ------ | --------- |
 | 0 | `https://dream-gateway.livepeer.cloud` | None |
+| 1 | `https://livepeer.studio/api/beta/generate` | None |
 
 #### Example
 
@@ -232,7 +233,7 @@ You can override the default server globally by passing a server index to the `s
 from livepeer_ai import LivepeerAI
 
 s = LivepeerAI(
-    server_idx=0,
+    server_idx=1,
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
