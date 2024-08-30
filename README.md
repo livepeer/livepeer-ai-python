@@ -12,12 +12,20 @@ Welcome to the [Livepeer AI](https://livepeer.ai/) Python! This library offers a
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-PIP
+The SDK can be installed with either *pip* or *poetry* package managers.
+
+### PIP
+
+*PIP* is the default package installer for Python, enabling easy installation and management of packages from PyPI via the command line.
+
 ```bash
 pip install git+https://github.com/livepeer/livepeer-ai-python.git
 ```
 
-Poetry
+### Poetry
+
+*Poetry* is a modern tool that simplifies dependency management and package publishing by using a single `pyproject.toml` file to handle project metadata and dependencies.
+
 ```bash
 poetry add git+https://github.com/livepeer/livepeer-ai-python.git
 ```
@@ -199,10 +207,10 @@ try:
 })
 
 except models.HTTPError as e:
-    # handle exception
+    # handle e.data: models.HTTPErrorData
     raise(e)
 except models.HTTPValidationError as e:
-    # handle exception
+    # handle e.data: models.HTTPValidationErrorData
     raise(e)
 except models.SDKError as e:
     # handle exception
@@ -398,6 +406,28 @@ logging.basicConfig(level=logging.DEBUG)
 s = LivepeerAI(debug_logger=logging.getLogger("livepeer_ai"))
 ```
 <!-- End Debugging [debug] -->
+
+<!-- Start Summary [summary] -->
+## Summary
+
+Livepeer AI Runner: An application to run AI pipelines
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [IDE Support](#ide-support)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [File uploads](#file-uploads)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+* [Authentication](#authentication)
+* [Debugging](#debugging)
+<!-- End Table of Contents [toc] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

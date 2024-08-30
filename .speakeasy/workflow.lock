@@ -1,9 +1,9 @@
-speakeasyVersion: 1.382.0
+speakeasyVersion: 1.383.2
 sources:
     livepeer_ai-OAS:
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:dbea8467cf8e1a0ef0cf767996b061733413ffc0b2a5857661ad41e0a51bd1b6
-        sourceBlobDigest: sha256:25056b91ebfc680137633064f5f3d767eb0bf6541a873d9e342013ed06a636ee
+        sourceRevisionDigest: sha256:dc8a34ad23c433035d3b919390f524abd2bc777cc8fc37ddcadbb0aada0b3615
+        sourceBlobDigest: sha256:6062f3b4ac6538ff6f4465a264f1806261e6509c5581be6c2189430acb21b315
         tags:
             - latest
             - main
@@ -17,10 +17,10 @@ targets:
     livepeer-ai-python:
         source: livepeer_ai-OAS
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:dbea8467cf8e1a0ef0cf767996b061733413ffc0b2a5857661ad41e0a51bd1b6
-        sourceBlobDigest: sha256:25056b91ebfc680137633064f5f3d767eb0bf6541a873d9e342013ed06a636ee
+        sourceRevisionDigest: sha256:dc8a34ad23c433035d3b919390f524abd2bc777cc8fc37ddcadbb0aada0b3615
+        sourceBlobDigest: sha256:6062f3b4ac6538ff6f4465a264f1806261e6509c5581be6c2189430acb21b315
         codeSamplesNamespace: code-samples-python-livepeer-python
-        codeSamplesRevisionDigest: sha256:38b96e9022d981c971387eb31adab018ee4a6db659c8544a926b00533be515bf
+        codeSamplesRevisionDigest: sha256:b20f0df201d0eac5b01b9624f45db9f37ecbf5f8945051415eba3fc171d06b07
         outLocation: /github/workspace/repo
 workflow:
     workflowVersion: 1.0.0

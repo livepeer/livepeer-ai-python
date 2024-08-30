@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
-  docChecksum: 130845ee701d46932641282f72ec57ab
-  docVersion: v0.1.2
-  speakeasyVersion: 1.382.0
-  generationVersion: 2.404.11
-  releaseVersion: 0.1.6
-  configChecksum: 854f77d98a5a18662518beffbd1f9e41
+  docChecksum: 24fe39a0fb7794800b7d995f98944b86
+  docVersion: v0.1.3
+  speakeasyVersion: 1.383.2
+  generationVersion: 2.407.0
+  releaseVersion: 0.1.7
+  configChecksum: 6143927efa067c439ee8808c633660fd
   repoURL: https://github.com/livepeer/livepeer-ai-python.git
   installationURL: https://github.com/livepeer/livepeer-ai-python.git
 features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.2
-    core: 5.4.1
+    core: 5.4.2
     defaultEnabledRetries: 0.2.0
     devContainers: 3.0.0
     envVarSecurityUsage: 0.3.1
