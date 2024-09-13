@@ -10,6 +10,9 @@ targets:
     livepeer-ai-python:
         target: python
         source: livepeer_ai-OAS
+        publish:
+            pypi:
+                token: $pypi_token
         codeSamples:
             output: codeSamples.yaml
             registry:
