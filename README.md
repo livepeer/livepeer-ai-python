@@ -54,8 +54,7 @@ s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
-
-res = s.text_to_image(request={
+res = s.generate.text_to_image(request={
     "prompt": "<value>",
 })
 
@@ -76,7 +75,7 @@ async def main():
     s = LivepeerAI(
         http_bearer="<YOUR_BEARER_TOKEN_HERE>",
     )
-    res = await s.text_to_image_async(request={
+    res = await s.generate.text_to_image_async(request={
         "prompt": "<value>",
     })
     if res.image_response is not None:
@@ -90,13 +89,20 @@ asyncio.run(main())
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [LivepeerAI SDK](docs/sdks/livepeerai/README.md)
+<details open>
+<summary>Available methods</summary>
 
-* [text_to_image](docs/sdks/livepeerai/README.md#text_to_image) - Text To Image
-* [image_to_image](docs/sdks/livepeerai/README.md#image_to_image) - Image To Image
-* [image_to_video](docs/sdks/livepeerai/README.md#image_to_video) - Image To Video
-* [upscale](docs/sdks/livepeerai/README.md#upscale) - Upscale
-* [audio_to_text](docs/sdks/livepeerai/README.md#audio_to_text) - Audio To Text
+### [generate](docs/sdks/generate/README.md)
+
+* [text_to_image](docs/sdks/generate/README.md#text_to_image) - Text To Image
+* [image_to_image](docs/sdks/generate/README.md#image_to_image) - Image To Image
+* [image_to_video](docs/sdks/generate/README.md#image_to_video) - Image To Video
+* [upscale](docs/sdks/generate/README.md#upscale) - Upscale
+* [audio_to_text](docs/sdks/generate/README.md#audio_to_text) - Audio To Text
+* [segment_anything2](docs/sdks/generate/README.md#segment_anything2) - Segment Anything 2
+
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start File uploads [file-upload] -->
@@ -116,12 +122,11 @@ s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
-
-res = s.image_to_image(request={
+res = s.generate.image_to_image(request={
     "prompt": "<value>",
     "image": {
-        "file_name": "your_file_here",
-        "content": open("<file_path>", "rb"),
+        "file_name": "example.file",
+        "content": open("example.file", "rb"),
     },
 })
 
@@ -146,8 +151,7 @@ s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
-
-res = s.text_to_image(request={
+res = s.generate.text_to_image(request={
     "prompt": "<value>",
 },
     RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
@@ -168,8 +172,7 @@ s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
-
-res = s.text_to_image(request={
+res = s.generate.text_to_image(request={
     "prompt": "<value>",
 })
 
@@ -202,9 +205,13 @@ s = LivepeerAI(
 
 res = None
 try:
-    res = s.text_to_image(request={
-    "prompt": "<value>",
-})
+    res = s.generate.text_to_image(request={
+        "prompt": "<value>",
+    })
+
+    if res.image_response is not None:
+        # handle response
+        pass
 
 except models.HTTPError as e:
     # handle e.data: models.HTTPErrorData
@@ -215,11 +222,6 @@ except models.HTTPValidationError as e:
 except models.SDKError as e:
     # handle exception
     raise(e)
-
-if res.image_response is not None:
-    # handle response
-    pass
-
 ```
 <!-- End Error Handling [errors] -->
 
@@ -245,8 +247,7 @@ s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
-
-res = s.text_to_image(request={
+res = s.generate.text_to_image(request={
     "prompt": "<value>",
 })
 
@@ -268,8 +269,7 @@ s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
-
-res = s.text_to_image(request={
+res = s.generate.text_to_image(request={
     "prompt": "<value>",
 })
 
@@ -380,8 +380,7 @@ s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
-
-res = s.text_to_image(request={
+res = s.generate.text_to_image(request={
     "prompt": "<value>",
 })
 

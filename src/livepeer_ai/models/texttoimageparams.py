@@ -27,27 +27,35 @@ class TextToImageParamsTypedDict(TypedDict):
     r"""Number of denoising steps. More steps usually lead to higher quality images but slower inference. Modulated by strength."""
     num_images_per_prompt: NotRequired[int]
     r"""Number of images to generate per prompt."""
-    
+
 
 class TextToImageParams(BaseModel):
     prompt: str
     r"""Text prompt(s) to guide image generation. Separate multiple prompts with '|' if supported by the model."""
+
     model_id: Optional[str] = ""
     r"""Hugging Face model ID used for image generation."""
+
     height: Optional[int] = 576
     r"""The height in pixels of the generated image."""
+
     width: Optional[int] = 1024
     r"""The width in pixels of the generated image."""
+
     guidance_scale: Optional[float] = 7.5
     r"""Encourages model to generate images closely linked to the text prompt (higher values may reduce image quality)."""
+
     negative_prompt: Optional[str] = ""
     r"""Text prompt(s) to guide what to exclude from image generation. Ignored if guidance_scale < 1."""
+
     safety_check: Optional[bool] = True
     r"""Perform a safety check to estimate if generated images could be offensive or harmful."""
+
     seed: Optional[int] = None
     r"""Seed for random number generation."""
+
     num_inference_steps: Optional[int] = 50
     r"""Number of denoising steps. More steps usually lead to higher quality images but slower inference. Modulated by strength."""
+
     num_images_per_prompt: Optional[int] = 1
     r"""Number of images to generate per prompt."""
-    

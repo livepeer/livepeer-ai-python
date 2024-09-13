@@ -1,4 +1,4 @@
-# AudioToTextResponse
+# GenSegmentAnything2Response
 
 
 ## Fields
@@ -8,4 +8,4 @@
 | `content_type`                                               | *str*                                                        | :heavy_check_mark:                                           | HTTP response content type for this operation                |
 | `status_code`                                                | *int*                                                        | :heavy_check_mark:                                           | HTTP response status code for this operation                 |
 | `raw_response`                                               | [httpx.Response](https://www.python-httpx.org/api/#response) | :heavy_check_mark:                                           | Raw HTTP response; suitable for custom response parsing      |
-| `text_response`                                              | [Optional[models.TextResponse]](../models/textresponse.md)   | :heavy_minus_sign:                                           | Successful Response                                          |
+| `masks_response`                                             | [Optional[models.MasksResponse]](../models/masksresponse.md) | :heavy_minus_sign:                                           | Successful Response                                          |

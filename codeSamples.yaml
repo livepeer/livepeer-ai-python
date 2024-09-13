@@ -3,11 +3,11 @@ info:
   title: CodeSamples overlay for python target
   version: 0.0.0
 actions:
-  - target: $["paths"]["/text-to-image"]["post"]
+  - target: $["paths"]["/audio-to-text"]["post"]
     update:
       x-codeSamples:
         - lang: python
-          label: text_to_image
+          label: genAudioToText
           source: |-
             from livepeer_ai import LivepeerAI
 
@@ -15,19 +15,21 @@ actions:
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 
-
-            res = s.text_to_image(request={
-                "prompt": "<value>",
+            res = s.generate.audio_to_text(request={
+                "audio": {
+                    "file_name": "example.file",
+                    "content": open("example.file", "rb"),
+                },
             })
 
-            if res.image_response is not None:
+            if res.text_response is not None:
                 # handle response
                 pass
   - target: $["paths"]["/image-to-image"]["post"]
     update:
       x-codeSamples:
         - lang: python
-          label: image_to_image
+          label: genImageToImage
           source: |-
             from livepeer_ai import LivepeerAI
 
@@ -35,12 +37,11 @@ actions:
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 
-
-            res = s.image_to_image(request={
+            res = s.generate.image_to_image(request={
                 "prompt": "<value>",
                 "image": {
-                    "file_name": "your_file_here",
-                    "content": open("<file_path>", "rb"),
+                    "file_name": "example.file",
+                    "content": open("example.file", "rb"),
                 },
             })
 
@@ -51,7 +52,7 @@ actions:
     update:
       x-codeSamples:
         - lang: python
-          label: image_to_video
+          label: genImageToVideo
           source: |-
             from livepeer_ai import LivepeerAI
 
@@ -59,22 +60,21 @@ actions:
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 
-
-            res = s.image_to_video(request={
+            res = s.generate.image_to_video(request={
                 "image": {
-                    "file_name": "your_file_here",
-                    "content": open("<file_path>", "rb"),
+                    "file_name": "example.file",
+                    "content": open("example.file", "rb"),
                 },
             })
 
             if res.video_response is not None:
                 # handle response
                 pass
-  - target: $["paths"]["/upscale"]["post"]
+  - target: $["paths"]["/segment-anything-2"]["post"]
     update:
       x-codeSamples:
         - lang: python
-          label: upscale
+          label: genSegmentAnything2
           source: |-
             from livepeer_ai import LivepeerAI
 
@@ -82,23 +82,40 @@ actions:
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 
-
-            res = s.upscale(request={
-                "prompt": "<value>",
+            res = s.generate.segment_anything2(request={
                 "image": {
-                    "file_name": "your_file_here",
-                    "content": open("<file_path>", "rb"),
+                    "file_name": "example.file",
+                    "content": open("example.file", "rb"),
                 },
+            })
+
+            if res.masks_response is not None:
+                # handle response
+                pass
+  - target: $["paths"]["/text-to-image"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: genTextToImage
+          source: |-
+            from livepeer_ai import LivepeerAI
+
+            s = LivepeerAI(
+                http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+            )
+
+            res = s.generate.text_to_image(request={
+                "prompt": "<value>",
             })
 
             if res.image_response is not None:
                 # handle response
                 pass
-  - target: $["paths"]["/audio-to-text"]["post"]
+  - target: $["paths"]["/upscale"]["post"]
     update:
       x-codeSamples:
         - lang: python
-          label: audio_to_text
+          label: genUpscale
           source: |-
             from livepeer_ai import LivepeerAI
 
@@ -106,14 +123,14 @@ actions:
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 
-
-            res = s.audio_to_text(request={
-                "audio": {
-                    "file_name": "your_file_here",
-                    "content": open("<file_path>", "rb"),
+            res = s.generate.upscale(request={
+                "prompt": "<value>",
+                "image": {
+                    "file_name": "example.file",
+                    "content": open("example.file", "rb"),
                 },
             })
 
-            if res.text_response is not None:
+            if res.image_response is not None:
                 # handle response
                 pass
