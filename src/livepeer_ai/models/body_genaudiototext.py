@@ -13,24 +13,40 @@ class AudioTypedDict(TypedDict):
     file_name: str
     content: Union[bytes, IO[bytes], io.BufferedReader]
     content_type: NotRequired[str]
-    
+
 
 class Audio(BaseModel):
-    file_name: Annotated[str, pydantic.Field(alias="audio"), FieldMetadata(multipart=True)]
-    content: Annotated[Union[bytes, IO[bytes], io.BufferedReader], pydantic.Field(alias=""), FieldMetadata(multipart=MultipartFormMetadata(content=True))]
-    content_type: Annotated[Optional[str], pydantic.Field(alias="Content-Type"), FieldMetadata(multipart=True)] = None
-    
+    file_name: Annotated[
+        str, pydantic.Field(alias="audio"), FieldMetadata(multipart=True)
+    ]
 
-class BodyAudioToTextAudioToTextPostTypedDict(TypedDict):
+    content: Annotated[
+        Union[bytes, IO[bytes], io.BufferedReader],
+        pydantic.Field(alias=""),
+        FieldMetadata(multipart=MultipartFormMetadata(content=True)),
+    ]
+
+    content_type: Annotated[
+        Optional[str],
+        pydantic.Field(alias="Content-Type"),
+        FieldMetadata(multipart=True),
+    ] = None
+
+
+class BodyGenAudioToTextTypedDict(TypedDict):
     audio: AudioTypedDict
     r"""Uploaded audio file to be transcribed."""
     model_id: NotRequired[str]
     r"""Hugging Face model ID used for transcription."""
-    
 
-class BodyAudioToTextAudioToTextPost(BaseModel):
-    audio: Annotated[Audio, pydantic.Field(alias=""), FieldMetadata(multipart=MultipartFormMetadata(file=True))]
+
+class BodyGenAudioToText(BaseModel):
+    audio: Annotated[
+        Audio,
+        pydantic.Field(alias=""),
+        FieldMetadata(multipart=MultipartFormMetadata(file=True)),
+    ]
     r"""Uploaded audio file to be transcribed."""
+
     model_id: Annotated[Optional[str], FieldMetadata(multipart=True)] = ""
     r"""Hugging Face model ID used for transcription."""
-    

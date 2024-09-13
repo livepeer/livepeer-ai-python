@@ -8,7 +8,7 @@ from typing import Optional, TypedDict
 from typing_extensions import NotRequired
 
 
-class TextToImageResponseTypedDict(TypedDict):
+class GenTextToImageResponseTypedDict(TypedDict):
     content_type: str
     r"""HTTP response content type for this operation"""
     status_code: int
@@ -17,15 +17,17 @@ class TextToImageResponseTypedDict(TypedDict):
     r"""Raw HTTP response; suitable for custom response parsing"""
     image_response: NotRequired[ImageResponseTypedDict]
     r"""Successful Response"""
-    
 
-class TextToImageResponse(BaseModel):
+
+class GenTextToImageResponse(BaseModel):
     content_type: str
     r"""HTTP response content type for this operation"""
+
     status_code: int
     r"""HTTP response status code for this operation"""
+
     raw_response: httpx.Response
     r"""Raw HTTP response; suitable for custom response parsing"""
+
     image_response: Optional[ImageResponse] = None
     r"""Successful Response"""
-    

@@ -1,4 +1,4 @@
-# BodyUpscaleUpscalePostImage
+# BodyGenSegmentAnything2Image
 
 
 ## Fields

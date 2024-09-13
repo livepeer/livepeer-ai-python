@@ -9,20 +9,32 @@ from typing import IO, Optional, TypedDict, Union
 from typing_extensions import Annotated, NotRequired
 
 
-class BodyImageToVideoImageToVideoPostImageTypedDict(TypedDict):
+class BodyGenImageToVideoImageTypedDict(TypedDict):
     file_name: str
     content: Union[bytes, IO[bytes], io.BufferedReader]
     content_type: NotRequired[str]
-    
 
-class BodyImageToVideoImageToVideoPostImage(BaseModel):
-    file_name: Annotated[str, pydantic.Field(alias="image"), FieldMetadata(multipart=True)]
-    content: Annotated[Union[bytes, IO[bytes], io.BufferedReader], pydantic.Field(alias=""), FieldMetadata(multipart=MultipartFormMetadata(content=True))]
-    content_type: Annotated[Optional[str], pydantic.Field(alias="Content-Type"), FieldMetadata(multipart=True)] = None
-    
 
-class BodyImageToVideoImageToVideoPostTypedDict(TypedDict):
-    image: BodyImageToVideoImageToVideoPostImageTypedDict
+class BodyGenImageToVideoImage(BaseModel):
+    file_name: Annotated[
+        str, pydantic.Field(alias="image"), FieldMetadata(multipart=True)
+    ]
+
+    content: Annotated[
+        Union[bytes, IO[bytes], io.BufferedReader],
+        pydantic.Field(alias=""),
+        FieldMetadata(multipart=MultipartFormMetadata(content=True)),
+    ]
+
+    content_type: Annotated[
+        Optional[str],
+        pydantic.Field(alias="Content-Type"),
+        FieldMetadata(multipart=True),
+    ] = None
+
+
+class BodyGenImageToVideoTypedDict(TypedDict):
+    image: BodyGenImageToVideoImageTypedDict
     r"""Uploaded image to generate a video from."""
     model_id: NotRequired[str]
     r"""Hugging Face model ID used for video generation."""
@@ -42,27 +54,39 @@ class BodyImageToVideoImageToVideoPostTypedDict(TypedDict):
     r"""Seed for random number generation."""
     num_inference_steps: NotRequired[int]
     r"""Number of denoising steps. More steps usually lead to higher quality images but slower inference. Modulated by strength."""
-    
 
-class BodyImageToVideoImageToVideoPost(BaseModel):
-    image: Annotated[BodyImageToVideoImageToVideoPostImage, pydantic.Field(alias=""), FieldMetadata(multipart=MultipartFormMetadata(file=True))]
+
+class BodyGenImageToVideo(BaseModel):
+    image: Annotated[
+        BodyGenImageToVideoImage,
+        pydantic.Field(alias=""),
+        FieldMetadata(multipart=MultipartFormMetadata(file=True)),
+    ]
     r"""Uploaded image to generate a video from."""
+
     model_id: Annotated[Optional[str], FieldMetadata(multipart=True)] = ""
     r"""Hugging Face model ID used for video generation."""
+
     height: Annotated[Optional[int], FieldMetadata(multipart=True)] = 576
     r"""The height in pixels of the generated video."""
+
     width: Annotated[Optional[int], FieldMetadata(multipart=True)] = 1024
     r"""The width in pixels of the generated video."""
+
     fps: Annotated[Optional[int], FieldMetadata(multipart=True)] = 6
     r"""The frames per second of the generated video."""
+
     motion_bucket_id: Annotated[Optional[int], FieldMetadata(multipart=True)] = 127
     r"""Used for conditioning the amount of motion for the generation. The higher the number the more motion will be in the video."""
+
     noise_aug_strength: Annotated[Optional[float], FieldMetadata(multipart=True)] = 0.02
     r"""Amount of noise added to the conditioning image. Higher values reduce resemblance to the conditioning image and increase motion."""
+
     safety_check: Annotated[Optional[bool], FieldMetadata(multipart=True)] = True
     r"""Perform a safety check to estimate if generated images could be offensive or harmful."""
+
     seed: Annotated[Optional[int], FieldMetadata(multipart=True)] = None
     r"""Seed for random number generation."""
+
     num_inference_steps: Annotated[Optional[int], FieldMetadata(multipart=True)] = 25
     r"""Number of denoising steps. More steps usually lead to higher quality images but slower inference. Modulated by strength."""
-    

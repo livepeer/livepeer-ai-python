@@ -5,14 +5,15 @@ from .apierror import APIError
 from livepeer_ai import utils
 from livepeer_ai.types import BaseModel
 
+
 class HTTPErrorData(BaseModel):
     detail: APIError
     r"""Detailed error information."""
-    
 
 
 class HTTPError(Exception):
     r"""HTTP error response model."""
+
     data: HTTPErrorData
 
     def __init__(self, data: HTTPErrorData):
@@ -20,4 +21,3 @@ class HTTPError(Exception):
 
     def __str__(self) -> str:
         return utils.marshal_json(self.data, HTTPErrorData)
-

@@ -1,4 +1,4 @@
-# ImageToImageResponse
+# GenUpscaleResponse
 
 
 ## Fields

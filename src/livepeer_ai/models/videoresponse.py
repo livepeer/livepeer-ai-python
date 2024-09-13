@@ -8,14 +8,13 @@ from typing import List, TypedDict
 
 class VideoResponseTypedDict(TypedDict):
     r"""Response model for image generation."""
-    
+
     images: List[MediaTypedDict]
     r"""The generated images."""
-    
+
 
 class VideoResponse(BaseModel):
     r"""Response model for image generation."""
-    
+
     images: List[Media]
     r"""The generated images."""
-    

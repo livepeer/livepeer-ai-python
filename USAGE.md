@@ -7,8 +7,7 @@ s = LivepeerAI(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
-
-res = s.text_to_image(request={
+res = s.generate.text_to_image(request={
     "prompt": "<value>",
 })
 
@@ -29,7 +28,7 @@ async def main():
     s = LivepeerAI(
         http_bearer="<YOUR_BEARER_TOKEN_HERE>",
     )
-    res = await s.text_to_image_async(request={
+    res = await s.generate.text_to_image_async(request={
         "prompt": "<value>",
     })
     if res.image_response is not None:

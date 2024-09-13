@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
-  docChecksum: 24fe39a0fb7794800b7d995f98944b86
-  docVersion: v0.1.3
-  speakeasyVersion: 1.383.2
-  generationVersion: 2.407.0
-  releaseVersion: 0.1.7
-  configChecksum: 6143927efa067c439ee8808c633660fd
+  docChecksum: 70055d9d9e295ae56748a3199911f0a9
+  docVersion: v0.2.0
+  speakeasyVersion: 1.396.7
+  generationVersion: 2.415.6
+  releaseVersion: 0.2.0
+  configChecksum: 2f8283e5b4c1c431f32d02ad93c21d41
   repoURL: https://github.com/livepeer/livepeer-ai-python.git
   installationURL: https://github.com/livepeer/livepeer-ai-python.git
 features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.2
-    core: 5.4.2
+    core: 5.5.3
     defaultEnabledRetries: 0.2.0
     devContainers: 3.0.0
     envVarSecurityUsage: 0.3.1
@@ -22,15 +22,52 @@ features:
     globalSecurityFlattening: 1.0.0
     globalServerURLs: 3.0.0
     multipartFileContentType: 1.0.0
+    nameOverrides: 3.0.0
     responseFormat: 1.0.0
-    retries: 3.0.0
+    retries: 3.0.2
     sdkHooks: 1.0.0
     unions: 3.0.2
     uploadStreams: 1.0.0
 generatedFiles:
-  - src/livepeer_ai/sdkconfiguration.py
-  - src/livepeer_ai/sdk.py
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
   - .vscode/settings.json
+  - CONTRIBUTING.md
+  - USAGE.md
+  - docs/models/apierror.md
+  - docs/models/audio.md
+  - docs/models/bodygenaudiototext.md
+  - docs/models/bodygenimagetoimage.md
+  - docs/models/bodygenimagetovideo.md
+  - docs/models/bodygenimagetovideoimage.md
+  - docs/models/bodygensegmentanything2.md
+  - docs/models/bodygensegmentanything2image.md
+  - docs/models/bodygenupscale.md
+  - docs/models/bodygenupscaleimage.md
+  - docs/models/chunk.md
+  - docs/models/genaudiototextresponse.md
+  - docs/models/genimagetoimageresponse.md
+  - docs/models/genimagetovideoresponse.md
+  - docs/models/gensegmentanything2response.md
+  - docs/models/gentexttoimageresponse.md
+  - docs/models/genupscaleresponse.md
+  - docs/models/httperror.md
+  - docs/models/httpvalidationerror.md
+  - docs/models/image.md
+  - docs/models/imageresponse.md
+  - docs/models/loc.md
+  - docs/models/masksresponse.md
+  - docs/models/media.md
+  - docs/models/security.md
+  - docs/models/textresponse.md
+  - docs/models/texttoimageparams.md
+  - docs/models/utils/retryconfig.md
+  - docs/models/validationerror.md
+  - docs/models/videoresponse.md
+  - docs/sdks/generate/README.md
+  - docs/sdks/livepeerai/README.md
   - poetry.toml
   - py.typed
   - pylintrc
@@ -39,9 +76,40 @@ generatedFiles:
   - scripts/prepare-readme.py
   - scripts/publish.sh
   - src/livepeer_ai/__init__.py
+  - src/livepeer_ai/_hooks/__init__.py
+  - src/livepeer_ai/_hooks/sdkhooks.py
+  - src/livepeer_ai/_hooks/types.py
   - src/livepeer_ai/basesdk.py
+  - src/livepeer_ai/generate.py
   - src/livepeer_ai/httpclient.py
+  - src/livepeer_ai/models/__init__.py
+  - src/livepeer_ai/models/apierror.py
+  - src/livepeer_ai/models/body_genaudiototext.py
+  - src/livepeer_ai/models/body_genimagetoimage.py
+  - src/livepeer_ai/models/body_genimagetovideo.py
+  - src/livepeer_ai/models/body_gensegmentanything2.py
+  - src/livepeer_ai/models/body_genupscale.py
+  - src/livepeer_ai/models/chunk.py
+  - src/livepeer_ai/models/genaudiototextop.py
+  - src/livepeer_ai/models/genimagetoimageop.py
+  - src/livepeer_ai/models/genimagetovideoop.py
+  - src/livepeer_ai/models/gensegmentanything2op.py
+  - src/livepeer_ai/models/gentexttoimageop.py
+  - src/livepeer_ai/models/genupscaleop.py
+  - src/livepeer_ai/models/httperror.py
+  - src/livepeer_ai/models/httpvalidationerror.py
+  - src/livepeer_ai/models/imageresponse.py
+  - src/livepeer_ai/models/masksresponse.py
+  - src/livepeer_ai/models/media.py
+  - src/livepeer_ai/models/sdkerror.py
+  - src/livepeer_ai/models/security.py
+  - src/livepeer_ai/models/textresponse.py
+  - src/livepeer_ai/models/texttoimageparams.py
+  - src/livepeer_ai/models/validationerror.py
+  - src/livepeer_ai/models/videoresponse.py
   - src/livepeer_ai/py.typed
+  - src/livepeer_ai/sdk.py
+  - src/livepeer_ai/sdkconfiguration.py
   - src/livepeer_ai/types/__init__.py
   - src/livepeer_ai/types/basemodel.py
   - src/livepeer_ai/utils/__init__.py
@@ -59,61 +127,64 @@ generatedFiles:
   - src/livepeer_ai/utils/serializers.py
   - src/livepeer_ai/utils/url.py
   - src/livepeer_ai/utils/values.py
-  - src/livepeer_ai/models/sdkerror.py
-  - src/livepeer_ai/models/text_to_imageop.py
-  - src/livepeer_ai/models/imageresponse.py
-  - src/livepeer_ai/models/media.py
-  - src/livepeer_ai/models/httperror.py
-  - src/livepeer_ai/models/apierror.py
-  - src/livepeer_ai/models/httpvalidationerror.py
-  - src/livepeer_ai/models/validationerror.py
-  - src/livepeer_ai/models/texttoimageparams.py
-  - src/livepeer_ai/models/image_to_imageop.py
-  - src/livepeer_ai/models/body_image_to_image_image_to_image_post.py
-  - src/livepeer_ai/models/image_to_videoop.py
-  - src/livepeer_ai/models/videoresponse.py
-  - src/livepeer_ai/models/body_image_to_video_image_to_video_post.py
-  - src/livepeer_ai/models/upscaleop.py
-  - src/livepeer_ai/models/body_upscale_upscale_post.py
-  - src/livepeer_ai/models/audio_to_textop.py
-  - src/livepeer_ai/models/textresponse.py
-  - src/livepeer_ai/models/chunk.py
-  - src/livepeer_ai/models/body_audio_to_text_audio_to_text_post.py
-  - src/livepeer_ai/models/security.py
-  - src/livepeer_ai/models/__init__.py
-  - docs/models/texttoimageresponse.md
-  - docs/models/imageresponse.md
-  - docs/models/media.md
-  - docs/models/httperror.md
-  - docs/models/apierror.md
-  - docs/models/httpvalidationerror.md
-  - docs/models/loc.md
-  - docs/models/validationerror.md
-  - docs/models/texttoimageparams.md
-  - docs/models/imagetoimageresponse.md
-  - docs/models/image.md
-  - docs/models/bodyimagetoimageimagetoimagepost.md
-  - docs/models/imagetovideoresponse.md
-  - docs/models/videoresponse.md
-  - docs/models/bodyimagetovideoimagetovideopostimage.md
-  - docs/models/bodyimagetovideoimagetovideopost.md
-  - docs/models/upscaleresponse.md
-  - docs/models/bodyupscaleupscalepostimage.md
-  - docs/models/bodyupscaleupscalepost.md
-  - docs/models/audiototextresponse.md
-  - docs/models/textresponse.md
-  - docs/models/chunk.md
-  - docs/models/audio.md
-  - docs/models/bodyaudiototextaudiototextpost.md
-  - docs/models/security.md
-  - docs/models/utils/retryconfig.md
-  - docs/sdks/livepeerai/README.md
-  - USAGE.md
-  - .gitattributes
-  - .devcontainer/README.md
-  - .devcontainer/devcontainer.json
-  - .devcontainer/setup.sh
-  - src/livepeer_ai/_hooks/sdkhooks.py
-  - src/livepeer_ai/_hooks/types.py
-  - src/livepeer_ai/_hooks/__init__.py
-  - CONTRIBUTING.md
+examples:
+  genTextToImage:
+    speakeasy-default-gen-text-to-image:
+      requestBody:
+        application/json: {"prompt": "<value>"}
+      responses:
+        "200":
+          application/json: {"images": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422": {}
+  genImageToImage:
+    speakeasy-default-gen-image-to-image:
+      requestBody:
+        multipart/form-data: {"prompt": "<value>", "image": {}}
+      responses:
+        "200":
+          application/json: {"images": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422": {}
+  genImageToVideo:
+    speakeasy-default-gen-image-to-video:
+      requestBody:
+        multipart/form-data: {"image": {}}
+      responses:
+        "200":
+          application/json: {"images": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422": {}
+  genUpscale:
+    speakeasy-default-gen-upscale:
+      requestBody:
+        multipart/form-data: {"prompt": "<value>", "image": {}}
+      responses:
+        "200":
+          application/json: {"images": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422": {}
+  genAudioToText:
+    speakeasy-default-gen-audio-to-text:
+      requestBody:
+        multipart/form-data: {"audio": {}}
+      responses:
+        "200":
+          application/json: {"text": "<value>", "chunks": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422": {}
+  genSegmentAnything2:
+    speakeasy-default-gen-segment-anything2:
+      requestBody:
+        multipart/form-data: {"image": {}}
+      responses:
+        "200":
+          application/json: {"masks": "<value>", "scores": "<value>", "logits": "<value>"}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422": {}

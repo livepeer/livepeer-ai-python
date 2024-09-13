@@ -1,4 +1,4 @@
-# BodyImageToImageImageToImagePost
+# BodyGenImageToImage
 
 
 ## Fields
