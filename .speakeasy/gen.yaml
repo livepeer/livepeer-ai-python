@@ -1,9 +1,6 @@
 configVersion: 2.0.0
 generation:
-  devContainers:
-    enabled: true
-    schemaPath: https://raw.githubusercontent.com/livepeer/ai-worker/main/runner/gateway.openapi.yaml
-  sdkClassName: LivepeerAI
+  sdkClassName: livepeer
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
@@ -13,31 +10,30 @@ generation:
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
   auth:
-    oAuth2ClientCredentialsEnabled: false
+    oAuth2ClientCredentialsEnabled: true
 python:
   version: 0.4.1
   additionalDependencies:
-    dev: {}
-    main: {}
-  authors:
-    - Livepeer
+    dependencies: {}
+    extraDependencies:
+      dev: {}
+  author: Livepeer
   clientServerStatusCodesAsErrors: true
   description: Python Client SDK for the Livepeer AI API.
-  enumFormat: enum
   flattenGlobalSecurity: true
-  flattenRequests: false
   imports:
     option: openapi
     paths:
-      callbacks: ""
-      errors: ""
-      operations: ""
-      shared: ""
-      webhooks: ""
+      callbacks: models/callbacks
+      errors: models/errors
+      operations: models/operations
+      shared: models/components
+      webhooks: models/webhooks
   inputModelSuffix: input
   maxMethodParams: 4
-  methodArguments: infer-optional-args
+  methodArguments: require-security-and-request
   outputModelSuffix: output
   packageName: livepeer-ai
-  responseFormat: envelope
-  templateVersion: v2
+  projectUrls: {}
+  responseFormat: envelope-http
+  templateVersion: v1
