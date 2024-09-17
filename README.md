@@ -48,9 +48,9 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 
 ```python
 # Synchronous Example
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -69,10 +69,10 @@ The same SDK client can also be used to make asychronous requests by importing a
 ```python
 # Asynchronous Example
 import asyncio
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
 async def main():
-    s = LivepeerAI(
+    s = Livepeer(
         http_bearer="<YOUR_BEARER_TOKEN_HERE>",
     )
     res = await s.generate.text_to_image_async(request={
@@ -116,9 +116,9 @@ Certain SDK methods accept file objects as part of a request body or multi-part 
 >
 
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -144,10 +144,10 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
-from livepeer_ai import LivepeerAI
-from livepeerai.utils import BackoffStrategy, RetryConfig
+from livepeer.utils import BackoffStrategy, RetryConfig
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -164,10 +164,10 @@ if res.image_response is not None:
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
-from livepeer_ai import LivepeerAI
-from livepeerai.utils import BackoffStrategy, RetryConfig
+from livepeer.utils import BackoffStrategy, RetryConfig
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
@@ -190,16 +190,17 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 | Error Object               | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPError           | 400,401,500                | application/json           |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.SDKError            | 4xx-5xx                    | */*                        |
+| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 ### Example
 
 ```python
-from livepeer_ai import LivepeerAI, models
+from livepeer_ai import Livepeer
+from livepeer_ai.models import errors
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -213,13 +214,13 @@ try:
         # handle response
         pass
 
-except models.HTTPError as e:
-    # handle e.data: models.HTTPErrorData
+except errors.HTTPError as e:
+    # handle e.data: errors.HTTPErrorData
     raise(e)
-except models.HTTPValidationError as e:
-    # handle e.data: models.HTTPValidationErrorData
+except errors.HTTPValidationError as e:
+    # handle e.data: errors.HTTPValidationErrorData
     raise(e)
-except models.SDKError as e:
+except errors.SDKError as e:
     # handle exception
     raise(e)
 ```
@@ -240,9 +241,9 @@ You can override the default server globally by passing a server index to the `s
 #### Example
 
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     server_idx=1,
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
@@ -262,9 +263,9 @@ if res.image_response is not None:
 
 The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     server_url="https://dream-gateway.livepeer.cloud",
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
@@ -289,16 +290,16 @@ This allows you to wrap the client with your own custom logic, such as adding cu
 
 For example, you could specify a header for every request that this sdk makes as follows:
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 import httpx
 
 http_client = httpx.Client(headers={"x-custom-header": "someValue"})
-s = LivepeerAI(client=http_client)
+s = Livepeer(client=http_client)
 ```
 
 or you could wrap the client with your own custom logic:
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 from livepeer_ai.httpclient import AsyncHttpClient
 import httpx
 
@@ -357,7 +358,7 @@ class CustomClient(AsyncHttpClient):
             extensions=extensions,
         )
 
-s = LivepeerAI(async_client=CustomClient(httpx.AsyncClient()))
+s = Livepeer(async_client=CustomClient(httpx.AsyncClient()))
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
@@ -374,9 +375,9 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `http_bearer` parameter must be set when initializing the SDK client instance. For example:
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -398,11 +399,11 @@ You can setup your SDK to emit debug logs for SDK requests and responses.
 
 You can pass your own logger class directly into your SDK.
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
-s = LivepeerAI(debug_logger=logging.getLogger("livepeer_ai"))
+s = Livepeer(debug_logger=logging.getLogger("livepeer_ai"))
 ```
 <!-- End Debugging [debug] -->
 

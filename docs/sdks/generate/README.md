@@ -19,9 +19,9 @@ Generate images from text prompts.
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -37,22 +37,22 @@ if res.image_response is not None:
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [models.TextToImageParams](../../models/texttoimageparams.md)       | :heavy_check_mark:                                                  | The request object to use for the request.                          |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [components.TextToImageParams](../../models/components/texttoimageparams.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `retries`                                                                    | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)             | :heavy_minus_sign:                                                           | Configuration to override the default retry behavior of the client.          |
 
 ### Response
 
-**[models.GenTextToImageResponse](../../models/gentexttoimageresponse.md)**
+**[operations.GenTextToImageResponse](../../models/operations/gentexttoimageresponse.md)**
 
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPError           | 400,401,500                | application/json           |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.SDKError            | 4xx-5xx                    | */*                        |
+| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
 ## image_to_image
@@ -62,9 +62,9 @@ Apply image transformations to a provided image.
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -84,22 +84,22 @@ if res.image_response is not None:
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [models.BodyGenImageToImage](../../models/bodygenimagetoimage.md)   | :heavy_check_mark:                                                  | The request object to use for the request.                          |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [components.BodyGenImageToImage](../../models/components/bodygenimagetoimage.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |
 
 ### Response
 
-**[models.GenImageToImageResponse](../../models/genimagetoimageresponse.md)**
+**[operations.GenImageToImageResponse](../../models/operations/genimagetoimageresponse.md)**
 
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPError           | 400,401,500                | application/json           |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.SDKError            | 4xx-5xx                    | */*                        |
+| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
 ## image_to_video
@@ -109,9 +109,9 @@ Generate a video from a provided image.
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -130,22 +130,22 @@ if res.video_response is not None:
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [models.BodyGenImageToVideo](../../models/bodygenimagetovideo.md)   | :heavy_check_mark:                                                  | The request object to use for the request.                          |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [components.BodyGenImageToVideo](../../models/components/bodygenimagetovideo.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |
 
 ### Response
 
-**[models.GenImageToVideoResponse](../../models/genimagetovideoresponse.md)**
+**[operations.GenImageToVideoResponse](../../models/operations/genimagetovideoresponse.md)**
 
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPError           | 400,401,500                | application/json           |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.SDKError            | 4xx-5xx                    | */*                        |
+| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
 ## upscale
@@ -155,9 +155,9 @@ Upscale an image by increasing its resolution.
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -177,22 +177,22 @@ if res.image_response is not None:
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [models.BodyGenUpscale](../../models/bodygenupscale.md)             | :heavy_check_mark:                                                  | The request object to use for the request.                          |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `request`                                                              | [components.BodyGenUpscale](../../models/components/bodygenupscale.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `retries`                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)       | :heavy_minus_sign:                                                     | Configuration to override the default retry behavior of the client.    |
 
 ### Response
 
-**[models.GenUpscaleResponse](../../models/genupscaleresponse.md)**
+**[operations.GenUpscaleResponse](../../models/operations/genupscaleresponse.md)**
 
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPError           | 400,401,500                | application/json           |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.SDKError            | 4xx-5xx                    | */*                        |
+| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
 ## audio_to_text
@@ -202,9 +202,9 @@ Transcribe audio files to text.
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -223,22 +223,22 @@ if res.text_response is not None:
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [models.BodyGenAudioToText](../../models/bodygenaudiototext.md)     | :heavy_check_mark:                                                  | The request object to use for the request.                          |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [components.BodyGenAudioToText](../../models/components/bodygenaudiototext.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `retries`                                                                      | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)               | :heavy_minus_sign:                                                             | Configuration to override the default retry behavior of the client.            |
 
 ### Response
 
-**[models.GenAudioToTextResponse](../../models/genaudiototextresponse.md)**
+**[operations.GenAudioToTextResponse](../../models/operations/genaudiototextresponse.md)**
 
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPError           | 400,401,413,500            | application/json           |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.SDKError            | 4xx-5xx                    | */*                        |
+| errors.HTTPError           | 400,401,413,500            | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
 
 
 ## segment_anything2
@@ -248,9 +248,9 @@ Segment objects in an image.
 ### Example Usage
 
 ```python
-from livepeer_ai import LivepeerAI
+from livepeer_ai import Livepeer
 
-s = LivepeerAI(
+s = Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 )
 
@@ -269,19 +269,19 @@ if res.masks_response is not None:
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request`                                                                 | [models.BodyGenSegmentAnything2](../../models/bodygensegmentanything2.md) | :heavy_check_mark:                                                        | The request object to use for the request.                                |
-| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [components.BodyGenSegmentAnything2](../../models/components/bodygensegmentanything2.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `retries`                                                                                | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                         | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
 
 ### Response
 
-**[models.GenSegmentAnything2Response](../../models/gensegmentanything2response.md)**
+**[operations.GenSegmentAnything2Response](../../models/operations/gensegmentanything2response.md)**
 
 ### Errors
 
 | Error Object               | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPError           | 400,401,500                | application/json           |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.SDKError            | 4xx-5xx                    | */*                        |
+| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4xx-5xx                    | */*                        |
