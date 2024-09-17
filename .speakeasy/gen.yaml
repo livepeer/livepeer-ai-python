@@ -14,9 +14,8 @@ generation:
 python:
   version: 0.4.1
   additionalDependencies:
-    dependencies: {}
-    extraDependencies:
-      dev: {}
+    dev: {}
+    main: {}
   author: Livepeer
   clientServerStatusCodesAsErrors: true
   description: Python Client SDK for the Livepeer AI API.
@@ -36,4 +35,4 @@ python:
   packageName: livepeer-ai
   projectUrls: {}
   responseFormat: envelope-http
-  templateVersion: v1
+  templateVersion: v2
