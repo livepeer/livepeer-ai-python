@@ -9,9 +9,9 @@ actions:
         - lang: python
           label: genAudioToText
           source: |-
-            from livepeer_ai import LivepeerAI
+            from livepeer_ai import Livepeer
 
-            s = LivepeerAI(
+            s = Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 
@@ -31,9 +31,9 @@ actions:
         - lang: python
           label: genImageToImage
           source: |-
-            from livepeer_ai import LivepeerAI
+            from livepeer_ai import Livepeer
 
-            s = LivepeerAI(
+            s = Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 
@@ -54,9 +54,9 @@ actions:
         - lang: python
           label: genImageToVideo
           source: |-
-            from livepeer_ai import LivepeerAI
+            from livepeer_ai import Livepeer
 
-            s = LivepeerAI(
+            s = Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 
@@ -76,9 +76,9 @@ actions:
         - lang: python
           label: genSegmentAnything2
           source: |-
-            from livepeer_ai import LivepeerAI
+            from livepeer_ai import Livepeer
 
-            s = LivepeerAI(
+            s = Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 
@@ -98,9 +98,9 @@ actions:
         - lang: python
           label: genTextToImage
           source: |-
-            from livepeer_ai import LivepeerAI
+            from livepeer_ai import Livepeer
 
-            s = LivepeerAI(
+            s = Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 
@@ -117,9 +117,9 @@ actions:
         - lang: python
           label: genUpscale
           source: |-
-            from livepeer_ai import LivepeerAI
+            from livepeer_ai import Livepeer
 
-            s = LivepeerAI(
+            s = Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
             )
 

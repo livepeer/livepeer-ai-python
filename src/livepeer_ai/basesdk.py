@@ -2,12 +2,13 @@
 
 from .sdkconfiguration import SDKConfiguration
 import httpx
-from livepeer_ai import models, utils
+from livepeer_ai import utils
 from livepeer_ai._hooks import (
     AfterErrorContext,
     AfterSuccessContext,
     BeforeRequestContext,
 )
+from livepeer_ai.models import errors
 from livepeer_ai.utils import RetryConfig, SerializedRequestBody, get_body_content
 from typing import Callable, List, Optional, Tuple
 
@@ -226,7 +227,7 @@ class BaseSDK:
 
             if http_res is None:
                 logger.debug("Raising no response SDK error")
-                raise models.SDKError("No response received")
+                raise errors.SDKError("No response received")
 
             logger.debug(
                 "Response:\nStatus Code: %s\nURL: %s\nHeaders: %s\nBody: %s",
@@ -247,7 +248,7 @@ class BaseSDK:
                     http_res = result
                 else:
                     logger.debug("Raising unexpected SDK error")
-                    raise models.SDKError("Unexpected error occurred")
+                    raise errors.SDKError("Unexpected error occurred")
 
             return http_res
 
@@ -298,7 +299,7 @@ class BaseSDK:
 
             if http_res is None:
                 logger.debug("Raising no response SDK error")
-                raise models.SDKError("No response received")
+                raise errors.SDKError("No response received")
 
             logger.debug(
                 "Response:\nStatus Code: %s\nURL: %s\nHeaders: %s\nBody: %s",
@@ -319,7 +320,7 @@ class BaseSDK:
                     http_res = result
                 else:
                     logger.debug("Raising unexpected SDK error")
-                    raise models.SDKError("Unexpected error occurred")
+                    raise errors.SDKError("Unexpected error occurred")
 
             return http_res
 

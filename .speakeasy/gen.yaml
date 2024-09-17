@@ -12,14 +12,18 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: true
 python:
-  version: 0.4.1
+  version: 0.5.0
   additionalDependencies:
     dev: {}
     main: {}
   author: Livepeer
+  authors:
+    - Speakeasy
   clientServerStatusCodesAsErrors: true
   description: Python Client SDK for the Livepeer AI API.
+  enumFormat: enum
   flattenGlobalSecurity: true
+  flattenRequests: false
   imports:
     option: openapi
     paths:

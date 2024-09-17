@@ -4,7 +4,7 @@ from ._hooks import SDKHooks
 from .httpclient import AsyncHttpClient, HttpClient
 from .utils import Logger, RetryConfig, remove_suffix
 from dataclasses import dataclass
-from livepeer_ai import models
+from livepeer_ai.models import components
 from livepeer_ai.types import OptionalNullable, UNSET
 from pydantic import Field
 from typing import Callable, Dict, Optional, Tuple, Union
@@ -24,14 +24,16 @@ class SDKConfiguration:
     client: HttpClient
     async_client: AsyncHttpClient
     debug_logger: Logger
-    security: Optional[Union[models.Security, Callable[[], models.Security]]] = None
+    security: Optional[
+        Union[components.Security, Callable[[], components.Security]]
+    ] = None
     server_url: Optional[str] = ""
     server_idx: Optional[int] = 0
     language: str = "python"
     openapi_doc_version: str = "v0.5.0"
-    sdk_version: str = "0.4.1"
+    sdk_version: str = "0.5.0"
     gen_version: str = "2.415.8"
-    user_agent: str = "speakeasy-sdk/python 0.4.1 2.415.8 v0.5.0 livepeer-ai"
+    user_agent: str = "speakeasy-sdk/python 0.5.0 2.415.8 v0.5.0 livepeer-ai"
     retry_config: OptionalNullable[RetryConfig] = Field(default_factory=lambda: UNSET)
     timeout_ms: Optional[int] = None
 

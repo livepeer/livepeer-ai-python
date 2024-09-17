@@ -6,14 +6,15 @@ from .sdkconfiguration import SDKConfiguration
 from .utils.logger import Logger, get_default_logger
 from .utils.retries import RetryConfig
 import httpx
-from livepeer_ai import models, utils
+from livepeer_ai import utils
 from livepeer_ai._hooks import SDKHooks
 from livepeer_ai.generate import Generate
+from livepeer_ai.models import components
 from livepeer_ai.types import OptionalNullable, UNSET
 from typing import Any, Callable, Dict, Optional, Union
 
 
-class LivepeerAI(BaseSDK):
+class Livepeer(BaseSDK):
     r"""Livepeer AI Runner: An application to run AI pipelines"""
 
     generate: Generate
@@ -60,9 +61,9 @@ class LivepeerAI(BaseSDK):
 
         security: Any = None
         if callable(http_bearer):
-            security = lambda: models.Security(http_bearer=http_bearer())  # pylint: disable=unnecessary-lambda-assignment
+            security = lambda: components.Security(http_bearer=http_bearer())  # pylint: disable=unnecessary-lambda-assignment
         else:
-            security = models.Security(http_bearer=http_bearer)
+            security = components.Security(http_bearer=http_bearer)
 
         if server_url is not None:
             if url_params is not None:
