@@ -1,27 +1,24 @@
-speakeasyVersion: 1.383.2
+speakeasyVersion: 1.398.0
 sources:
     livepeer_ai-OAS:
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:dc8a34ad23c433035d3b919390f524abd2bc777cc8fc37ddcadbb0aada0b3615
-        sourceBlobDigest: sha256:6062f3b4ac6538ff6f4465a264f1806261e6509c5581be6c2189430acb21b315
+        sourceRevisionDigest: sha256:6cbee14c0d5849a13bce5e04f5da315bd17a01097f99852cb551396cd64370c0
+        sourceBlobDigest: sha256:c8ed257dd95d5b700b8b833207b03919f6ab0bf71aadba63615beb43761d0ea6
         tags:
             - latest
-            - main
 targets:
     livepeer-ai:
         source: livepeer_ai-OAS
         sourceNamespace: livepeer-ai-oas
         sourceRevisionDigest: sha256:7ac58682b776e03b6609bbca82499bca46176c857e7e1c1ccdc7f916edf3de02
         sourceBlobDigest: sha256:26199d9d483dcc00982af07497f482f7d056c167e9e3c39543fafd1efada287c
-        outLocation: /home/ricks/development/livepeer/ai/livepeer-ai-python
     livepeer-ai-python:
         source: livepeer_ai-OAS
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:dc8a34ad23c433035d3b919390f524abd2bc777cc8fc37ddcadbb0aada0b3615
-        sourceBlobDigest: sha256:6062f3b4ac6538ff6f4465a264f1806261e6509c5581be6c2189430acb21b315
+        sourceRevisionDigest: sha256:6cbee14c0d5849a13bce5e04f5da315bd17a01097f99852cb551396cd64370c0
+        sourceBlobDigest: sha256:c8ed257dd95d5b700b8b833207b03919f6ab0bf71aadba63615beb43761d0ea6
         codeSamplesNamespace: code-samples-python-livepeer-python
-        codeSamplesRevisionDigest: sha256:b20f0df201d0eac5b01b9624f45db9f37ecbf5f8945051415eba3fc171d06b07
-        outLocation: /github/workspace/repo
+        codeSamplesRevisionDigest: sha256:182a64a7b21f4fc7f6124045bcf09be730b8b1b8c0695bde537facb43a6f3212
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -30,12 +27,15 @@ workflow:
             inputs:
                 - location: https://raw.githubusercontent.com/livepeer/ai-worker/main/runner/gateway.openapi.yaml
             registry:
-                location: registry.speakeasyapi.dev/livepeer-8mq/livepeer-ai/livepeer-ai-oas
+                location: registry.speakeasyapi.dev/livepeer/livepeer-ai/livepeer-ai-oas
     targets:
         livepeer-ai-python:
             target: python
             source: livepeer_ai-OAS
+            publish:
+                pypi:
+                    token: $pypi_token
             codeSamples:
                 output: codeSamples.yaml
                 registry:
-                    location: registry.speakeasyapi.dev/livepeer-8mq/livepeer-ai/code-samples-python-livepeer-python
+                    location: registry.speakeasyapi.dev/livepeer/livepeer-ai/code-samples-python-livepeer-python
