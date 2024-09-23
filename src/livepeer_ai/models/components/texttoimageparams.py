@@ -11,6 +11,8 @@ class TextToImageParamsTypedDict(TypedDict):
     r"""Text prompt(s) to guide image generation. Separate multiple prompts with '|' if supported by the model."""
     model_id: NotRequired[str]
     r"""Hugging Face model ID used for image generation."""
+    loras: NotRequired[str]
+    r"""A LoRA (Low-Rank Adaptation) model and its corresponding weight for image generation. Example: { \"latent-consistency/lcm-lora-sdxl\": 1.0, \"nerijs/pixel-art-xl\": 1.2}."""
     height: NotRequired[int]
     r"""The height in pixels of the generated image."""
     width: NotRequired[int]
@@ -35,6 +37,9 @@ class TextToImageParams(BaseModel):
 
     model_id: Optional[str] = ""
     r"""Hugging Face model ID used for image generation."""
+
+    loras: Optional[str] = ""
+    r"""A LoRA (Low-Rank Adaptation) model and its corresponding weight for image generation. Example: { \"latent-consistency/lcm-lora-sdxl\": 1.0, \"nerijs/pixel-art-xl\": 1.2}."""
 
     height: Optional[int] = 576
     r"""The height in pixels of the generated image."""

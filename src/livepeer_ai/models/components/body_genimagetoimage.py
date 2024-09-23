@@ -40,6 +40,8 @@ class BodyGenImageToImageTypedDict(TypedDict):
     r"""Uploaded image to modify with the pipeline."""
     model_id: NotRequired[str]
     r"""Hugging Face model ID used for image generation."""
+    loras: NotRequired[str]
+    r"""A LoRA (Low-Rank Adaptation) model and its corresponding weight for image generation. Example: { \"latent-consistency/lcm-lora-sdxl\": 1.0, \"nerijs/pixel-art-xl\": 1.2}."""
     strength: NotRequired[float]
     r"""Degree of transformation applied to the reference image (0 to 1)."""
     guidance_scale: NotRequired[float]
@@ -71,6 +73,9 @@ class BodyGenImageToImage(BaseModel):
 
     model_id: Annotated[Optional[str], FieldMetadata(multipart=True)] = ""
     r"""Hugging Face model ID used for image generation."""
+
+    loras: Annotated[Optional[str], FieldMetadata(multipart=True)] = ""
+    r"""A LoRA (Low-Rank Adaptation) model and its corresponding weight for image generation. Example: { \"latent-consistency/lcm-lora-sdxl\": 1.0, \"nerijs/pixel-art-xl\": 1.2}."""
 
     strength: Annotated[Optional[float], FieldMetadata(multipart=True)] = 0.8
     r"""Degree of transformation applied to the reference image (0 to 1)."""
