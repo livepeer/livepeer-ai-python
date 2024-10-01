@@ -1,12 +1,11 @@
 lockVersion: 2.0.0
 id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
-  docChecksum: 4a28bceb165adf1c1dd97bbc8fe41a27
-  docVersion: v0.5.0
-  speakeasyVersion: 1.401.2
-  generationVersion: 2.421.3
-  releaseVersion: 0.5.1
-  configChecksum: 57016dfe6f67d305306547b9aa2c1601
+  docChecksum: 21334b8071b6c8e28a5dda229ceafd7e
+  speakeasyVersion: 1.405.6
+  generationVersion: 2.428.1
+  releaseVersion: 0.5.2
+  configChecksum: 7327f5aa5f764c498c18bf07efe8face
   repoURL: https://github.com/livepeer/livepeer-ai-python.git
   installationURL: https://github.com/livepeer/livepeer-ai-python.git
   published: true
@@ -14,7 +13,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.3
-    core: 5.5.4
+    core: 5.5.7
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.1
     globalSecurity: 3.0.2
@@ -23,7 +22,7 @@ features:
     globalServerURLs: 3.0.0
     multipartFileContentType: 1.0.0
     nameOverrides: 3.0.0
-    responseFormat: 1.0.0
+    responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.0.0
     unions: 3.0.2
@@ -39,6 +38,7 @@ generatedFiles:
   - docs/models/components/bodygenimagetoimage.md
   - docs/models/components/bodygenimagetovideo.md
   - docs/models/components/bodygenimagetovideoimage.md
+  - docs/models/components/bodygenllm.md
   - docs/models/components/bodygensegmentanything2.md
   - docs/models/components/bodygensegmentanything2image.md
   - docs/models/components/bodygenupscale.md
@@ -47,6 +47,7 @@ generatedFiles:
   - docs/models/components/httpmetadata.md
   - docs/models/components/image.md
   - docs/models/components/imageresponse.md
+  - docs/models/components/llmresponse.md
   - docs/models/components/loc.md
   - docs/models/components/masksresponse.md
   - docs/models/components/media.md
@@ -60,6 +61,7 @@ generatedFiles:
   - docs/models/operations/genaudiototextresponse.md
   - docs/models/operations/genimagetoimageresponse.md
   - docs/models/operations/genimagetovideoresponse.md
+  - docs/models/operations/genllmresponse.md
   - docs/models/operations/gensegmentanything2response.md
   - docs/models/operations/gentexttoimageresponse.md
   - docs/models/operations/genupscaleresponse.md
@@ -85,11 +87,13 @@ generatedFiles:
   - src/livepeer_ai/models/components/body_genaudiototext.py
   - src/livepeer_ai/models/components/body_genimagetoimage.py
   - src/livepeer_ai/models/components/body_genimagetovideo.py
+  - src/livepeer_ai/models/components/body_genllm.py
   - src/livepeer_ai/models/components/body_gensegmentanything2.py
   - src/livepeer_ai/models/components/body_genupscale.py
   - src/livepeer_ai/models/components/chunk.py
   - src/livepeer_ai/models/components/httpmetadata.py
   - src/livepeer_ai/models/components/imageresponse.py
+  - src/livepeer_ai/models/components/llmresponse.py
   - src/livepeer_ai/models/components/masksresponse.py
   - src/livepeer_ai/models/components/media.py
   - src/livepeer_ai/models/components/security.py
@@ -105,6 +109,7 @@ generatedFiles:
   - src/livepeer_ai/models/operations/genaudiototext.py
   - src/livepeer_ai/models/operations/genimagetoimage.py
   - src/livepeer_ai/models/operations/genimagetovideo.py
+  - src/livepeer_ai/models/operations/genllm.py
   - src/livepeer_ai/models/operations/gensegmentanything2.py
   - src/livepeer_ai/models/operations/gentexttoimage.py
   - src/livepeer_ai/models/operations/genupscale.py
@@ -186,6 +191,16 @@ examples:
       responses:
         "200":
           application/json: {"masks": "<value>", "scores": "<value>", "logits": "<value>"}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422": {}
+  genLLM:
+    speakeasy-default-gen-LLM:
+      requestBody:
+        application/x-www-form-urlencoded: {"prompt": "<value>"}
+      responses:
+        "200":
+          application/json: {"response": "<value>", "tokens_used": 60712}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422": {}

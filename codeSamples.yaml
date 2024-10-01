@@ -70,6 +70,25 @@ actions:
             if res.video_response is not None:
                 # handle response
                 pass
+  - target: $["paths"]["/llm"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: genLLM
+          source: |-
+            from livepeer_ai import Livepeer
+
+            s = Livepeer(
+                http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+            )
+
+            res = s.generate.llm(request={
+                "prompt": "<value>",
+            })
+
+            if res.llm_response is not None:
+                # handle response
+                pass
   - target: $["paths"]["/segment-anything-2"]["post"]
     update:
       x-codeSamples:
