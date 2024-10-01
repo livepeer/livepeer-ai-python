@@ -30,10 +30,10 @@ class SDKConfiguration:
     server_url: Optional[str] = ""
     server_idx: Optional[int] = 0
     language: str = "python"
-    openapi_doc_version: str = "v0.5.0"
-    sdk_version: str = "0.5.1"
-    gen_version: str = "2.421.3"
-    user_agent: str = "speakeasy-sdk/python 0.5.1 2.421.3 v0.5.0 livepeer-ai"
+    openapi_doc_version: str = ""
+    sdk_version: str = "0.5.2"
+    gen_version: str = "2.428.1"
+    user_agent: str = "speakeasy-sdk/python 0.5.2 2.428.1  livepeer-ai"
     retry_config: OptionalNullable[RetryConfig] = Field(default_factory=lambda: UNSET)
     timeout_ms: Optional[int] = None
 

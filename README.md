@@ -100,6 +100,7 @@ asyncio.run(main())
 * [upscale](docs/sdks/generate/README.md#upscale) - Upscale
 * [audio_to_text](docs/sdks/generate/README.md#audio_to_text) - Audio To Text
 * [segment_anything2](docs/sdks/generate/README.md#segment_anything2) - Segment Anything 2
+* [llm](docs/sdks/generate/README.md#llm) - LLM
 
 
 </details>
@@ -186,13 +187,24 @@ if res.image_response is not None:
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an exception.
 
-| Error Object               | Status Code                | Content Type               |
+By default, an API error will raise a errors.SDKError exception, which has the following properties:
+
+| Property        | Type             | Description           |
+|-----------------|------------------|-----------------------|
+| `.status_code`  | *int*            | The HTTP status code  |
+| `.message`      | *str*            | The error message     |
+| `.raw_response` | *httpx.Response* | The raw HTTP response |
+| `.body`         | *str*            | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `text_to_image_async` method may raise the following exceptions:
+
+| Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPError           | 400, 401, 500              | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4xx-5xx                    | */*                        |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ### Example
 

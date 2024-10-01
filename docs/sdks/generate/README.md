@@ -11,6 +11,7 @@
 * [upscale](#upscale) - Upscale
 * [audio_to_text](#audio_to_text) - Audio To Text
 * [segment_anything2](#segment_anything2) - Segment Anything 2
+* [llm](#llm) - LLM
 
 ## text_to_image
 
@@ -48,12 +49,11 @@ if res.image_response is not None:
 
 ### Errors
 
-| Error Object               | Status Code                | Content Type               |
+| Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPError           | 400, 401, 500              | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4xx-5xx                    | */*                        |
-
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## image_to_image
 
@@ -95,12 +95,11 @@ if res.image_response is not None:
 
 ### Errors
 
-| Error Object               | Status Code                | Content Type               |
+| Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPError           | 400, 401, 500              | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4xx-5xx                    | */*                        |
-
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## image_to_video
 
@@ -141,12 +140,11 @@ if res.video_response is not None:
 
 ### Errors
 
-| Error Object               | Status Code                | Content Type               |
+| Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPError           | 400, 401, 500              | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4xx-5xx                    | */*                        |
-
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## upscale
 
@@ -188,12 +186,11 @@ if res.image_response is not None:
 
 ### Errors
 
-| Error Object               | Status Code                | Content Type               |
+| Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPError           | 400, 401, 500              | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4xx-5xx                    | */*                        |
-
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## audio_to_text
 
@@ -234,12 +231,11 @@ if res.text_response is not None:
 
 ### Errors
 
-| Error Object               | Status Code                | Content Type               |
+| Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400,401,413,500            | application/json           |
+| errors.HTTPError           | 400, 401, 413, 500         | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4xx-5xx                    | */*                        |
-
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## segment_anything2
 
@@ -280,8 +276,50 @@ if res.masks_response is not None:
 
 ### Errors
 
-| Error Object               | Status Code                | Content Type               |
+| Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400,401,500                | application/json           |
+| errors.HTTPError           | 400, 401, 500              | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4xx-5xx                    | */*                        |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## llm
+
+Generate text using a language model.
+
+### Example Usage
+
+```python
+from livepeer_ai import Livepeer
+
+s = Livepeer(
+    http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+)
+
+res = s.generate.llm(request={
+    "prompt": "<value>",
+})
+
+if res.llm_response is not None:
+    # handle response
+    pass
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [components.BodyGenLLM](../../models/components/bodygenllm.md)      | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[operations.GenLLMResponse](../../models/operations/genllmresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPError           | 400, 401, 500              | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
