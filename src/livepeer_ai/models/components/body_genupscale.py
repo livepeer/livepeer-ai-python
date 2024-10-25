@@ -5,8 +5,8 @@ import io
 from livepeer_ai.types import BaseModel
 from livepeer_ai.utils import FieldMetadata, MultipartFormMetadata
 import pydantic
-from typing import IO, Optional, TypedDict, Union
-from typing_extensions import Annotated, NotRequired
+from typing import IO, Optional, Union
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class BodyGenUpscaleImageTypedDict(TypedDict):

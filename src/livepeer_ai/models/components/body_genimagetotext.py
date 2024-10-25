@@ -9,15 +9,15 @@ from typing import IO, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class AudioTypedDict(TypedDict):
+class BodyGenImageToTextImageTypedDict(TypedDict):
     file_name: str
     content: Union[bytes, IO[bytes], io.BufferedReader]
     content_type: NotRequired[str]
 
 
-class Audio(BaseModel):
+class BodyGenImageToTextImage(BaseModel):
     file_name: Annotated[
-        str, pydantic.Field(alias="audio"), FieldMetadata(multipart=True)
+        str, pydantic.Field(alias="image"), FieldMetadata(multipart=True)
     ]
 
     content: Annotated[
@@ -33,20 +33,25 @@ class Audio(BaseModel):
     ] = None
 
 
-class BodyGenAudioToTextTypedDict(TypedDict):
-    audio: AudioTypedDict
-    r"""Uploaded audio file to be transcribed."""
+class BodyGenImageToTextTypedDict(TypedDict):
+    image: BodyGenImageToTextImageTypedDict
+    r"""Uploaded image to transform with the pipeline."""
+    prompt: NotRequired[str]
+    r"""Text prompt(s) to guide transformation."""
     model_id: NotRequired[str]
-    r"""Hugging Face model ID used for transcription."""
+    r"""Hugging Face model ID used for transformation."""
 
 
-class BodyGenAudioToText(BaseModel):
-    audio: Annotated[
-        Audio,
+class BodyGenImageToText(BaseModel):
+    image: Annotated[
+        BodyGenImageToTextImage,
         pydantic.Field(alias=""),
         FieldMetadata(multipart=MultipartFormMetadata(file=True)),
     ]
-    r"""Uploaded audio file to be transcribed."""
+    r"""Uploaded image to transform with the pipeline."""
+
+    prompt: Annotated[Optional[str], FieldMetadata(multipart=True)] = ""
+    r"""Text prompt(s) to guide transformation."""
 
     model_id: Annotated[Optional[str], FieldMetadata(multipart=True)] = ""
-    r"""Hugging Face model ID used for transcription."""
+    r"""Hugging Face model ID used for transformation."""

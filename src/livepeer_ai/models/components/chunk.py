@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 from livepeer_ai.types import BaseModel
-from typing import Any, List, TypedDict
+from typing import Any, List
+from typing_extensions import TypedDict
 
 
 class ChunkTypedDict(TypedDict):

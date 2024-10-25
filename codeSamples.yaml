@@ -48,6 +48,28 @@ actions:
             if res.image_response is not None:
                 # handle response
                 pass
+  - target: $["paths"]["/image-to-text"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: genImageToText
+          source: |-
+            from livepeer_ai import Livepeer
+
+            s = Livepeer(
+                http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+            )
+
+            res = s.generate.image_to_text(request={
+                "image": {
+                    "file_name": "example.file",
+                    "content": open("example.file", "rb"),
+                },
+            })
+
+            if res.image_to_text_response is not None:
+                # handle response
+                pass
   - target: $["paths"]["/image-to-video"]["post"]
     update:
       x-codeSamples:
