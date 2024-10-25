@@ -1,19 +1,20 @@
 lockVersion: 2.0.0
 id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
-  docChecksum: 21334b8071b6c8e28a5dda229ceafd7e
-  speakeasyVersion: 1.405.6
-  generationVersion: 2.428.1
-  releaseVersion: 0.5.2
-  configChecksum: 7327f5aa5f764c498c18bf07efe8face
+  docChecksum: a140881cbcff74961991f5dfff13f0a0
+  docVersion: 0.0.0
+  speakeasyVersion: 1.421.2
+  generationVersion: 2.438.15
+  releaseVersion: 0.6.0
+  configChecksum: d4f553b7eab1ee8b7b6de14095ab240f
   repoURL: https://github.com/livepeer/livepeer-ai-python.git
   installationURL: https://github.com/livepeer/livepeer-ai-python.git
   published: true
 features:
   python:
     additionalDependencies: 1.0.0
-    constsAndDefaults: 1.0.3
-    core: 5.5.7
+    constsAndDefaults: 1.0.4
+    core: 5.6.0
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.1
     globalSecurity: 3.0.2
@@ -29,6 +30,7 @@ features:
     uploadStreams: 1.0.0
 generatedFiles:
   - .gitattributes
+  - .python-version
   - .vscode/settings.json
   - CONTRIBUTING.md
   - USAGE.md
@@ -36,6 +38,8 @@ generatedFiles:
   - docs/models/components/audio.md
   - docs/models/components/bodygenaudiototext.md
   - docs/models/components/bodygenimagetoimage.md
+  - docs/models/components/bodygenimagetotext.md
+  - docs/models/components/bodygenimagetotextimage.md
   - docs/models/components/bodygenimagetovideo.md
   - docs/models/components/bodygenimagetovideoimage.md
   - docs/models/components/bodygenllm.md
@@ -47,6 +51,7 @@ generatedFiles:
   - docs/models/components/httpmetadata.md
   - docs/models/components/image.md
   - docs/models/components/imageresponse.md
+  - docs/models/components/imagetotextresponse.md
   - docs/models/components/llmresponse.md
   - docs/models/components/loc.md
   - docs/models/components/masksresponse.md
@@ -60,6 +65,7 @@ generatedFiles:
   - docs/models/errors/httpvalidationerror.md
   - docs/models/operations/genaudiototextresponse.md
   - docs/models/operations/genimagetoimageresponse.md
+  - docs/models/operations/genimagetotextresponse.md
   - docs/models/operations/genimagetovideoresponse.md
   - docs/models/operations/genllmresponse.md
   - docs/models/operations/gensegmentanything2response.md
@@ -79,6 +85,7 @@ generatedFiles:
   - src/livepeer_ai/_hooks/__init__.py
   - src/livepeer_ai/_hooks/sdkhooks.py
   - src/livepeer_ai/_hooks/types.py
+  - src/livepeer_ai/_version.py
   - src/livepeer_ai/basesdk.py
   - src/livepeer_ai/generate.py
   - src/livepeer_ai/httpclient.py
@@ -86,6 +93,7 @@ generatedFiles:
   - src/livepeer_ai/models/components/apierror.py
   - src/livepeer_ai/models/components/body_genaudiototext.py
   - src/livepeer_ai/models/components/body_genimagetoimage.py
+  - src/livepeer_ai/models/components/body_genimagetotext.py
   - src/livepeer_ai/models/components/body_genimagetovideo.py
   - src/livepeer_ai/models/components/body_genllm.py
   - src/livepeer_ai/models/components/body_gensegmentanything2.py
@@ -93,6 +101,7 @@ generatedFiles:
   - src/livepeer_ai/models/components/chunk.py
   - src/livepeer_ai/models/components/httpmetadata.py
   - src/livepeer_ai/models/components/imageresponse.py
+  - src/livepeer_ai/models/components/imagetotextresponse.py
   - src/livepeer_ai/models/components/llmresponse.py
   - src/livepeer_ai/models/components/masksresponse.py
   - src/livepeer_ai/models/components/media.py
@@ -108,6 +117,7 @@ generatedFiles:
   - src/livepeer_ai/models/operations/__init__.py
   - src/livepeer_ai/models/operations/genaudiototext.py
   - src/livepeer_ai/models/operations/genimagetoimage.py
+  - src/livepeer_ai/models/operations/genimagetotext.py
   - src/livepeer_ai/models/operations/genimagetovideo.py
   - src/livepeer_ai/models/operations/genllm.py
   - src/livepeer_ai/models/operations/gensegmentanything2.py
@@ -201,6 +211,16 @@ examples:
       responses:
         "200":
           application/json: {"response": "<value>", "tokens_used": 60712}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422": {}
+  genImageToText:
+    speakeasy-default-gen-image-to-text:
+      requestBody:
+        multipart/form-data: {"image": {}}
+      responses:
+        "200":
+          application/json: {"text": "<value>"}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422": {}

@@ -2,6 +2,7 @@
 
 from .genaudiototext import GenAudioToTextResponse, GenAudioToTextResponseTypedDict
 from .genimagetoimage import GenImageToImageResponse, GenImageToImageResponseTypedDict
+from .genimagetotext import GenImageToTextResponse, GenImageToTextResponseTypedDict
 from .genimagetovideo import GenImageToVideoResponse, GenImageToVideoResponseTypedDict
 from .genllm import GenLLMResponse, GenLLMResponseTypedDict
 from .gensegmentanything2 import (
@@ -16,6 +17,8 @@ __all__ = [
     "GenAudioToTextResponseTypedDict",
     "GenImageToImageResponse",
     "GenImageToImageResponseTypedDict",
+    "GenImageToTextResponse",
+    "GenImageToTextResponseTypedDict",
     "GenImageToVideoResponse",
     "GenImageToVideoResponseTypedDict",
     "GenLLMResponse",

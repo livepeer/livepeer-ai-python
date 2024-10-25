@@ -13,6 +13,12 @@ from .body_genimagetoimage import (
     Image,
     ImageTypedDict,
 )
+from .body_genimagetotext import (
+    BodyGenImageToText,
+    BodyGenImageToTextImage,
+    BodyGenImageToTextImageTypedDict,
+    BodyGenImageToTextTypedDict,
+)
 from .body_genimagetovideo import (
     BodyGenImageToVideo,
     BodyGenImageToVideoImage,
@@ -35,6 +41,7 @@ from .body_genupscale import (
 from .chunk import Chunk, ChunkTypedDict
 from .httpmetadata import HTTPMetadata, HTTPMetadataTypedDict
 from .imageresponse import ImageResponse, ImageResponseTypedDict
+from .imagetotextresponse import ImageToTextResponse, ImageToTextResponseTypedDict
 from .llmresponse import LLMResponse, LLMResponseTypedDict
 from .masksresponse import MasksResponse, MasksResponseTypedDict
 from .media import Media, MediaTypedDict
@@ -58,6 +65,10 @@ __all__ = [
     "BodyGenAudioToTextTypedDict",
     "BodyGenImageToImage",
     "BodyGenImageToImageTypedDict",
+    "BodyGenImageToText",
+    "BodyGenImageToTextImage",
+    "BodyGenImageToTextImageTypedDict",
+    "BodyGenImageToTextTypedDict",
     "BodyGenImageToVideo",
     "BodyGenImageToVideoImage",
     "BodyGenImageToVideoImageTypedDict",
@@ -79,6 +90,8 @@ __all__ = [
     "Image",
     "ImageResponse",
     "ImageResponseTypedDict",
+    "ImageToTextResponse",
+    "ImageToTextResponseTypedDict",
     "ImageTypedDict",
     "LLMResponse",
     "LLMResponseTypedDict",

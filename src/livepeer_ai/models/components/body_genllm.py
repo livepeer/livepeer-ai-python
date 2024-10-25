@@ -3,8 +3,8 @@
 from __future__ import annotations
 from livepeer_ai.types import BaseModel
 from livepeer_ai.utils import FieldMetadata
-from typing import Optional, TypedDict
-from typing_extensions import Annotated, NotRequired
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class BodyGenLLMTypedDict(TypedDict):

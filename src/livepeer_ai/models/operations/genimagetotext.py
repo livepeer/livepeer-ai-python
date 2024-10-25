@@ -3,7 +3,7 @@
 from __future__ import annotations
 from livepeer_ai.models.components import (
     httpmetadata as components_httpmetadata,
-    masksresponse as components_masksresponse,
+    imagetotextresponse as components_imagetotextresponse,
 )
 from livepeer_ai.types import BaseModel
 import pydantic
@@ -11,16 +11,20 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class GenSegmentAnything2ResponseTypedDict(TypedDict):
+class GenImageToTextResponseTypedDict(TypedDict):
     http_meta: components_httpmetadata.HTTPMetadataTypedDict
-    masks_response: NotRequired[components_masksresponse.MasksResponseTypedDict]
+    image_to_text_response: NotRequired[
+        components_imagetotextresponse.ImageToTextResponseTypedDict
+    ]
     r"""Successful Response"""
 
 
-class GenSegmentAnything2Response(BaseModel):
+class GenImageToTextResponse(BaseModel):
     http_meta: Annotated[
         Optional[components_httpmetadata.HTTPMetadata], pydantic.Field(exclude=True)
     ] = None
 
-    masks_response: Optional[components_masksresponse.MasksResponse] = None
+    image_to_text_response: Optional[
+        components_imagetotextresponse.ImageToTextResponse
+    ] = None
     r"""Successful Response"""
