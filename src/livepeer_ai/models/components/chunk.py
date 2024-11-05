@@ -2,14 +2,14 @@
 
 from __future__ import annotations
 from livepeer_ai.types import BaseModel
-from typing import Any, List
+from typing import List
 from typing_extensions import TypedDict
 
 
 class ChunkTypedDict(TypedDict):
     r"""A chunk of text with a timestamp."""
 
-    timestamp: List[Any]
+    timestamp: List[float]
     r"""The timestamp of the chunk."""
     text: str
     r"""The text of the chunk."""
@@ -18,7 +18,7 @@ class ChunkTypedDict(TypedDict):
 class Chunk(BaseModel):
     r"""A chunk of text with a timestamp."""
 
-    timestamp: List[Any]
+    timestamp: List[float]
     r"""The timestamp of the chunk."""
 
     text: str

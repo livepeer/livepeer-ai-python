@@ -102,6 +102,8 @@ asyncio.run(main())
 * [segment_anything2](docs/sdks/generate/README.md#segment_anything2) - Segment Anything 2
 * [llm](docs/sdks/generate/README.md#llm) - LLM
 * [image_to_text](docs/sdks/generate/README.md#image_to_text) - Image To Text
+* [live_video_to_video](docs/sdks/generate/README.md#live_video_to_video) - Video To Video
+* [text_to_speech](docs/sdks/generate/README.md#text_to_speech) - Text To Speech
 
 
 </details>
