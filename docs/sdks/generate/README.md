@@ -13,6 +13,8 @@
 * [segment_anything2](#segment_anything2) - Segment Anything 2
 * [llm](#llm) - LLM
 * [image_to_text](#image_to_text) - Image To Text
+* [live_video_to_video](#live_video_to_video) - Video To Video
+* [text_to_speech](#text_to_speech) - Text To Speech
 
 ## text_to_image
 
@@ -367,5 +369,88 @@ if res.image_to_text_response is not None:
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
 | errors.HTTPError           | 400, 401, 413, 500         | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## live_video_to_video
+
+Apply video-like transformations to a provided image.
+
+### Example Usage
+
+```python
+from livepeer_ai import Livepeer
+
+s = Livepeer(
+    http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+)
+
+res = s.generate.live_video_to_video(request={
+    "subscribe_url": "https://soulful-lava.org/",
+    "publish_url": "https://vain-tabletop.biz",
+})
+
+if res.live_video_to_video_response is not None:
+    # handle response
+    pass
+
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [components.LiveVideoToVideoParams](../../models/components/livevideotovideoparams.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `retries`                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                       | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
+
+### Response
+
+**[operations.GenLiveVideoToVideoResponse](../../models/operations/genlivevideotovideoresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPError           | 400, 401, 500              | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+
+## text_to_speech
+
+Generate a text-to-speech audio file based on the provided text input and speaker description.
+
+### Example Usage
+
+```python
+from livepeer_ai import Livepeer
+
+s = Livepeer(
+    http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+)
+
+res = s.generate.text_to_speech(request={})
+
+if res.audio_response is not None:
+    # handle response
+    pass
+
+```
+
+### Parameters
+
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [components.TextToSpeechParams](../../models/components/texttospeechparams.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `retries`                                                                      | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)               | :heavy_minus_sign:                                                             | Configuration to override the default retry behavior of the client.            |
+
+### Response
+
+**[operations.GenTextToSpeechResponse](../../models/operations/gentexttospeechresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPError           | 400, 401, 500              | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
