@@ -4,12 +4,17 @@ from .genaudiototext import GenAudioToTextResponse, GenAudioToTextResponseTypedD
 from .genimagetoimage import GenImageToImageResponse, GenImageToImageResponseTypedDict
 from .genimagetotext import GenImageToTextResponse, GenImageToTextResponseTypedDict
 from .genimagetovideo import GenImageToVideoResponse, GenImageToVideoResponseTypedDict
+from .genlivevideotovideo import (
+    GenLiveVideoToVideoResponse,
+    GenLiveVideoToVideoResponseTypedDict,
+)
 from .genllm import GenLLMResponse, GenLLMResponseTypedDict
 from .gensegmentanything2 import (
     GenSegmentAnything2Response,
     GenSegmentAnything2ResponseTypedDict,
 )
 from .gentexttoimage import GenTextToImageResponse, GenTextToImageResponseTypedDict
+from .gentexttospeech import GenTextToSpeechResponse, GenTextToSpeechResponseTypedDict
 from .genupscale import GenUpscaleResponse, GenUpscaleResponseTypedDict
 
 __all__ = [
@@ -23,10 +28,14 @@ __all__ = [
     "GenImageToVideoResponseTypedDict",
     "GenLLMResponse",
     "GenLLMResponseTypedDict",
+    "GenLiveVideoToVideoResponse",
+    "GenLiveVideoToVideoResponseTypedDict",
     "GenSegmentAnything2Response",
     "GenSegmentAnything2ResponseTypedDict",
     "GenTextToImageResponse",
     "GenTextToImageResponseTypedDict",
+    "GenTextToSpeechResponse",
+    "GenTextToSpeechResponseTypedDict",
     "GenUpscaleResponse",
     "GenUpscaleResponseTypedDict",
 ]

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
-  docChecksum: a140881cbcff74961991f5dfff13f0a0
+  docChecksum: c22f8c1b01f75ba608165e53e64fb450
   docVersion: 0.0.0
-  speakeasyVersion: 1.421.2
-  generationVersion: 2.438.15
-  releaseVersion: 0.6.0
-  configChecksum: d4f553b7eab1ee8b7b6de14095ab240f
+  speakeasyVersion: 1.434.0
+  generationVersion: 2.452.0
+  releaseVersion: 0.7.0
+  configChecksum: 17791ddc4db6b3274494a727e79974b0
   repoURL: https://github.com/livepeer/livepeer-ai-python.git
   installationURL: https://github.com/livepeer/livepeer-ai-python.git
   published: true
@@ -14,9 +14,9 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.4
-    core: 5.6.0
+    core: 5.6.4
     defaultEnabledRetries: 0.2.0
-    envVarSecurityUsage: 0.3.1
+    envVarSecurityUsage: 0.3.2
     globalSecurity: 3.0.2
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
@@ -26,7 +26,8 @@ features:
     responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.0.0
-    unions: 3.0.2
+    tests: 1.6.0
+    unions: 3.0.3
     uploadStreams: 1.0.0
 generatedFiles:
   - .gitattributes
@@ -36,6 +37,7 @@ generatedFiles:
   - USAGE.md
   - docs/models/components/apierror.md
   - docs/models/components/audio.md
+  - docs/models/components/audioresponse.md
   - docs/models/components/bodygenaudiototext.md
   - docs/models/components/bodygenimagetoimage.md
   - docs/models/components/bodygenimagetotext.md
@@ -52,13 +54,18 @@ generatedFiles:
   - docs/models/components/image.md
   - docs/models/components/imageresponse.md
   - docs/models/components/imagetotextresponse.md
+  - docs/models/components/livevideotovideoparams.md
+  - docs/models/components/livevideotovideoresponse.md
   - docs/models/components/llmresponse.md
   - docs/models/components/loc.md
   - docs/models/components/masksresponse.md
   - docs/models/components/media.md
+  - docs/models/components/mediaurl.md
+  - docs/models/components/params.md
   - docs/models/components/security.md
   - docs/models/components/textresponse.md
   - docs/models/components/texttoimageparams.md
+  - docs/models/components/texttospeechparams.md
   - docs/models/components/validationerror.md
   - docs/models/components/videoresponse.md
   - docs/models/errors/httperror.md
@@ -67,9 +74,11 @@ generatedFiles:
   - docs/models/operations/genimagetoimageresponse.md
   - docs/models/operations/genimagetotextresponse.md
   - docs/models/operations/genimagetovideoresponse.md
+  - docs/models/operations/genlivevideotovideoresponse.md
   - docs/models/operations/genllmresponse.md
   - docs/models/operations/gensegmentanything2response.md
   - docs/models/operations/gentexttoimageresponse.md
+  - docs/models/operations/gentexttospeechresponse.md
   - docs/models/operations/genupscaleresponse.md
   - docs/models/utils/retryconfig.md
   - docs/sdks/generate/README.md
@@ -78,7 +87,6 @@ generatedFiles:
   - py.typed
   - pylintrc
   - pyproject.toml
-  - scripts/compile.sh
   - scripts/prepare-readme.py
   - scripts/publish.sh
   - src/livepeer_ai/__init__.py
@@ -91,6 +99,7 @@ generatedFiles:
   - src/livepeer_ai/httpclient.py
   - src/livepeer_ai/models/components/__init__.py
   - src/livepeer_ai/models/components/apierror.py
+  - src/livepeer_ai/models/components/audioresponse.py
   - src/livepeer_ai/models/components/body_genaudiototext.py
   - src/livepeer_ai/models/components/body_genimagetoimage.py
   - src/livepeer_ai/models/components/body_genimagetotext.py
@@ -102,12 +111,16 @@ generatedFiles:
   - src/livepeer_ai/models/components/httpmetadata.py
   - src/livepeer_ai/models/components/imageresponse.py
   - src/livepeer_ai/models/components/imagetotextresponse.py
+  - src/livepeer_ai/models/components/livevideotovideoparams.py
+  - src/livepeer_ai/models/components/livevideotovideoresponse.py
   - src/livepeer_ai/models/components/llmresponse.py
   - src/livepeer_ai/models/components/masksresponse.py
   - src/livepeer_ai/models/components/media.py
+  - src/livepeer_ai/models/components/mediaurl.py
   - src/livepeer_ai/models/components/security.py
   - src/livepeer_ai/models/components/textresponse.py
   - src/livepeer_ai/models/components/texttoimageparams.py
+  - src/livepeer_ai/models/components/texttospeechparams.py
   - src/livepeer_ai/models/components/validationerror.py
   - src/livepeer_ai/models/components/videoresponse.py
   - src/livepeer_ai/models/errors/__init__.py
@@ -119,9 +132,11 @@ generatedFiles:
   - src/livepeer_ai/models/operations/genimagetoimage.py
   - src/livepeer_ai/models/operations/genimagetotext.py
   - src/livepeer_ai/models/operations/genimagetovideo.py
+  - src/livepeer_ai/models/operations/genlivevideotovideo.py
   - src/livepeer_ai/models/operations/genllm.py
   - src/livepeer_ai/models/operations/gensegmentanything2.py
   - src/livepeer_ai/models/operations/gentexttoimage.py
+  - src/livepeer_ai/models/operations/gentexttospeech.py
   - src/livepeer_ai/models/operations/genupscale.py
   - src/livepeer_ai/py.typed
   - src/livepeer_ai/sdk.py
@@ -221,6 +236,24 @@ examples:
       responses:
         "200":
           application/json: {"text": "<value>"}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422": {}
+  genLiveVideoToVideo:
+    speakeasy-default-gen-live-video-to-video:
+      requestBody:
+        application/json: {"subscribe_url": "https://soulful-lava.org/", "publish_url": "https://vain-tabletop.biz"}
+      responses:
+        "200":
+          application/json: {"subscribe_url": "https://vain-kiss.name", "publish_url": "https://frail-duffel.com"}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422": {}
+  genTextToSpeech:
+    speakeasy-default-gen-text-to-speech:
+      responses:
+        "200":
+          application/json: {"audio": {"url": "https://accurate-parsnip.net/"}}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422": {}

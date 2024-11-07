@@ -92,6 +92,26 @@ actions:
             if res.video_response is not None:
                 # handle response
                 pass
+  - target: $["paths"]["/live-video-to-video"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: genLiveVideoToVideo
+          source: |-
+            from livepeer_ai import Livepeer
+
+            s = Livepeer(
+                http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+            )
+
+            res = s.generate.live_video_to_video(request={
+                "subscribe_url": "https://soulful-lava.org/",
+                "publish_url": "https://vain-tabletop.biz",
+            })
+
+            if res.live_video_to_video_response is not None:
+                # handle response
+                pass
   - target: $["paths"]["/llm"]["post"]
     update:
       x-codeSamples:
@@ -150,6 +170,23 @@ actions:
             })
 
             if res.image_response is not None:
+                # handle response
+                pass
+  - target: $["paths"]["/text-to-speech"]["post"]
+    update:
+      x-codeSamples:
+        - lang: python
+          label: genTextToSpeech
+          source: |-
+            from livepeer_ai import Livepeer
+
+            s = Livepeer(
+                http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+            )
+
+            res = s.generate.text_to_speech(request={})
+
+            if res.audio_response is not None:
                 # handle response
                 pass
   - target: $["paths"]["/upscale"]["post"]
