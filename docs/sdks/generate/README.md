@@ -13,7 +13,7 @@
 * [segment_anything2](#segment_anything2) - Segment Anything 2
 * [llm](#llm) - LLM
 * [image_to_text](#image_to_text) - Image To Text
-* [live_video_to_video](#live_video_to_video) - Video To Video
+* [live_video_to_video](#live_video_to_video) - Live Video To Video
 * [text_to_speech](#text_to_speech) - Text To Speech
 
 ## text_to_image
@@ -25,17 +25,16 @@ Generate images from text prompts.
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as s:
+    res = s.generate.text_to_image(request={
+        "prompt": "<value>",
+    })
 
-res = s.generate.text_to_image(request={
-    "prompt": "<value>",
-})
-
-if res.image_response is not None:
-    # handle response
-    pass
+    if res.image_response is not None:
+        # handle response
+        pass
 
 ```
 
@@ -67,21 +66,20 @@ Apply image transformations to a provided image.
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as s:
+    res = s.generate.image_to_image(request={
+        "prompt": "<value>",
+        "image": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+        },
+    })
 
-res = s.generate.image_to_image(request={
-    "prompt": "<value>",
-    "image": {
-        "file_name": "example.file",
-        "content": open("example.file", "rb"),
-    },
-})
-
-if res.image_response is not None:
-    # handle response
-    pass
+    if res.image_response is not None:
+        # handle response
+        pass
 
 ```
 
@@ -113,20 +111,19 @@ Generate a video from a provided image.
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as s:
+    res = s.generate.image_to_video(request={
+        "image": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+        },
+    })
 
-res = s.generate.image_to_video(request={
-    "image": {
-        "file_name": "example.file",
-        "content": open("example.file", "rb"),
-    },
-})
-
-if res.video_response is not None:
-    # handle response
-    pass
+    if res.video_response is not None:
+        # handle response
+        pass
 
 ```
 
@@ -158,21 +155,20 @@ Upscale an image by increasing its resolution.
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as s:
+    res = s.generate.upscale(request={
+        "prompt": "<value>",
+        "image": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+        },
+    })
 
-res = s.generate.upscale(request={
-    "prompt": "<value>",
-    "image": {
-        "file_name": "example.file",
-        "content": open("example.file", "rb"),
-    },
-})
-
-if res.image_response is not None:
-    # handle response
-    pass
+    if res.image_response is not None:
+        # handle response
+        pass
 
 ```
 
@@ -204,20 +200,19 @@ Transcribe audio files to text.
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as s:
+    res = s.generate.audio_to_text(request={
+        "audio": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+        },
+    })
 
-res = s.generate.audio_to_text(request={
-    "audio": {
-        "file_name": "example.file",
-        "content": open("example.file", "rb"),
-    },
-})
-
-if res.text_response is not None:
-    # handle response
-    pass
+    if res.text_response is not None:
+        # handle response
+        pass
 
 ```
 
@@ -249,20 +244,19 @@ Segment objects in an image.
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as s:
+    res = s.generate.segment_anything2(request={
+        "image": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+        },
+    })
 
-res = s.generate.segment_anything2(request={
-    "image": {
-        "file_name": "example.file",
-        "content": open("example.file", "rb"),
-    },
-})
-
-if res.masks_response is not None:
-    # handle response
-    pass
+    if res.masks_response is not None:
+        # handle response
+        pass
 
 ```
 
@@ -294,17 +288,16 @@ Generate text using a language model.
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as s:
+    res = s.generate.llm(request={
+        "prompt": "<value>",
+    })
 
-res = s.generate.llm(request={
-    "prompt": "<value>",
-})
-
-if res.llm_response is not None:
-    # handle response
-    pass
+    if res.llm_response is not None:
+        # handle response
+        pass
 
 ```
 
@@ -336,20 +329,19 @@ Transform image files to text.
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as s:
+    res = s.generate.image_to_text(request={
+        "image": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+        },
+    })
 
-res = s.generate.image_to_text(request={
-    "image": {
-        "file_name": "example.file",
-        "content": open("example.file", "rb"),
-    },
-})
-
-if res.image_to_text_response is not None:
-    # handle response
-    pass
+    if res.image_to_text_response is not None:
+        # handle response
+        pass
 
 ```
 
@@ -374,25 +366,24 @@ if res.image_to_text_response is not None:
 
 ## live_video_to_video
 
-Apply video-like transformations to a provided image.
+Apply transformations to a live video streamed to the returned endpoints.
 
 ### Example Usage
 
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as s:
+    res = s.generate.live_video_to_video(request={
+        "subscribe_url": "https://soulful-lava.org/",
+        "publish_url": "https://vain-tabletop.biz",
+    })
 
-res = s.generate.live_video_to_video(request={
-    "subscribe_url": "https://soulful-lava.org/",
-    "publish_url": "https://vain-tabletop.biz",
-})
-
-if res.live_video_to_video_response is not None:
-    # handle response
-    pass
+    if res.live_video_to_video_response is not None:
+        # handle response
+        pass
 
 ```
 
@@ -424,15 +415,14 @@ Generate a text-to-speech audio file based on the provided text input and speake
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as s:
+    res = s.generate.text_to_speech(request={})
 
-res = s.generate.text_to_speech(request={})
-
-if res.audio_response is not None:
-    # handle response
-    pass
+    if res.audio_response is not None:
+        # handle response
+        pass
 
 ```
 

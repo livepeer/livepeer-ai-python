@@ -13,7 +13,7 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
 python:
-  version: 0.7.0
+  version: 0.8.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -21,6 +21,7 @@ python:
   authors:
     - Speakeasy
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKError
   description: Python Client SDK for the Livepeer AI API.
   enumFormat: enum
   fixFlags:

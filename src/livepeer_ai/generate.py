@@ -1574,9 +1574,9 @@ class Generate(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
     ) -> operations.GenLiveVideoToVideoResponse:
-        r"""Video To Video
+        r"""Live Video To Video
 
-        Apply video-like transformations to a provided image.
+        Apply transformations to a live video streamed to the returned endpoints.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
@@ -1672,9 +1672,9 @@ class Generate(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
     ) -> operations.GenLiveVideoToVideoResponse:
-        r"""Video To Video
+        r"""Live Video To Video
 
-        Apply video-like transformations to a provided image.
+        Apply transformations to a live video streamed to the returned endpoints.
 
         :param request: The request object to send.
         :param retries: Override the default retry configuration for this method
