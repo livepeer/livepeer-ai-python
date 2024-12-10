@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 from livepeer_ai.types import BaseModel
-from typing_extensions import TypedDict
+from typing import Optional
+from typing_extensions import NotRequired, TypedDict
 
 
 class LiveVideoToVideoResponseTypedDict(TypedDict):
@@ -12,6 +13,10 @@ class LiveVideoToVideoResponseTypedDict(TypedDict):
     r"""Source URL of the incoming stream to subscribe to"""
     publish_url: str
     r"""Destination URL of the outgoing stream to publish to"""
+    control_url: NotRequired[str]
+    r"""URL for updating the live video-to-video generation"""
+    events_url: NotRequired[str]
+    r"""URL for subscribing to events for pipeline status and logs"""
 
 
 class LiveVideoToVideoResponse(BaseModel):
@@ -22,3 +27,9 @@ class LiveVideoToVideoResponse(BaseModel):
 
     publish_url: str
     r"""Destination URL of the outgoing stream to publish to"""
+
+    control_url: Optional[str] = ""
+    r"""URL for updating the live video-to-video generation"""
+
+    events_url: Optional[str] = ""
+    r"""URL for subscribing to events for pipeline status and logs"""
