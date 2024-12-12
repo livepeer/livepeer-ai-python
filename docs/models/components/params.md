@@ -1,6 +1,6 @@
 # Params
 
-Initial parameters for the model.
+Initial parameters for the pipeline.
 
 
 ## Fields
