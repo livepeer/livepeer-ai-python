@@ -7,11 +7,11 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class ParamsTypedDict(TypedDict):
-    r"""Initial parameters for the model."""
+    r"""Initial parameters for the pipeline."""
 
 
 class Params(BaseModel):
-    r"""Initial parameters for the model."""
+    r"""Initial parameters for the pipeline."""
 
 
 class LiveVideoToVideoParamsTypedDict(TypedDict):
@@ -19,10 +19,14 @@ class LiveVideoToVideoParamsTypedDict(TypedDict):
     r"""Source URL of the incoming stream to subscribe to."""
     publish_url: str
     r"""Destination URL of the outgoing stream to publish."""
+    control_url: NotRequired[str]
+    r"""URL for subscribing via Trickle protocol for updates in the live video-to-video generation params."""
+    events_url: NotRequired[str]
+    r"""URL for publishing events via Trickle protocol for pipeline status and logs."""
     model_id: NotRequired[str]
-    r"""Hugging Face model ID used for image generation."""
+    r"""Name of the pipeline to run in the live video to video job. Notice that this is named model_id for consistency with other routes, but it does not refer to a Hugging Face model ID. The exact model(s) depends on the pipeline implementation and might be configurable via the `params` argument."""
     params: NotRequired[ParamsTypedDict]
-    r"""Initial parameters for the model."""
+    r"""Initial parameters for the pipeline."""
 
 
 class LiveVideoToVideoParams(BaseModel):
@@ -32,8 +36,14 @@ class LiveVideoToVideoParams(BaseModel):
     publish_url: str
     r"""Destination URL of the outgoing stream to publish."""
 
+    control_url: Optional[str] = ""
+    r"""URL for subscribing via Trickle protocol for updates in the live video-to-video generation params."""
+
+    events_url: Optional[str] = ""
+    r"""URL for publishing events via Trickle protocol for pipeline status and logs."""
+
     model_id: Optional[str] = ""
-    r"""Hugging Face model ID used for image generation."""
+    r"""Name of the pipeline to run in the live video to video job. Notice that this is named model_id for consistency with other routes, but it does not refer to a Hugging Face model ID. The exact model(s) depends on the pipeline implementation and might be configurable via the `params` argument."""
 
     params: Optional[Params] = None
-    r"""Initial parameters for the model."""
+    r"""Initial parameters for the pipeline."""
