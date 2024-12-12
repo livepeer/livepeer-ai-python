@@ -50,17 +50,17 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 # Synchronous Example
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as livepeer:
 
-res = s.generate.text_to_image(request={
-    "prompt": "<value>",
-})
+    res = livepeer.generate.text_to_image(request={
+        "prompt": "<value>",
+    })
 
-if res.image_response is not None:
-    # handle response
-    pass
+    if res.image_response is not None:
+        # handle response
+        pass
 ```
 
 </br>
@@ -72,15 +72,17 @@ import asyncio
 from livepeer_ai import Livepeer
 
 async def main():
-    s = Livepeer(
+    async with Livepeer(
         http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-    )
-    res = await s.generate.text_to_image_async(request={
-        "prompt": "<value>",
-    })
-    if res.image_response is not None:
-        # handle response
-        pass
+    ) as livepeer:
+
+        res = await livepeer.generate.text_to_image_async(request={
+            "prompt": "<value>",
+        })
+
+        if res.image_response is not None:
+            # handle response
+            pass
 
 asyncio.run(main())
 ```
@@ -102,7 +104,7 @@ asyncio.run(main())
 * [segment_anything2](docs/sdks/generate/README.md#segment_anything2) - Segment Anything 2
 * [llm](docs/sdks/generate/README.md#llm) - LLM
 * [image_to_text](docs/sdks/generate/README.md#image_to_text) - Image To Text
-* [live_video_to_video](docs/sdks/generate/README.md#live_video_to_video) - Video To Video
+* [live_video_to_video](docs/sdks/generate/README.md#live_video_to_video) - Live Video To Video
 * [text_to_speech](docs/sdks/generate/README.md#text_to_speech) - Text To Speech
 
 
@@ -122,21 +124,21 @@ Certain SDK methods accept file objects as part of a request body or multi-part 
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as livepeer:
 
-res = s.generate.image_to_image(request={
-    "prompt": "<value>",
-    "image": {
-        "file_name": "example.file",
-        "content": open("example.file", "rb"),
-    },
-})
+    res = livepeer.generate.image_to_image(request={
+        "prompt": "<value>",
+        "image": {
+            "file_name": "example.file",
+            "content": open("example.file", "rb"),
+        },
+    })
 
-if res.image_response is not None:
-    # handle response
-    pass
+    if res.image_response is not None:
+        # handle response
+        pass
 
 ```
 <!-- End File uploads [file-upload] -->
@@ -148,41 +150,41 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
-from livepeer.utils import BackoffStrategy, RetryConfig
 from livepeer_ai import Livepeer
+from livepeer_ai.utils import BackoffStrategy, RetryConfig
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as livepeer:
 
-res = s.generate.text_to_image(request={
-    "prompt": "<value>",
-},
-    RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
+    res = livepeer.generate.text_to_image(request={
+        "prompt": "<value>",
+    },
+        RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
-if res.image_response is not None:
-    # handle response
-    pass
+    if res.image_response is not None:
+        # handle response
+        pass
 
 ```
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
-from livepeer.utils import BackoffStrategy, RetryConfig
 from livepeer_ai import Livepeer
+from livepeer_ai.utils import BackoffStrategy, RetryConfig
 
-s = Livepeer(
+with Livepeer(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as livepeer:
 
-res = s.generate.text_to_image(request={
-    "prompt": "<value>",
-})
+    res = livepeer.generate.text_to_image(request={
+        "prompt": "<value>",
+    })
 
-if res.image_response is not None:
-    # handle response
-    pass
+    if res.image_response is not None:
+        # handle response
+        pass
 
 ```
 <!-- End Retries [retries] -->
@@ -203,11 +205,11 @@ By default, an API error will raise a errors.SDKError exception, which has the f
 
 When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `text_to_image_async` method may raise the following exceptions:
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 500              | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                 | Status Code   | Content Type     |
+| -------------------------- | ------------- | ---------------- |
+| errors.HTTPError           | 400, 401, 500 | application/json |
+| errors.HTTPValidationError | 422           | application/json |
+| errors.SDKError            | 4XX, 5XX      | \*/\*            |
 
 ### Example
 
@@ -215,29 +217,29 @@ When custom error responses are specified for an operation, the SDK may also rai
 from livepeer_ai import Livepeer
 from livepeer_ai.models import errors
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as livepeer:
+    res = None
+    try:
 
-res = None
-try:
-    res = s.generate.text_to_image(request={
-        "prompt": "<value>",
-    })
+        res = livepeer.generate.text_to_image(request={
+            "prompt": "<value>",
+        })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+        if res.image_response is not None:
+            # handle response
+            pass
 
-except errors.HTTPError as e:
-    # handle e.data: errors.HTTPErrorData
-    raise(e)
-except errors.HTTPValidationError as e:
-    # handle e.data: errors.HTTPValidationErrorData
-    raise(e)
-except errors.SDKError as e:
-    # handle exception
-    raise(e)
+    except errors.HTTPError as e:
+        # handle e.data: errors.HTTPErrorData
+        raise(e)
+    except errors.HTTPValidationError as e:
+        # handle e.data: errors.HTTPValidationErrorData
+        raise(e)
+    except errors.SDKError as e:
+        # handle exception
+        raise(e)
 ```
 <!-- End Error Handling [errors] -->
 
@@ -248,31 +250,30 @@ except errors.SDKError as e:
 
 You can override the default server globally by passing a server index to the `server_idx: int` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
 
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://dream-gateway.livepeer.cloud` | None |
-| 1 | `https://livepeer.studio/api/beta/generate` | None |
+| #   | Server                                      |
+| --- | ------------------------------------------- |
+| 0   | `https://dream-gateway.livepeer.cloud`      |
+| 1   | `https://livepeer.studio/api/beta/generate` |
 
 #### Example
 
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     server_idx=1,
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as livepeer:
 
-res = s.generate.text_to_image(request={
-    "prompt": "<value>",
-})
+    res = livepeer.generate.text_to_image(request={
+        "prompt": "<value>",
+    })
 
-if res.image_response is not None:
-    # handle response
-    pass
+    if res.image_response is not None:
+        # handle response
+        pass
 
 ```
-
 
 ### Override Server URL Per-Client
 
@@ -280,18 +281,18 @@ The default server can also be overridden globally by passing a URL to the `serv
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     server_url="https://dream-gateway.livepeer.cloud",
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as livepeer:
 
-res = s.generate.text_to_image(request={
-    "prompt": "<value>",
-})
+    res = livepeer.generate.text_to_image(request={
+        "prompt": "<value>",
+    })
 
-if res.image_response is not None:
-    # handle response
-    pass
+    if res.image_response is not None:
+        # handle response
+        pass
 
 ```
 <!-- End Server Selection [server] -->
@@ -384,25 +385,25 @@ s = Livepeer(async_client=CustomClient(httpx.AsyncClient()))
 
 This SDK supports the following security scheme globally:
 
-| Name          | Type          | Scheme        |
-| ------------- | ------------- | ------------- |
-| `http_bearer` | http          | HTTP Bearer   |
+| Name          | Type | Scheme      |
+| ------------- | ---- | ----------- |
+| `http_bearer` | http | HTTP Bearer |
 
 To authenticate with the API the `http_bearer` parameter must be set when initializing the SDK client instance. For example:
 ```python
 from livepeer_ai import Livepeer
 
-s = Livepeer(
+with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-)
+) as livepeer:
 
-res = s.generate.text_to_image(request={
-    "prompt": "<value>",
-})
+    res = livepeer.generate.text_to_image(request={
+        "prompt": "<value>",
+    })
 
-if res.image_response is not None:
-    # handle response
-    pass
+    if res.image_response is not None:
+        # handle response
+        pass
 
 ```
 <!-- End Authentication [security] -->
@@ -430,18 +431,23 @@ Livepeer AI Runner: An application to run AI pipelines
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [Livepeer AI Python Library](#livepeer-ai-python-library)
+  * [SDK Installation](#sdk-installation)
+  * [IDE Support](#ide-support)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [File uploads](#file-uploads)
+  * [Retries](#retries)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Authentication](#authentication)
+  * [Debugging](#debugging)
+* [Development](#development)
+  * [Maturity](#maturity)
+  * [Contributions](#contributions)
 
-* [SDK Installation](#sdk-installation)
-* [IDE Support](#ide-support)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [File uploads](#file-uploads)
-* [Retries](#retries)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
-* [Custom HTTP Client](#custom-http-client)
-* [Authentication](#authentication)
-* [Debugging](#debugging)
 <!-- End Table of Contents [toc] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

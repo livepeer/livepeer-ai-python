@@ -11,20 +11,20 @@ actions:
           source: |-
             from livepeer_ai import Livepeer
 
-            s = Livepeer(
+            with Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-            )
+            ) as livepeer:
 
-            res = s.generate.audio_to_text(request={
-                "audio": {
-                    "file_name": "example.file",
-                    "content": open("example.file", "rb"),
-                },
-            })
+                res = livepeer.generate.audio_to_text(request={
+                    "audio": {
+                        "file_name": "example.file",
+                        "content": open("example.file", "rb"),
+                    },
+                })
 
-            if res.text_response is not None:
-                # handle response
-                pass
+                if res.text_response is not None:
+                    # handle response
+                    pass
   - target: $["paths"]["/image-to-image"]["post"]
     update:
       x-codeSamples:
@@ -33,21 +33,21 @@ actions:
           source: |-
             from livepeer_ai import Livepeer
 
-            s = Livepeer(
+            with Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-            )
+            ) as livepeer:
 
-            res = s.generate.image_to_image(request={
-                "prompt": "<value>",
-                "image": {
-                    "file_name": "example.file",
-                    "content": open("example.file", "rb"),
-                },
-            })
+                res = livepeer.generate.image_to_image(request={
+                    "prompt": "<value>",
+                    "image": {
+                        "file_name": "example.file",
+                        "content": open("example.file", "rb"),
+                    },
+                })
 
-            if res.image_response is not None:
-                # handle response
-                pass
+                if res.image_response is not None:
+                    # handle response
+                    pass
   - target: $["paths"]["/image-to-text"]["post"]
     update:
       x-codeSamples:
@@ -56,20 +56,20 @@ actions:
           source: |-
             from livepeer_ai import Livepeer
 
-            s = Livepeer(
+            with Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-            )
+            ) as livepeer:
 
-            res = s.generate.image_to_text(request={
-                "image": {
-                    "file_name": "example.file",
-                    "content": open("example.file", "rb"),
-                },
-            })
+                res = livepeer.generate.image_to_text(request={
+                    "image": {
+                        "file_name": "example.file",
+                        "content": open("example.file", "rb"),
+                    },
+                })
 
-            if res.image_to_text_response is not None:
-                # handle response
-                pass
+                if res.image_to_text_response is not None:
+                    # handle response
+                    pass
   - target: $["paths"]["/image-to-video"]["post"]
     update:
       x-codeSamples:
@@ -78,20 +78,20 @@ actions:
           source: |-
             from livepeer_ai import Livepeer
 
-            s = Livepeer(
+            with Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-            )
+            ) as livepeer:
 
-            res = s.generate.image_to_video(request={
-                "image": {
-                    "file_name": "example.file",
-                    "content": open("example.file", "rb"),
-                },
-            })
+                res = livepeer.generate.image_to_video(request={
+                    "image": {
+                        "file_name": "example.file",
+                        "content": open("example.file", "rb"),
+                    },
+                })
 
-            if res.video_response is not None:
-                # handle response
-                pass
+                if res.video_response is not None:
+                    # handle response
+                    pass
   - target: $["paths"]["/live-video-to-video"]["post"]
     update:
       x-codeSamples:
@@ -100,18 +100,18 @@ actions:
           source: |-
             from livepeer_ai import Livepeer
 
-            s = Livepeer(
+            with Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-            )
+            ) as livepeer:
 
-            res = s.generate.live_video_to_video(request={
-                "subscribe_url": "https://soulful-lava.org/",
-                "publish_url": "https://vain-tabletop.biz",
-            })
+                res = livepeer.generate.live_video_to_video(request={
+                    "subscribe_url": "https://soulful-lava.org/",
+                    "publish_url": "https://vain-tabletop.biz",
+                })
 
-            if res.live_video_to_video_response is not None:
-                # handle response
-                pass
+                if res.live_video_to_video_response is not None:
+                    # handle response
+                    pass
   - target: $["paths"]["/llm"]["post"]
     update:
       x-codeSamples:
@@ -120,17 +120,17 @@ actions:
           source: |-
             from livepeer_ai import Livepeer
 
-            s = Livepeer(
+            with Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-            )
+            ) as livepeer:
 
-            res = s.generate.llm(request={
-                "prompt": "<value>",
-            })
+                res = livepeer.generate.llm(request={
+                    "prompt": "<value>",
+                })
 
-            if res.llm_response is not None:
-                # handle response
-                pass
+                if res.llm_response is not None:
+                    # handle response
+                    pass
   - target: $["paths"]["/segment-anything-2"]["post"]
     update:
       x-codeSamples:
@@ -139,20 +139,20 @@ actions:
           source: |-
             from livepeer_ai import Livepeer
 
-            s = Livepeer(
+            with Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-            )
+            ) as livepeer:
 
-            res = s.generate.segment_anything2(request={
-                "image": {
-                    "file_name": "example.file",
-                    "content": open("example.file", "rb"),
-                },
-            })
+                res = livepeer.generate.segment_anything2(request={
+                    "image": {
+                        "file_name": "example.file",
+                        "content": open("example.file", "rb"),
+                    },
+                })
 
-            if res.masks_response is not None:
-                # handle response
-                pass
+                if res.masks_response is not None:
+                    # handle response
+                    pass
   - target: $["paths"]["/text-to-image"]["post"]
     update:
       x-codeSamples:
@@ -161,17 +161,17 @@ actions:
           source: |-
             from livepeer_ai import Livepeer
 
-            s = Livepeer(
+            with Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-            )
+            ) as livepeer:
 
-            res = s.generate.text_to_image(request={
-                "prompt": "<value>",
-            })
+                res = livepeer.generate.text_to_image(request={
+                    "prompt": "<value>",
+                })
 
-            if res.image_response is not None:
-                # handle response
-                pass
+                if res.image_response is not None:
+                    # handle response
+                    pass
   - target: $["paths"]["/text-to-speech"]["post"]
     update:
       x-codeSamples:
@@ -180,15 +180,15 @@ actions:
           source: |-
             from livepeer_ai import Livepeer
 
-            s = Livepeer(
+            with Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-            )
+            ) as livepeer:
 
-            res = s.generate.text_to_speech(request={})
+                res = livepeer.generate.text_to_speech(request={})
 
-            if res.audio_response is not None:
-                # handle response
-                pass
+                if res.audio_response is not None:
+                    # handle response
+                    pass
   - target: $["paths"]["/upscale"]["post"]
     update:
       x-codeSamples:
@@ -197,18 +197,18 @@ actions:
           source: |-
             from livepeer_ai import Livepeer
 
-            s = Livepeer(
+            with Livepeer(
                 http_bearer="<YOUR_BEARER_TOKEN_HERE>",
-            )
+            ) as livepeer:
 
-            res = s.generate.upscale(request={
-                "prompt": "<value>",
-                "image": {
-                    "file_name": "example.file",
-                    "content": open("example.file", "rb"),
-                },
-            })
+                res = livepeer.generate.upscale(request={
+                    "prompt": "<value>",
+                    "image": {
+                        "file_name": "example.file",
+                        "content": open("example.file", "rb"),
+                    },
+                })
 
-            if res.image_response is not None:
-                # handle response
-                pass
+                if res.image_response is not None:
+                    # handle response
+                    pass
