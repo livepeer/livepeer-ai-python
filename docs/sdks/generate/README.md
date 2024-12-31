@@ -33,9 +33,10 @@ with Livepeer(
         "prompt": "<value>",
     })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 
 ```
 
@@ -79,9 +80,10 @@ with Livepeer(
         },
     })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 
 ```
 
@@ -124,9 +126,10 @@ with Livepeer(
         },
     })
 
-    if res.video_response is not None:
-        # handle response
-        pass
+    assert res.video_response is not None
+
+    # Handle response
+    print(res.video_response)
 
 ```
 
@@ -170,9 +173,10 @@ with Livepeer(
         },
     })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 
 ```
 
@@ -215,9 +219,10 @@ with Livepeer(
         },
     })
 
-    if res.text_response is not None:
-        # handle response
-        pass
+    assert res.text_response is not None
+
+    # Handle response
+    print(res.text_response)
 
 ```
 
@@ -260,9 +265,10 @@ with Livepeer(
         },
     })
 
-    if res.masks_response is not None:
-        # handle response
-        pass
+    assert res.masks_response is not None
+
+    # Handle response
+    print(res.masks_response)
 
 ```
 
@@ -299,12 +305,18 @@ with Livepeer(
 ) as livepeer:
 
     res = livepeer.generate.llm(request={
-        "prompt": "<value>",
+        "messages": [
+            {
+                "role": "<value>",
+                "content": "<value>",
+            },
+        ],
     })
 
-    if res.llm_response is not None:
-        # handle response
-        pass
+    assert res.llm_response is not None
+
+    # Handle response
+    print(res.llm_response)
 
 ```
 
@@ -312,7 +324,7 @@ with Livepeer(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [components.BodyGenLLM](../../models/components/bodygenllm.md)      | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [components.LLMRequest](../../models/components/llmrequest.md)      | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -347,9 +359,10 @@ with Livepeer(
         },
     })
 
-    if res.image_to_text_response is not None:
-        # handle response
-        pass
+    assert res.image_to_text_response is not None
+
+    # Handle response
+    print(res.image_to_text_response)
 
 ```
 
@@ -390,9 +403,10 @@ with Livepeer(
         "publish_url": "https://vain-tabletop.biz",
     })
 
-    if res.live_video_to_video_response is not None:
-        # handle response
-        pass
+    assert res.live_video_to_video_response is not None
+
+    # Handle response
+    print(res.live_video_to_video_response)
 
 ```
 
@@ -430,9 +444,10 @@ with Livepeer(
 
     res = livepeer.generate.text_to_speech(request={})
 
-    if res.audio_response is not None:
-        # handle response
-        pass
+    assert res.audio_response is not None
+
+    # Handle response
+    print(res.audio_response)
 
 ```
 

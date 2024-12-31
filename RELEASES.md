@@ -119,3 +119,13 @@ Based on:
 - [python v0.8.0] .
 ### Releases
 - [PyPI v0.8.0] https://pypi.org/project/livepeer-ai/0.8.0 - .
+
+## 2024-12-31 00:16:39
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.460.3 (2.484.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.9.0] .
+### Releases
+- [PyPI v0.9.0] https://pypi.org/project/livepeer-ai/0.9.0 - .

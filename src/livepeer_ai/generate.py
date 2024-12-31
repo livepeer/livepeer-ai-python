@@ -5,7 +5,7 @@ from livepeer_ai import utils
 from livepeer_ai._hooks import HookContext
 from livepeer_ai.models import components, errors, operations
 from livepeer_ai.types import BaseModel, OptionalNullable, UNSET
-from typing import Any, Optional, Union, cast
+from typing import Any, Mapping, Optional, Union, cast
 
 
 class Generate(BaseSDK):
@@ -18,6 +18,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenTextToImageResponse:
         r"""Text To Image
 
@@ -27,6 +28,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -40,7 +42,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.TextToImageParams)
         request = cast(components.TextToImageParams, request)
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/text-to-image",
             base_url=base_url,
@@ -51,6 +53,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", components.TextToImageParams
@@ -115,6 +118,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenTextToImageResponse:
         r"""Text To Image
 
@@ -124,6 +128,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -137,7 +142,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.TextToImageParams)
         request = cast(components.TextToImageParams, request)
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/text-to-image",
             base_url=base_url,
@@ -148,6 +153,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", components.TextToImageParams
@@ -212,6 +218,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenImageToImageResponse:
         r"""Image To Image
 
@@ -221,6 +228,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -234,7 +242,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenImageToImage)
         request = cast(components.BodyGenImageToImage, request)
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/image-to-image",
             base_url=base_url,
@@ -245,6 +253,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenImageToImage
@@ -309,6 +318,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenImageToImageResponse:
         r"""Image To Image
 
@@ -318,6 +328,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -331,7 +342,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenImageToImage)
         request = cast(components.BodyGenImageToImage, request)
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/image-to-image",
             base_url=base_url,
@@ -342,6 +353,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenImageToImage
@@ -406,6 +418,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenImageToVideoResponse:
         r"""Image To Video
 
@@ -415,6 +428,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -428,7 +442,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenImageToVideo)
         request = cast(components.BodyGenImageToVideo, request)
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/image-to-video",
             base_url=base_url,
@@ -439,6 +453,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenImageToVideo
@@ -503,6 +518,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenImageToVideoResponse:
         r"""Image To Video
 
@@ -512,6 +528,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -525,7 +542,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenImageToVideo)
         request = cast(components.BodyGenImageToVideo, request)
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/image-to-video",
             base_url=base_url,
@@ -536,6 +553,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenImageToVideo
@@ -598,6 +616,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenUpscaleResponse:
         r"""Upscale
 
@@ -607,6 +626,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -620,7 +640,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenUpscale)
         request = cast(components.BodyGenUpscale, request)
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/upscale",
             base_url=base_url,
@@ -631,6 +651,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenUpscale
@@ -693,6 +714,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenUpscaleResponse:
         r"""Upscale
 
@@ -702,6 +724,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -715,7 +738,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenUpscale)
         request = cast(components.BodyGenUpscale, request)
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/upscale",
             base_url=base_url,
@@ -726,6 +749,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenUpscale
@@ -790,6 +814,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenAudioToTextResponse:
         r"""Audio To Text
 
@@ -799,6 +824,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -812,7 +838,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenAudioToText)
         request = cast(components.BodyGenAudioToText, request)
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/audio-to-text",
             base_url=base_url,
@@ -823,6 +849,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenAudioToText
@@ -889,6 +916,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenAudioToTextResponse:
         r"""Audio To Text
 
@@ -898,6 +926,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -911,7 +940,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenAudioToText)
         request = cast(components.BodyGenAudioToText, request)
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/audio-to-text",
             base_url=base_url,
@@ -922,6 +951,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenAudioToText
@@ -989,6 +1019,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenSegmentAnything2Response:
         r"""Segment Anything 2
 
@@ -998,6 +1029,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1011,7 +1043,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenSegmentAnything2)
         request = cast(components.BodyGenSegmentAnything2, request)
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/segment-anything-2",
             base_url=base_url,
@@ -1022,6 +1054,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenSegmentAnything2
@@ -1087,6 +1120,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenSegmentAnything2Response:
         r"""Segment Anything 2
 
@@ -1096,6 +1130,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1109,7 +1144,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenSegmentAnything2)
         request = cast(components.BodyGenSegmentAnything2, request)
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/segment-anything-2",
             base_url=base_url,
@@ -1120,6 +1155,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenSegmentAnything2
@@ -1178,10 +1214,11 @@ class Generate(BaseSDK):
     def llm(
         self,
         *,
-        request: Union[components.BodyGenLLM, components.BodyGenLLMTypedDict],
+        request: Union[components.LLMRequest, components.LLMRequestTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenLLMResponse:
         r"""LLM
 
@@ -1191,6 +1228,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1201,10 +1239,10 @@ class Generate(BaseSDK):
             base_url = server_url
 
         if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, components.BodyGenLLM)
-        request = cast(components.BodyGenLLM, request)
+            request = utils.unmarshal(request, components.LLMRequest)
+        request = cast(components.LLMRequest, request)
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/llm",
             base_url=base_url,
@@ -1215,9 +1253,10 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "form", components.BodyGenLLM
+                request, False, False, "json", components.LLMRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -1273,10 +1312,11 @@ class Generate(BaseSDK):
     async def llm_async(
         self,
         *,
-        request: Union[components.BodyGenLLM, components.BodyGenLLMTypedDict],
+        request: Union[components.LLMRequest, components.LLMRequestTypedDict],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenLLMResponse:
         r"""LLM
 
@@ -1286,6 +1326,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1296,10 +1337,10 @@ class Generate(BaseSDK):
             base_url = server_url
 
         if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, components.BodyGenLLM)
-        request = cast(components.BodyGenLLM, request)
+            request = utils.unmarshal(request, components.LLMRequest)
+        request = cast(components.LLMRequest, request)
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/llm",
             base_url=base_url,
@@ -1310,9 +1351,10 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "form", components.BodyGenLLM
+                request, False, False, "json", components.LLMRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -1374,6 +1416,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenImageToTextResponse:
         r"""Image To Text
 
@@ -1383,6 +1426,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1396,7 +1440,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenImageToText)
         request = cast(components.BodyGenImageToText, request)
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/image-to-text",
             base_url=base_url,
@@ -1407,6 +1451,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenImageToText
@@ -1473,6 +1518,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenImageToTextResponse:
         r"""Image To Text
 
@@ -1482,6 +1528,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1495,7 +1542,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.BodyGenImageToText)
         request = cast(components.BodyGenImageToText, request)
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/image-to-text",
             base_url=base_url,
@@ -1506,6 +1553,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "multipart", components.BodyGenImageToText
@@ -1573,6 +1621,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenLiveVideoToVideoResponse:
         r"""Live Video To Video
 
@@ -1582,6 +1631,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1595,7 +1645,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.LiveVideoToVideoParams)
         request = cast(components.LiveVideoToVideoParams, request)
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/live-video-to-video",
             base_url=base_url,
@@ -1606,6 +1656,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", components.LiveVideoToVideoParams
@@ -1671,6 +1722,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenLiveVideoToVideoResponse:
         r"""Live Video To Video
 
@@ -1680,6 +1732,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1693,7 +1746,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.LiveVideoToVideoParams)
         request = cast(components.LiveVideoToVideoParams, request)
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/live-video-to-video",
             base_url=base_url,
@@ -1704,6 +1757,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", components.LiveVideoToVideoParams
@@ -1768,6 +1822,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenTextToSpeechResponse:
         r"""Text To Speech
 
@@ -1777,6 +1832,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1790,7 +1846,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.TextToSpeechParams)
         request = cast(components.TextToSpeechParams, request)
 
-        req = self.build_request(
+        req = self._build_request(
             method="POST",
             path="/text-to-speech",
             base_url=base_url,
@@ -1801,6 +1857,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", components.TextToSpeechParams
@@ -1865,6 +1922,7 @@ class Generate(BaseSDK):
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
     ) -> operations.GenTextToSpeechResponse:
         r"""Text To Speech
 
@@ -1874,6 +1932,7 @@ class Generate(BaseSDK):
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
         """
         base_url = None
         url_variables = None
@@ -1887,7 +1946,7 @@ class Generate(BaseSDK):
             request = utils.unmarshal(request, components.TextToSpeechParams)
         request = cast(components.TextToSpeechParams, request)
 
-        req = self.build_request_async(
+        req = self._build_request_async(
             method="POST",
             path="/text-to-speech",
             base_url=base_url,
@@ -1898,6 +1957,7 @@ class Generate(BaseSDK):
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
+            http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", components.TextToSpeechParams

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
-  docChecksum: a690daf53c97c95bb6c912a2c59f804d
+  docChecksum: 5162ce13f49e729b6efa20dd5cdf32be
   docVersion: 0.0.0
-  speakeasyVersion: 1.454.0
-  generationVersion: 2.477.0
-  releaseVersion: 0.8.0
-  configChecksum: 404e2a546fe183c10067017df4896733
+  speakeasyVersion: 1.460.3
+  generationVersion: 2.484.0
+  releaseVersion: 0.9.0
+  configChecksum: 40760f888f8f869e4f9b83ad88469b3f
   repoURL: https://github.com/livepeer/livepeer-ai-python.git
   installationURL: https://github.com/livepeer/livepeer-ai-python.git
   published: true
@@ -14,15 +14,15 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.6.11
+    core: 5.7.4
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
     globalSecurity: 3.0.2
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
-    globalServerURLs: 3.0.0
+    globalServerURLs: 3.1.0
     multipartFileContentType: 1.0.0
-    nameOverrides: 3.0.0
+    nameOverrides: 3.0.1
     responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.0.0
@@ -43,7 +43,6 @@ generatedFiles:
   - docs/models/components/bodygenimagetotextimage.md
   - docs/models/components/bodygenimagetovideo.md
   - docs/models/components/bodygenimagetovideoimage.md
-  - docs/models/components/bodygenllm.md
   - docs/models/components/bodygensegmentanything2.md
   - docs/models/components/bodygensegmentanything2image.md
   - docs/models/components/bodygenupscale.md
@@ -55,6 +54,8 @@ generatedFiles:
   - docs/models/components/imagetotextresponse.md
   - docs/models/components/livevideotovideoparams.md
   - docs/models/components/livevideotovideoresponse.md
+  - docs/models/components/llmmessage.md
+  - docs/models/components/llmrequest.md
   - docs/models/components/llmresponse.md
   - docs/models/components/loc.md
   - docs/models/components/masksresponse.md
@@ -103,7 +104,6 @@ generatedFiles:
   - src/livepeer_ai/models/components/body_genimagetoimage.py
   - src/livepeer_ai/models/components/body_genimagetotext.py
   - src/livepeer_ai/models/components/body_genimagetovideo.py
-  - src/livepeer_ai/models/components/body_genllm.py
   - src/livepeer_ai/models/components/body_gensegmentanything2.py
   - src/livepeer_ai/models/components/body_genupscale.py
   - src/livepeer_ai/models/components/chunk.py
@@ -112,6 +112,8 @@ generatedFiles:
   - src/livepeer_ai/models/components/imagetotextresponse.py
   - src/livepeer_ai/models/components/livevideotovideoparams.py
   - src/livepeer_ai/models/components/livevideotovideoresponse.py
+  - src/livepeer_ai/models/components/llmmessage.py
+  - src/livepeer_ai/models/components/llmrequest.py
   - src/livepeer_ai/models/components/llmresponse.py
   - src/livepeer_ai/models/components/masksresponse.py
   - src/livepeer_ai/models/components/media.py
@@ -167,7 +169,8 @@ examples:
           application/json: {"images": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
-        "422": {}
+        "422":
+          application/json: {}
   genImageToImage:
     speakeasy-default-gen-image-to-image:
       requestBody:
@@ -177,7 +180,8 @@ examples:
           application/json: {"images": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
-        "422": {}
+        "422":
+          application/json: {}
   genImageToVideo:
     speakeasy-default-gen-image-to-video:
       requestBody:
@@ -187,7 +191,8 @@ examples:
           application/json: {"images": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
-        "422": {}
+        "422":
+          application/json: {}
   genUpscale:
     speakeasy-default-gen-upscale:
       requestBody:
@@ -197,7 +202,8 @@ examples:
           application/json: {"images": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
-        "422": {}
+        "422":
+          application/json: {}
   genAudioToText:
     speakeasy-default-gen-audio-to-text:
       requestBody:
@@ -207,7 +213,8 @@ examples:
           application/json: {"text": "<value>", "chunks": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
-        "422": {}
+        "422":
+          application/json: {}
   genSegmentAnything2:
     speakeasy-default-gen-segment-anything2:
       requestBody:
@@ -217,17 +224,20 @@ examples:
           application/json: {"masks": "<value>", "scores": "<value>", "logits": "<value>"}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
-        "422": {}
+        "422":
+          application/json: {}
   genLLM:
     speakeasy-default-gen-LLM:
       requestBody:
         application/x-www-form-urlencoded: {"prompt": "<value>"}
+        application/json: {"messages": []}
       responses:
         "200":
-          application/json: {"response": "<value>", "tokens_used": 60712}
+          application/json: {"response": "<value>", "tokens_used": 60712, "id": "<id>", "model": "Expedition", "created": 755586}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
-        "422": {}
+        "422":
+          application/json: {}
   genImageToText:
     speakeasy-default-gen-image-to-text:
       requestBody:
@@ -237,7 +247,8 @@ examples:
           application/json: {"text": "<value>"}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
-        "422": {}
+        "422":
+          application/json: {}
   genLiveVideoToVideo:
     speakeasy-default-gen-live-video-to-video:
       requestBody:
@@ -247,7 +258,8 @@ examples:
           application/json: {"subscribe_url": "https://vain-kiss.name", "publish_url": "https://frail-duffel.com"}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
-        "422": {}
+        "422":
+          application/json: {}
   genTextToSpeech:
     speakeasy-default-gen-text-to-speech:
       responses:
@@ -255,5 +267,6 @@ examples:
           application/json: {"audio": {"url": "https://accurate-parsnip.net/"}}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
-        "422": {}
+        "422":
+          application/json: {}
 generatedTests: {}

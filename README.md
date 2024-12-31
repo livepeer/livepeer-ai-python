@@ -58,9 +58,10 @@ with Livepeer(
         "prompt": "<value>",
     })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 ```
 
 </br>
@@ -80,9 +81,10 @@ async def main():
             "prompt": "<value>",
         })
 
-        if res.image_response is not None:
-            # handle response
-            pass
+        assert res.image_response is not None
+
+        # Handle response
+        print(res.image_response)
 
 asyncio.run(main())
 ```
@@ -136,9 +138,10 @@ with Livepeer(
         },
     })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 
 ```
 <!-- End File uploads [file-upload] -->
@@ -162,9 +165,10 @@ with Livepeer(
     },
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 
 ```
 
@@ -182,9 +186,10 @@ with Livepeer(
         "prompt": "<value>",
     })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 
 ```
 <!-- End Retries [retries] -->
@@ -227,9 +232,10 @@ with Livepeer(
             "prompt": "<value>",
         })
 
-        if res.image_response is not None:
-            # handle response
-            pass
+        assert res.image_response is not None
+
+        # Handle response
+        print(res.image_response)
 
     except errors.HTTPError as e:
         # handle e.data: errors.HTTPErrorData
@@ -269,9 +275,10 @@ with Livepeer(
         "prompt": "<value>",
     })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 
 ```
 
@@ -290,9 +297,10 @@ with Livepeer(
         "prompt": "<value>",
     })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 
 ```
 <!-- End Server Selection [server] -->
@@ -401,9 +409,10 @@ with Livepeer(
         "prompt": "<value>",
     })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 
 ```
 <!-- End Authentication [security] -->

@@ -11,9 +11,10 @@ with Livepeer(
         "prompt": "<value>",
     })
 
-    if res.image_response is not None:
-        # handle response
-        pass
+    assert res.image_response is not None
+
+    # Handle response
+    print(res.image_response)
 ```
 
 </br>
@@ -33,9 +34,10 @@ async def main():
             "prompt": "<value>",
         })
 
-        if res.image_response is not None:
-            # handle response
-            pass
+        assert res.image_response is not None
+
+        # Handle response
+        print(res.image_response)
 
 asyncio.run(main())
 ```

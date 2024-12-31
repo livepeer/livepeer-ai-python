@@ -26,7 +26,6 @@ from .body_genimagetovideo import (
     BodyGenImageToVideoImageTypedDict,
     BodyGenImageToVideoTypedDict,
 )
-from .body_genllm import BodyGenLLM, BodyGenLLMTypedDict
 from .body_gensegmentanything2 import (
     BodyGenSegmentAnything2,
     BodyGenSegmentAnything2Image,
@@ -53,6 +52,8 @@ from .livevideotovideoresponse import (
     LiveVideoToVideoResponse,
     LiveVideoToVideoResponseTypedDict,
 )
+from .llmmessage import LLMMessage, LLMMessageTypedDict
+from .llmrequest import LLMRequest, LLMRequestTypedDict
 from .llmresponse import LLMResponse, LLMResponseTypedDict
 from .masksresponse import MasksResponse, MasksResponseTypedDict
 from .media import Media, MediaTypedDict
@@ -88,8 +89,6 @@ __all__ = [
     "BodyGenImageToVideoImage",
     "BodyGenImageToVideoImageTypedDict",
     "BodyGenImageToVideoTypedDict",
-    "BodyGenLLM",
-    "BodyGenLLMTypedDict",
     "BodyGenSegmentAnything2",
     "BodyGenSegmentAnything2Image",
     "BodyGenSegmentAnything2ImageTypedDict",
@@ -108,6 +107,10 @@ __all__ = [
     "ImageToTextResponse",
     "ImageToTextResponseTypedDict",
     "ImageTypedDict",
+    "LLMMessage",
+    "LLMMessageTypedDict",
+    "LLMRequest",
+    "LLMRequestTypedDict",
     "LLMResponse",
     "LLMResponseTypedDict",
     "LiveVideoToVideoParams",
