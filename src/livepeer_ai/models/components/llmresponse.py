@@ -8,9 +8,18 @@ from typing_extensions import TypedDict
 class LLMResponseTypedDict(TypedDict):
     response: str
     tokens_used: int
+    id: str
+    model: str
+    created: int
 
 
 class LLMResponse(BaseModel):
     response: str
 
     tokens_used: int
+
+    id: str
+
+    model: str
+
+    created: int

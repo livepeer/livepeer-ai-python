@@ -17,7 +17,7 @@ class AudioTypedDict(TypedDict):
 
 class Audio(BaseModel):
     file_name: Annotated[
-        str, pydantic.Field(alias="audio"), FieldMetadata(multipart=True)
+        str, pydantic.Field(alias="fileName"), FieldMetadata(multipart=True)
     ]
 
     content: Annotated[
@@ -43,11 +43,7 @@ class BodyGenAudioToTextTypedDict(TypedDict):
 
 
 class BodyGenAudioToText(BaseModel):
-    audio: Annotated[
-        Audio,
-        pydantic.Field(alias=""),
-        FieldMetadata(multipart=MultipartFormMetadata(file=True)),
-    ]
+    audio: Annotated[Audio, FieldMetadata(multipart=MultipartFormMetadata(file=True))]
     r"""Uploaded audio file to be transcribed."""
 
     model_id: Annotated[Optional[str], FieldMetadata(multipart=True)] = ""

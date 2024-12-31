@@ -17,7 +17,7 @@ class BodyGenUpscaleImageTypedDict(TypedDict):
 
 class BodyGenUpscaleImage(BaseModel):
     file_name: Annotated[
-        str, pydantic.Field(alias="image"), FieldMetadata(multipart=True)
+        str, pydantic.Field(alias="fileName"), FieldMetadata(multipart=True)
     ]
 
     content: Annotated[
@@ -53,9 +53,7 @@ class BodyGenUpscale(BaseModel):
     r"""Text prompt(s) to guide upscaled image generation."""
 
     image: Annotated[
-        BodyGenUpscaleImage,
-        pydantic.Field(alias=""),
-        FieldMetadata(multipart=MultipartFormMetadata(file=True)),
+        BodyGenUpscaleImage, FieldMetadata(multipart=MultipartFormMetadata(file=True))
     ]
     r"""Uploaded image to modify with the pipeline."""
 

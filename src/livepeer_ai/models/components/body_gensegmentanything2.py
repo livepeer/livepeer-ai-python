@@ -17,7 +17,7 @@ class BodyGenSegmentAnything2ImageTypedDict(TypedDict):
 
 class BodyGenSegmentAnything2Image(BaseModel):
     file_name: Annotated[
-        str, pydantic.Field(alias="image"), FieldMetadata(multipart=True)
+        str, pydantic.Field(alias="fileName"), FieldMetadata(multipart=True)
     ]
 
     content: Annotated[
@@ -57,7 +57,6 @@ class BodyGenSegmentAnything2TypedDict(TypedDict):
 class BodyGenSegmentAnything2(BaseModel):
     image: Annotated[
         BodyGenSegmentAnything2Image,
-        pydantic.Field(alias=""),
         FieldMetadata(multipart=MultipartFormMetadata(file=True)),
     ]
     r"""Image to segment."""

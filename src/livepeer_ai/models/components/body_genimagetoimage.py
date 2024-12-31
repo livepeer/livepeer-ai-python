@@ -17,7 +17,7 @@ class ImageTypedDict(TypedDict):
 
 class Image(BaseModel):
     file_name: Annotated[
-        str, pydantic.Field(alias="image"), FieldMetadata(multipart=True)
+        str, pydantic.Field(alias="fileName"), FieldMetadata(multipart=True)
     ]
 
     content: Annotated[
@@ -64,11 +64,7 @@ class BodyGenImageToImage(BaseModel):
     prompt: Annotated[str, FieldMetadata(multipart=True)]
     r"""Text prompt(s) to guide image generation."""
 
-    image: Annotated[
-        Image,
-        pydantic.Field(alias=""),
-        FieldMetadata(multipart=MultipartFormMetadata(file=True)),
-    ]
+    image: Annotated[Image, FieldMetadata(multipart=MultipartFormMetadata(file=True))]
     r"""Uploaded image to modify with the pipeline."""
 
     model_id: Annotated[Optional[str], FieldMetadata(multipart=True)] = ""

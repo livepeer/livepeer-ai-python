@@ -17,7 +17,7 @@ class BodyGenImageToTextImageTypedDict(TypedDict):
 
 class BodyGenImageToTextImage(BaseModel):
     file_name: Annotated[
-        str, pydantic.Field(alias="image"), FieldMetadata(multipart=True)
+        str, pydantic.Field(alias="fileName"), FieldMetadata(multipart=True)
     ]
 
     content: Annotated[
@@ -45,7 +45,6 @@ class BodyGenImageToTextTypedDict(TypedDict):
 class BodyGenImageToText(BaseModel):
     image: Annotated[
         BodyGenImageToTextImage,
-        pydantic.Field(alias=""),
         FieldMetadata(multipart=MultipartFormMetadata(file=True)),
     ]
     r"""Uploaded image to transform with the pipeline."""
