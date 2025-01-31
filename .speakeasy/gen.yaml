@@ -13,7 +13,7 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
 python:
-  version: 0.9.0
+  version: 0.10.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -23,6 +23,7 @@ python:
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKError
   description: Python Client SDK for the Livepeer AI API.
+  enableCustomCodeRegions: false
   enumFormat: enum
   fixFlags:
     responseRequiredSep2024: false

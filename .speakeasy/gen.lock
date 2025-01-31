@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
-  docChecksum: 5162ce13f49e729b6efa20dd5cdf32be
+  docChecksum: 6657dd3e876a909472f364dc1fe34d72
   docVersion: 0.0.0
-  speakeasyVersion: 1.460.3
-  generationVersion: 2.484.0
-  releaseVersion: 0.9.0
-  configChecksum: 40760f888f8f869e4f9b83ad88469b3f
+  speakeasyVersion: 1.480.0
+  generationVersion: 2.499.0
+  releaseVersion: 0.10.0
+  configChecksum: 2b2d2389ee9ff1be5cd354baf7c62739
   repoURL: https://github.com/livepeer/livepeer-ai-python.git
   installationURL: https://github.com/livepeer/livepeer-ai-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.7.4
+    core: 5.10.7
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
     globalSecurity: 3.0.2
@@ -32,7 +32,6 @@ generatedFiles:
   - .gitattributes
   - .python-version
   - .vscode/settings.json
-  - CONTRIBUTING.md
   - USAGE.md
   - docs/models/components/apierror.md
   - docs/models/components/audio.md
@@ -54,9 +53,11 @@ generatedFiles:
   - docs/models/components/imagetotextresponse.md
   - docs/models/components/livevideotovideoparams.md
   - docs/models/components/livevideotovideoresponse.md
+  - docs/models/components/llmchoice.md
   - docs/models/components/llmmessage.md
   - docs/models/components/llmrequest.md
   - docs/models/components/llmresponse.md
+  - docs/models/components/llmtokenusage.md
   - docs/models/components/loc.md
   - docs/models/components/masksresponse.md
   - docs/models/components/media.md
@@ -112,9 +113,11 @@ generatedFiles:
   - src/livepeer_ai/models/components/imagetotextresponse.py
   - src/livepeer_ai/models/components/livevideotovideoparams.py
   - src/livepeer_ai/models/components/livevideotovideoresponse.py
+  - src/livepeer_ai/models/components/llmchoice.py
   - src/livepeer_ai/models/components/llmmessage.py
   - src/livepeer_ai/models/components/llmrequest.py
   - src/livepeer_ai/models/components/llmresponse.py
+  - src/livepeer_ai/models/components/llmtokenusage.py
   - src/livepeer_ai/models/components/masksresponse.py
   - src/livepeer_ai/models/components/media.py
   - src/livepeer_ai/models/components/mediaurl.py
@@ -163,62 +166,72 @@ examples:
   genTextToImage:
     speakeasy-default-gen-text-to-image:
       requestBody:
-        application/json: {"prompt": "<value>"}
+        application/json: {"model_id": "", "loras": "", "prompt": "<value>", "height": 576, "width": 1024, "guidance_scale": 7.5, "negative_prompt": "", "safety_check": true, "num_inference_steps": 50, "num_images_per_prompt": 1}
       responses:
         "200":
-          application/json: {"images": []}
+          application/json: {"images": [{"url": "https://hateful-cruelty.name", "seed": 857392, "nsfw": true}]}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
   genImageToImage:
     speakeasy-default-gen-image-to-image:
       requestBody:
-        multipart/form-data: {"prompt": "<value>", "image": {}}
+        multipart/form-data: {"prompt": "<value>", "image": {"": "x-file: example.file"}, "model_id": "", "loras": "", "strength": 0.8, "guidance_scale": 7.5, "image_guidance_scale": 1.5, "negative_prompt": "", "safety_check": true, "num_inference_steps": 100, "num_images_per_prompt": 1}
       responses:
         "200":
-          application/json: {"images": []}
+          application/json: {"images": [{"url": "https://selfish-operating.name/", "seed": 976514, "nsfw": false}]}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
   genImageToVideo:
     speakeasy-default-gen-image-to-video:
       requestBody:
-        multipart/form-data: {"image": {}}
+        multipart/form-data: {"image": {"": "x-file: example.file"}, "model_id": "", "height": 576, "width": 1024, "fps": 6, "motion_bucket_id": 127, "noise_aug_strength": 0.02, "safety_check": true, "num_inference_steps": 25}
       responses:
         "200":
-          application/json: {"images": []}
+          application/json: {"images": [{"url": "https://low-handover.name/", "seed": 87160, "nsfw": true}]}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
   genUpscale:
     speakeasy-default-gen-upscale:
       requestBody:
-        multipart/form-data: {"prompt": "<value>", "image": {}}
+        multipart/form-data: {"prompt": "<value>", "image": {"": "x-file: example.file"}, "model_id": "", "safety_check": true, "num_inference_steps": 75}
       responses:
         "200":
-          application/json: {"images": []}
+          application/json: {"images": [{"url": "https://bogus-typewriter.net", "seed": 311567, "nsfw": false}]}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
   genAudioToText:
     speakeasy-default-gen-audio-to-text:
       requestBody:
-        multipart/form-data: {"audio": {}}
+        multipart/form-data: {"audio": {"": "x-file: example.file"}, "model_id": "", "return_timestamps": "true"}
       responses:
         "200":
-          application/json: {"text": "<value>", "chunks": []}
+          application/json: {"text": "<value>", "chunks": [{"timestamp": ["<value>", "<value>"], "text": "<value>"}, {"timestamp": [], "text": "<value>"}]}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
   genSegmentAnything2:
     speakeasy-default-gen-segment-anything2:
       requestBody:
-        multipart/form-data: {"image": {}}
+        multipart/form-data: {"image": {"": "x-file: example.file"}, "model_id": "", "multimask_output": true, "return_logits": true, "normalize_coords": true}
       responses:
         "200":
           application/json: {"masks": "<value>", "scores": "<value>", "logits": "<value>"}
@@ -226,22 +239,25 @@ examples:
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
   genLLM:
     speakeasy-default-gen-LLM:
       requestBody:
-        application/x-www-form-urlencoded: {"prompt": "<value>"}
-        application/json: {"messages": []}
+        application/json: {"messages": [], "model": "", "temperature": 0.7, "max_tokens": 256, "top_p": 1, "top_k": -1, "stream": false}
       responses:
         "200":
-          application/json: {"response": "<value>", "tokens_used": 60712, "id": "<id>", "model": "Expedition", "created": 755586}
+          application/json: {"id": "<id>", "model": "Expedition", "created": 755586, "usage": {"prompt_tokens": 348799, "completion_tokens": 332397, "total_tokens": 528534}, "choices": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
   genImageToText:
     speakeasy-default-gen-image-to-text:
       requestBody:
-        multipart/form-data: {"image": {}}
+        multipart/form-data: {"image": {"": "x-file: example.file"}, "prompt": "", "model_id": ""}
       responses:
         "200":
           application/json: {"text": "<value>"}
@@ -249,19 +265,25 @@ examples:
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
   genLiveVideoToVideo:
     speakeasy-default-gen-live-video-to-video:
       requestBody:
-        application/json: {"subscribe_url": "https://soulful-lava.org/", "publish_url": "https://vain-tabletop.biz"}
+        application/json: {"subscribe_url": "https://soulful-lava.org/", "publish_url": "https://vain-tabletop.biz", "control_url": "", "events_url": "", "model_id": ""}
       responses:
         "200":
-          application/json: {"subscribe_url": "https://vain-kiss.name", "publish_url": "https://frail-duffel.com"}
+          application/json: {"subscribe_url": "https://vain-kiss.name", "publish_url": "https://frail-duffel.com", "control_url": "", "events_url": ""}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
   genTextToSpeech:
     speakeasy-default-gen-text-to-speech:
+      requestBody:
+        application/json: {"model_id": "", "text": "", "description": "A male speaker delivers a slightly expressive and animated speech with a moderate speed and pitch."}
       responses:
         "200":
           application/json: {"audio": {"url": "https://accurate-parsnip.net/"}}
@@ -269,4 +291,7 @@ examples:
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+examplesVersion: 1.0.0
 generatedTests: {}

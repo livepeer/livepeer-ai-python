@@ -52,9 +52,11 @@ from .livevideotovideoresponse import (
     LiveVideoToVideoResponse,
     LiveVideoToVideoResponseTypedDict,
 )
+from .llmchoice import LLMChoice, LLMChoiceTypedDict
 from .llmmessage import LLMMessage, LLMMessageTypedDict
 from .llmrequest import LLMRequest, LLMRequestTypedDict
 from .llmresponse import LLMResponse, LLMResponseTypedDict
+from .llmtokenusage import LLMTokenUsage, LLMTokenUsageTypedDict
 from .masksresponse import MasksResponse, MasksResponseTypedDict
 from .media import Media, MediaTypedDict
 from .mediaurl import MediaURL, MediaURLTypedDict
@@ -69,6 +71,7 @@ from .validationerror import (
     ValidationErrorTypedDict,
 )
 from .videoresponse import VideoResponse, VideoResponseTypedDict
+
 
 __all__ = [
     "APIError",
@@ -107,12 +110,16 @@ __all__ = [
     "ImageToTextResponse",
     "ImageToTextResponseTypedDict",
     "ImageTypedDict",
+    "LLMChoice",
+    "LLMChoiceTypedDict",
     "LLMMessage",
     "LLMMessageTypedDict",
     "LLMRequest",
     "LLMRequestTypedDict",
     "LLMResponse",
     "LLMResponseTypedDict",
+    "LLMTokenUsage",
+    "LLMTokenUsageTypedDict",
     "LiveVideoToVideoParams",
     "LiveVideoToVideoParamsTypedDict",
     "LiveVideoToVideoResponse",
