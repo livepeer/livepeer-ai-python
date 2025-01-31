@@ -12,6 +12,11 @@ Welcome to the [Livepeer AI](https://livepeer.ai/) Python! This library offers a
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
+> [!NOTE]
+> **Python version upgrade policy**
+>
+> Once a Python version reaches its [official end of life date](https://devguide.python.org/versions/), a 3-month grace period is provided for users to upgrade. Following this grace period, the minimum python version supported in the SDK will be updated.
+
 The SDK can be installed with either *pip* or *poetry* package managers.
 
 ### PIP
@@ -56,6 +61,15 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
+        "model_id": "",
+        "loras": "",
+        "height": 576,
+        "width": 1024,
+        "guidance_scale": 7.5,
+        "negative_prompt": "",
+        "safety_check": True,
+        "num_inference_steps": 50,
+        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -79,6 +93,15 @@ async def main():
 
         res = await livepeer.generate.text_to_image_async(request={
             "prompt": "<value>",
+            "model_id": "",
+            "loras": "",
+            "height": 576,
+            "width": 1024,
+            "guidance_scale": 7.5,
+            "negative_prompt": "",
+            "safety_check": True,
+            "num_inference_steps": 50,
+            "num_images_per_prompt": 1,
         })
 
         assert res.image_response is not None
@@ -136,6 +159,15 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
+        "model_id": "",
+        "loras": "",
+        "strength": 0.8,
+        "guidance_scale": 7.5,
+        "image_guidance_scale": 1.5,
+        "negative_prompt": "",
+        "safety_check": True,
+        "num_inference_steps": 100,
+        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -162,6 +194,15 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
+        "model_id": "",
+        "loras": "",
+        "height": 576,
+        "width": 1024,
+        "guidance_scale": 7.5,
+        "negative_prompt": "",
+        "safety_check": True,
+        "num_inference_steps": 50,
+        "num_images_per_prompt": 1,
     },
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
@@ -184,6 +225,15 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
+        "model_id": "",
+        "loras": "",
+        "height": 576,
+        "width": 1024,
+        "guidance_scale": 7.5,
+        "negative_prompt": "",
+        "safety_check": True,
+        "num_inference_steps": 50,
+        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -210,11 +260,12 @@ By default, an API error will raise a errors.SDKError exception, which has the f
 
 When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `text_to_image_async` method may raise the following exceptions:
 
-| Error Type                 | Status Code   | Content Type     |
-| -------------------------- | ------------- | ---------------- |
-| errors.HTTPError           | 400, 401, 500 | application/json |
-| errors.HTTPValidationError | 422           | application/json |
-| errors.SDKError            | 4XX, 5XX      | \*/\*            |
+| Error Type                 | Status Code | Content Type     |
+| -------------------------- | ----------- | ---------------- |
+| errors.HTTPError           | 400, 401    | application/json |
+| errors.HTTPValidationError | 422         | application/json |
+| errors.HTTPError           | 500         | application/json |
+| errors.SDKError            | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -230,6 +281,15 @@ with Livepeer(
 
         res = livepeer.generate.text_to_image(request={
             "prompt": "<value>",
+            "model_id": "",
+            "loras": "",
+            "height": 576,
+            "width": 1024,
+            "guidance_scale": 7.5,
+            "negative_prompt": "",
+            "safety_check": True,
+            "num_inference_steps": 50,
+            "num_images_per_prompt": 1,
         })
 
         assert res.image_response is not None
@@ -242,6 +302,9 @@ with Livepeer(
         raise(e)
     except errors.HTTPValidationError as e:
         # handle e.data: errors.HTTPValidationErrorData
+        raise(e)
+    except errors.HTTPError as e:
+        # handle e.data: errors.HTTPErrorData
         raise(e)
     except errors.SDKError as e:
         # handle exception
@@ -273,6 +336,15 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
+        "model_id": "",
+        "loras": "",
+        "height": 576,
+        "width": 1024,
+        "guidance_scale": 7.5,
+        "negative_prompt": "",
+        "safety_check": True,
+        "num_inference_steps": 50,
+        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -295,6 +367,15 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
+        "model_id": "",
+        "loras": "",
+        "height": 576,
+        "width": 1024,
+        "guidance_scale": 7.5,
+        "negative_prompt": "",
+        "safety_check": True,
+        "num_inference_steps": 50,
+        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -407,6 +488,15 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
+        "model_id": "",
+        "loras": "",
+        "height": 576,
+        "width": 1024,
+        "guidance_scale": 7.5,
+        "negative_prompt": "",
+        "safety_check": True,
+        "num_inference_steps": 50,
+        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -416,6 +506,31 @@ with Livepeer(
 
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Resource Management [resource-management] -->
+## Resource Management
+
+The `Livepeer` class implements the context manager protocol and registers a finalizer function to close the underlying sync and async HTTPX clients it uses under the hood. This will close HTTP connections, release memory and free up other resources held by the SDK. In short-lived Python programs and notebooks that make a few SDK method calls, resource management may not be a concern. However, in longer-lived programs, it is beneficial to create a single SDK instance via a [context manager][context-manager] and reuse it across the application.
+
+[context-manager]: https://docs.python.org/3/reference/datamodel.html#context-managers
+
+```python
+from livepeer_ai import Livepeer
+def main():
+    with Livepeer(
+        http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+    ) as livepeer:
+        # Rest of application here...
+
+
+# Or when using async:
+async def amain():
+    async with Livepeer(
+        http_bearer="<YOUR_BEARER_TOKEN_HERE>",
+    ) as livepeer:
+        # Rest of application here...
+```
+<!-- End Resource Management [resource-management] -->
 
 <!-- Start Debugging [debug] -->
 ## Debugging
@@ -452,6 +567,7 @@ Livepeer AI Runner: An application to run AI pipelines
   * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
   * [Authentication](#authentication)
+  * [Resource Management](#resource-management)
   * [Debugging](#debugging)
 * [Development](#development)
   * [Maturity](#maturity)

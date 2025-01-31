@@ -9,6 +9,15 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
+        "model_id": "",
+        "loras": "",
+        "height": 576,
+        "width": 1024,
+        "guidance_scale": 7.5,
+        "negative_prompt": "",
+        "safety_check": True,
+        "num_inference_steps": 50,
+        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -32,6 +41,15 @@ async def main():
 
         res = await livepeer.generate.text_to_image_async(request={
             "prompt": "<value>",
+            "model_id": "",
+            "loras": "",
+            "height": 576,
+            "width": 1024,
+            "guidance_scale": 7.5,
+            "negative_prompt": "",
+            "safety_check": True,
+            "num_inference_steps": 50,
+            "num_images_per_prompt": 1,
         })
 
         assert res.image_response is not None

@@ -17,6 +17,7 @@ from .gentexttoimage import GenTextToImageResponse, GenTextToImageResponseTypedD
 from .gentexttospeech import GenTextToSpeechResponse, GenTextToSpeechResponseTypedDict
 from .genupscale import GenUpscaleResponse, GenUpscaleResponseTypedDict
 
+
 __all__ = [
     "GenAudioToTextResponse",
     "GenAudioToTextResponseTypedDict",

@@ -31,6 +31,15 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
+        "model_id": "",
+        "loras": "",
+        "height": 576,
+        "width": 1024,
+        "guidance_scale": 7.5,
+        "negative_prompt": "",
+        "safety_check": True,
+        "num_inference_steps": 50,
+        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -55,8 +64,9 @@ with Livepeer(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 500              | application/json           |
+| errors.HTTPError           | 400, 401                   | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.HTTPError           | 500                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## image_to_image
@@ -78,6 +88,15 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
+        "model_id": "",
+        "loras": "",
+        "strength": 0.8,
+        "guidance_scale": 7.5,
+        "image_guidance_scale": 1.5,
+        "negative_prompt": "",
+        "safety_check": True,
+        "num_inference_steps": 100,
+        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -102,8 +121,9 @@ with Livepeer(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 500              | application/json           |
+| errors.HTTPError           | 400, 401                   | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.HTTPError           | 500                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## image_to_video
@@ -124,6 +144,14 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
+        "model_id": "",
+        "height": 576,
+        "width": 1024,
+        "fps": 6,
+        "motion_bucket_id": 127,
+        "noise_aug_strength": 0.02,
+        "safety_check": True,
+        "num_inference_steps": 25,
     })
 
     assert res.video_response is not None
@@ -148,8 +176,9 @@ with Livepeer(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 500              | application/json           |
+| errors.HTTPError           | 400, 401                   | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.HTTPError           | 500                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## upscale
@@ -171,6 +200,9 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
+        "model_id": "",
+        "safety_check": True,
+        "num_inference_steps": 75,
     })
 
     assert res.image_response is not None
@@ -195,8 +227,9 @@ with Livepeer(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 500              | application/json           |
+| errors.HTTPError           | 400, 401                   | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.HTTPError           | 500                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## audio_to_text
@@ -217,6 +250,8 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
+        "model_id": "",
+        "return_timestamps": "true",
     })
 
     assert res.text_response is not None
@@ -241,8 +276,9 @@ with Livepeer(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 413, 415, 500    | application/json           |
+| errors.HTTPError           | 400, 401, 413, 415         | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.HTTPError           | 500                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## segment_anything2
@@ -263,6 +299,10 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
+        "model_id": "",
+        "multimask_output": True,
+        "return_logits": True,
+        "normalize_coords": True,
     })
 
     assert res.masks_response is not None
@@ -287,8 +327,9 @@ with Livepeer(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 500              | application/json           |
+| errors.HTTPError           | 400, 401                   | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.HTTPError           | 500                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## llm
@@ -306,11 +347,14 @@ with Livepeer(
 
     res = livepeer.generate.llm(request={
         "messages": [
-            {
-                "role": "<value>",
-                "content": "<value>",
-            },
+
         ],
+        "model": "",
+        "temperature": 0.7,
+        "max_tokens": 256,
+        "top_p": 1,
+        "top_k": -1,
+        "stream": False,
     })
 
     assert res.llm_response is not None
@@ -335,8 +379,9 @@ with Livepeer(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 500              | application/json           |
+| errors.HTTPError           | 400, 401                   | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.HTTPError           | 500                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## image_to_text
@@ -357,6 +402,8 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
+        "prompt": "",
+        "model_id": "",
     })
 
     assert res.image_to_text_response is not None
@@ -381,8 +428,9 @@ with Livepeer(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 413, 500         | application/json           |
+| errors.HTTPError           | 400, 401, 413              | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.HTTPError           | 500                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## live_video_to_video
@@ -401,6 +449,9 @@ with Livepeer(
     res = livepeer.generate.live_video_to_video(request={
         "subscribe_url": "https://soulful-lava.org/",
         "publish_url": "https://vain-tabletop.biz",
+        "control_url": "",
+        "events_url": "",
+        "model_id": "",
     })
 
     assert res.live_video_to_video_response is not None
@@ -425,8 +476,9 @@ with Livepeer(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 500              | application/json           |
+| errors.HTTPError           | 400, 401                   | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.HTTPError           | 500                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |
 
 ## text_to_speech
@@ -442,7 +494,11 @@ with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
 
-    res = livepeer.generate.text_to_speech(request={})
+    res = livepeer.generate.text_to_speech(request={
+        "model_id": "",
+        "text": "",
+        "description": "A male speaker delivers a slightly expressive and animated speech with a moderate speed and pitch.",
+    })
 
     assert res.audio_response is not None
 
@@ -466,6 +522,7 @@ with Livepeer(
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPError           | 400, 401, 500              | application/json           |
+| errors.HTTPError           | 400, 401                   | application/json           |
 | errors.HTTPValidationError | 422                        | application/json           |
+| errors.HTTPError           | 500                        | application/json           |
 | errors.SDKError            | 4XX, 5XX                   | \*/\*                      |

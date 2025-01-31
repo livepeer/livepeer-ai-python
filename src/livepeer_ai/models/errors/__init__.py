@@ -4,6 +4,7 @@ from .httperror import HTTPError, HTTPErrorData
 from .httpvalidationerror import HTTPValidationError, HTTPValidationErrorData
 from .sdkerror import SDKError
 
+
 __all__ = [
     "HTTPError",
     "HTTPErrorData",
