@@ -5,6 +5,8 @@ from .genimagetoimage import GenImageToImageResponse, GenImageToImageResponseTyp
 from .genimagetotext import GenImageToTextResponse, GenImageToTextResponseTypedDict
 from .genimagetovideo import GenImageToVideoResponse, GenImageToVideoResponseTypedDict
 from .genlivevideotovideo import (
+    GenLiveVideoToVideoRequest,
+    GenLiveVideoToVideoRequestTypedDict,
     GenLiveVideoToVideoResponse,
     GenLiveVideoToVideoResponseTypedDict,
 )
@@ -29,6 +31,8 @@ __all__ = [
     "GenImageToVideoResponseTypedDict",
     "GenLLMResponse",
     "GenLLMResponseTypedDict",
+    "GenLiveVideoToVideoRequest",
+    "GenLiveVideoToVideoRequestTypedDict",
     "GenLiveVideoToVideoResponse",
     "GenLiveVideoToVideoResponseTypedDict",
     "GenSegmentAnything2Response",

@@ -71,6 +71,7 @@ class Generate(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genTextToImage",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -80,7 +81,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenTextToImageResponse(
                 image_response=utils.unmarshal_json(
@@ -89,14 +90,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SDKError(
@@ -179,6 +182,7 @@ class Generate(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genTextToImage",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -188,7 +192,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenTextToImageResponse(
                 image_response=utils.unmarshal_json(
@@ -197,14 +201,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SDKError(
@@ -287,6 +293,7 @@ class Generate(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genImageToImage",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -296,7 +303,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenImageToImageResponse(
                 image_response=utils.unmarshal_json(
@@ -305,14 +312,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SDKError(
@@ -395,6 +404,7 @@ class Generate(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genImageToImage",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -404,7 +414,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenImageToImageResponse(
                 image_response=utils.unmarshal_json(
@@ -413,14 +423,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SDKError(
@@ -503,6 +515,7 @@ class Generate(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genImageToVideo",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -512,7 +525,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenImageToVideoResponse(
                 video_response=utils.unmarshal_json(
@@ -521,14 +534,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SDKError(
@@ -611,6 +626,7 @@ class Generate(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genImageToVideo",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -620,7 +636,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenImageToVideoResponse(
                 video_response=utils.unmarshal_json(
@@ -629,14 +645,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SDKError(
@@ -717,6 +735,7 @@ class Generate(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genUpscale",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -726,7 +745,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenUpscaleResponse(
                 image_response=utils.unmarshal_json(
@@ -735,14 +754,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SDKError(
@@ -823,6 +844,7 @@ class Generate(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genUpscale",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -832,7 +854,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenUpscaleResponse(
                 image_response=utils.unmarshal_json(
@@ -841,14 +863,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SDKError(
@@ -931,6 +955,7 @@ class Generate(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genAudioToText",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -940,7 +965,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenAudioToTextResponse(
                 text_response=utils.unmarshal_json(
@@ -951,14 +976,16 @@ class Generate(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "413", "415"], "application/json"
         ):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SDKError(
@@ -1041,6 +1068,7 @@ class Generate(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genAudioToText",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -1050,7 +1078,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenAudioToTextResponse(
                 text_response=utils.unmarshal_json(
@@ -1061,14 +1089,16 @@ class Generate(BaseSDK):
         if utils.match_response(
             http_res, ["400", "401", "413", "415"], "application/json"
         ):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SDKError(
@@ -1152,6 +1182,7 @@ class Generate(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genSegmentAnything2",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -1161,7 +1192,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenSegmentAnything2Response(
                 masks_response=utils.unmarshal_json(
@@ -1170,14 +1201,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SDKError(
@@ -1261,6 +1294,7 @@ class Generate(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genSegmentAnything2",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -1270,7 +1304,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenSegmentAnything2Response(
                 masks_response=utils.unmarshal_json(
@@ -1279,14 +1313,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SDKError(
@@ -1367,6 +1403,7 @@ class Generate(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genLLM",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -1376,7 +1413,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenLLMResponse(
                 llm_response=utils.unmarshal_json(
@@ -1385,14 +1422,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SDKError(
@@ -1473,6 +1512,7 @@ class Generate(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genLLM",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -1482,7 +1522,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenLLMResponse(
                 llm_response=utils.unmarshal_json(
@@ -1491,14 +1531,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SDKError(
@@ -1581,6 +1623,7 @@ class Generate(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genImageToText",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -1590,7 +1633,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenImageToTextResponse(
                 image_to_text_response=utils.unmarshal_json(
@@ -1599,14 +1642,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401", "413"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SDKError(
@@ -1689,6 +1734,7 @@ class Generate(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genImageToText",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -1698,7 +1744,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenImageToTextResponse(
                 image_to_text_response=utils.unmarshal_json(
@@ -1707,14 +1753,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401", "413"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SDKError(
@@ -1738,10 +1786,12 @@ class Generate(BaseSDK):
     def live_video_to_video(
         self,
         *,
-        request: Union[
+        live_video_to_video_params: Union[
             components.LiveVideoToVideoParams,
             components.LiveVideoToVideoParamsTypedDict,
         ],
+        request_id: Optional[str] = None,
+        stream_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1751,7 +1801,9 @@ class Generate(BaseSDK):
 
         Apply transformations to a live video streamed to the returned endpoints.
 
-        :param request: The request object to send.
+        :param live_video_to_video_params:
+        :param request_id:
+        :param stream_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1765,9 +1817,13 @@ class Generate(BaseSDK):
         if server_url is not None:
             base_url = server_url
 
-        if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, components.LiveVideoToVideoParams)
-        request = cast(components.LiveVideoToVideoParams, request)
+        request = operations.GenLiveVideoToVideoRequest(
+            request_id=request_id,
+            stream_id=stream_id,
+            live_video_to_video_params=utils.get_pydantic_model(
+                live_video_to_video_params, components.LiveVideoToVideoParams
+            ),
+        )
 
         req = self._build_request(
             method="POST",
@@ -1783,7 +1839,11 @@ class Generate(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", components.LiveVideoToVideoParams
+                request.live_video_to_video_params,
+                False,
+                False,
+                "json",
+                components.LiveVideoToVideoParams,
             ),
             timeout_ms=timeout_ms,
         )
@@ -1798,6 +1858,7 @@ class Generate(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genLiveVideoToVideo",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -1807,7 +1868,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenLiveVideoToVideoResponse(
                 live_video_to_video_response=utils.unmarshal_json(
@@ -1816,14 +1877,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SDKError(
@@ -1847,10 +1910,12 @@ class Generate(BaseSDK):
     async def live_video_to_video_async(
         self,
         *,
-        request: Union[
+        live_video_to_video_params: Union[
             components.LiveVideoToVideoParams,
             components.LiveVideoToVideoParamsTypedDict,
         ],
+        request_id: Optional[str] = None,
+        stream_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1860,7 +1925,9 @@ class Generate(BaseSDK):
 
         Apply transformations to a live video streamed to the returned endpoints.
 
-        :param request: The request object to send.
+        :param live_video_to_video_params:
+        :param request_id:
+        :param stream_id:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1874,9 +1941,13 @@ class Generate(BaseSDK):
         if server_url is not None:
             base_url = server_url
 
-        if not isinstance(request, BaseModel):
-            request = utils.unmarshal(request, components.LiveVideoToVideoParams)
-        request = cast(components.LiveVideoToVideoParams, request)
+        request = operations.GenLiveVideoToVideoRequest(
+            request_id=request_id,
+            stream_id=stream_id,
+            live_video_to_video_params=utils.get_pydantic_model(
+                live_video_to_video_params, components.LiveVideoToVideoParams
+            ),
+        )
 
         req = self._build_request_async(
             method="POST",
@@ -1892,7 +1963,11 @@ class Generate(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request, False, False, "json", components.LiveVideoToVideoParams
+                request.live_video_to_video_params,
+                False,
+                False,
+                "json",
+                components.LiveVideoToVideoParams,
             ),
             timeout_ms=timeout_ms,
         )
@@ -1907,6 +1982,7 @@ class Generate(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genLiveVideoToVideo",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -1916,7 +1992,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenLiveVideoToVideoResponse(
                 live_video_to_video_response=utils.unmarshal_json(
@@ -1925,14 +2001,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SDKError(
@@ -2015,6 +2093,7 @@ class Generate(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genTextToSpeech",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -2024,7 +2103,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenTextToSpeechResponse(
                 audio_response=utils.unmarshal_json(
@@ -2033,14 +2112,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise errors.SDKError(
@@ -2123,6 +2204,7 @@ class Generate(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                base_url=base_url or "",
                 operation_id="genTextToSpeech",
                 oauth2_scopes=[],
                 security_source=self.sdk_configuration.security,
@@ -2132,7 +2214,7 @@ class Generate(BaseSDK):
             retry_config=retry_config,
         )
 
-        data: Any = None
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return operations.GenTextToSpeechResponse(
                 audio_response=utils.unmarshal_json(
@@ -2141,14 +2223,16 @@ class Generate(BaseSDK):
                 http_meta=components.HTTPMetadata(request=req, response=http_res),
             )
         if utils.match_response(http_res, ["400", "401"], "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "422", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPValidationErrorData)
-            raise errors.HTTPValidationError(data=data)
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
-            data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
-            raise errors.HTTPError(data=data)
+            response_data = utils.unmarshal_json(http_res.text, errors.HTTPErrorData)
+            raise errors.HTTPError(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise errors.SDKError(

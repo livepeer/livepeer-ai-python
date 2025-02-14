@@ -34,6 +34,37 @@ pip install livepeer-ai
 ```bash
 poetry add livepeer-ai
 ```
+
+### Shell and script usage with `uv`
+
+You can use this SDK in a Python shell with [uv](https://docs.astral.sh/uv/) and the `uvx` command that comes with it like so:
+
+```shell
+uvx --from livepeer-ai python
+```
+
+It's also possible to write a standalone Python script without needing to set up a whole project like so:
+
+```python
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.9"
+# dependencies = [
+#     "livepeer-ai",
+# ]
+# ///
+
+from livepeer_ai import Livepeer
+
+sdk = Livepeer(
+  # SDK arguments
+)
+
+# Rest of script here...
+```
+
+Once that is saved to a file, you can run it with `uv run script.py` where
+`script.py` can be replaced with the actual file name.
 <!-- End SDK Installation [installation] -->
 
 <!-- Start IDE Support [idesupport] -->
@@ -61,15 +92,6 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -93,15 +115,6 @@ async def main():
 
         res = await livepeer.generate.text_to_image_async(request={
             "prompt": "<value>",
-            "model_id": "",
-            "loras": "",
-            "height": 576,
-            "width": 1024,
-            "guidance_scale": 7.5,
-            "negative_prompt": "",
-            "safety_check": True,
-            "num_inference_steps": 50,
-            "num_images_per_prompt": 1,
         })
 
         assert res.image_response is not None
@@ -159,15 +172,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "loras": "",
-        "strength": 0.8,
-        "guidance_scale": 7.5,
-        "image_guidance_scale": 1.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 100,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -194,15 +198,6 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     },
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
@@ -225,15 +220,6 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -281,15 +267,6 @@ with Livepeer(
 
         res = livepeer.generate.text_to_image(request={
             "prompt": "<value>",
-            "model_id": "",
-            "loras": "",
-            "height": 576,
-            "width": 1024,
-            "guidance_scale": 7.5,
-            "negative_prompt": "",
-            "safety_check": True,
-            "num_inference_steps": 50,
-            "num_images_per_prompt": 1,
         })
 
         assert res.image_response is not None
@@ -336,15 +313,6 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -367,15 +335,6 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -488,15 +447,6 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
