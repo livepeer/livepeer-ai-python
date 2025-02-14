@@ -31,15 +31,6 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -88,15 +79,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "loras": "",
-        "strength": 0.8,
-        "guidance_scale": 7.5,
-        "image_guidance_scale": 1.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 100,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -144,14 +126,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "height": 576,
-        "width": 1024,
-        "fps": 6,
-        "motion_bucket_id": 127,
-        "noise_aug_strength": 0.02,
-        "safety_check": True,
-        "num_inference_steps": 25,
     })
 
     assert res.video_response is not None
@@ -200,9 +174,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "safety_check": True,
-        "num_inference_steps": 75,
     })
 
     assert res.image_response is not None
@@ -250,8 +221,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "return_timestamps": "true",
     })
 
     assert res.text_response is not None
@@ -299,10 +268,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "multimask_output": True,
-        "return_logits": True,
-        "normalize_coords": True,
     })
 
     assert res.masks_response is not None
@@ -349,12 +314,6 @@ with Livepeer(
         "messages": [
 
         ],
-        "model": "",
-        "temperature": 0.7,
-        "max_tokens": 256,
-        "top_p": 1,
-        "top_k": -1,
-        "stream": False,
     })
 
     assert res.llm_response is not None
@@ -402,8 +361,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "prompt": "",
-        "model_id": "",
     })
 
     assert res.image_to_text_response is not None
@@ -446,12 +403,9 @@ with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
 
-    res = livepeer.generate.live_video_to_video(request={
+    res = livepeer.generate.live_video_to_video(live_video_to_video_params={
         "subscribe_url": "https://soulful-lava.org/",
         "publish_url": "https://vain-tabletop.biz",
-        "control_url": "",
-        "events_url": "",
-        "model_id": "",
     })
 
     assert res.live_video_to_video_response is not None
@@ -465,7 +419,9 @@ with Livepeer(
 
 | Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [components.LiveVideoToVideoParams](../../models/components/livevideotovideoparams.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `live_video_to_video_params`                                                           | [components.LiveVideoToVideoParams](../../models/components/livevideotovideoparams.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `request_id`                                                                           | *Optional[str]*                                                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `stream_id`                                                                            | *Optional[str]*                                                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |
 | `retries`                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                       | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
 
 ### Response
@@ -494,11 +450,7 @@ with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
 
-    res = livepeer.generate.text_to_speech(request={
-        "model_id": "",
-        "text": "",
-        "description": "A male speaker delivers a slightly expressive and animated speech with a moderate speed and pitch.",
-    })
+    res = livepeer.generate.text_to_speech(request={})
 
     assert res.audio_response is not None
 

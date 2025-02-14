@@ -9,11 +9,12 @@ generation:
     nameResolutionDec2023: true
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
+    securityFeb2025: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: false
 python:
-  version: 0.10.0
+  version: 0.11.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -44,5 +45,6 @@ python:
   outputModelSuffix: output
   packageName: livepeer-ai
   projectUrls: {}
+  pytestTimeout: 0
   responseFormat: envelope-http
   templateVersion: v2

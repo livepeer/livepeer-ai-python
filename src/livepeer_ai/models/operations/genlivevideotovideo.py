@@ -3,12 +3,41 @@
 from __future__ import annotations
 from livepeer_ai.models.components import (
     httpmetadata as components_httpmetadata,
+    livevideotovideoparams as components_livevideotovideoparams,
     livevideotovideoresponse as components_livevideotovideoresponse,
 )
 from livepeer_ai.types import BaseModel
+from livepeer_ai.utils import FieldMetadata, HeaderMetadata, RequestMetadata
 import pydantic
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+class GenLiveVideoToVideoRequestTypedDict(TypedDict):
+    live_video_to_video_params: (
+        components_livevideotovideoparams.LiveVideoToVideoParamsTypedDict
+    )
+    request_id: NotRequired[str]
+    stream_id: NotRequired[str]
+
+
+class GenLiveVideoToVideoRequest(BaseModel):
+    live_video_to_video_params: Annotated[
+        components_livevideotovideoparams.LiveVideoToVideoParams,
+        FieldMetadata(request=RequestMetadata(media_type="application/json")),
+    ]
+
+    request_id: Annotated[
+        Optional[str],
+        pydantic.Field(alias="requestID"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+
+    stream_id: Annotated[
+        Optional[str],
+        pydantic.Field(alias="streamID"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
 
 
 class GenLiveVideoToVideoResponseTypedDict(TypedDict):
