@@ -1,0 +1,10 @@
+# GenLiveVideoToVideoRequest
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `live_video_to_video_params`                                                           | [components.LiveVideoToVideoParams](../../models/components/livevideotovideoparams.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `request_id`                                                                           | *Optional[str]*                                                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `stream_id`                                                                            | *Optional[str]*                                                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |
