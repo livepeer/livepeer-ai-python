@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
-  docChecksum: 6657dd3e876a909472f364dc1fe34d72
-  docVersion: 0.0.0
-  speakeasyVersion: 1.480.0
-  generationVersion: 2.499.0
-  releaseVersion: 0.10.0
-  configChecksum: 2b2d2389ee9ff1be5cd354baf7c62739
+  docChecksum: 628eaf7a69d88ff8b1c3e534379c70a0
+  docVersion: 0.13.10
+  speakeasyVersion: 1.611.0
+  generationVersion: 2.694.1
+  releaseVersion: 0.11.0
+  configChecksum: 1e5ffff42a804abc1c9b656891861a0c
   repoURL: https://github.com/livepeer/livepeer-ai-python.git
   installationURL: https://github.com/livepeer/livepeer-ai-python.git
   published: true
@@ -14,23 +14,22 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.10.7
+    core: 5.20.3
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
-    globalSecurity: 3.0.2
+    globalSecurity: 3.0.3
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
-    globalServerURLs: 3.1.0
+    globalServerURLs: 3.1.1
     multipartFileContentType: 1.0.0
     nameOverrides: 3.0.1
     responseFormat: 1.0.1
     retries: 3.0.2
-    sdkHooks: 1.0.0
+    sdkHooks: 1.1.0
     unions: 3.0.4
     uploadStreams: 1.0.0
 generatedFiles:
   - .gitattributes
-  - .python-version
   - .vscode/settings.json
   - USAGE.md
   - docs/models/components/apierror.md
@@ -88,7 +87,7 @@ generatedFiles:
   - py.typed
   - pylintrc
   - pyproject.toml
-  - scripts/prepare-readme.py
+  - scripts/prepare_readme.py
   - scripts/publish.sh
   - src/livepeer_ai/__init__.py
   - src/livepeer_ai/_hooks/__init__.py
@@ -98,6 +97,7 @@ generatedFiles:
   - src/livepeer_ai/basesdk.py
   - src/livepeer_ai/generate.py
   - src/livepeer_ai/httpclient.py
+  - src/livepeer_ai/models/__init__.py
   - src/livepeer_ai/models/components/__init__.py
   - src/livepeer_ai/models/components/apierror.py
   - src/livepeer_ai/models/components/audioresponse.py
@@ -130,6 +130,9 @@ generatedFiles:
   - src/livepeer_ai/models/errors/__init__.py
   - src/livepeer_ai/models/errors/httperror.py
   - src/livepeer_ai/models/errors/httpvalidationerror.py
+  - src/livepeer_ai/models/errors/livepeererror.py
+  - src/livepeer_ai/models/errors/no_response_error.py
+  - src/livepeer_ai/models/errors/responsevalidationerror.py
   - src/livepeer_ai/models/errors/sdkerror.py
   - src/livepeer_ai/models/operations/__init__.py
   - src/livepeer_ai/models/operations/genaudiototext.py
@@ -149,6 +152,7 @@ generatedFiles:
   - src/livepeer_ai/types/basemodel.py
   - src/livepeer_ai/utils/__init__.py
   - src/livepeer_ai/utils/annotations.py
+  - src/livepeer_ai/utils/datetimes.py
   - src/livepeer_ai/utils/enums.py
   - src/livepeer_ai/utils/eventstreaming.py
   - src/livepeer_ai/utils/forms.py
@@ -160,6 +164,7 @@ generatedFiles:
   - src/livepeer_ai/utils/retries.py
   - src/livepeer_ai/utils/security.py
   - src/livepeer_ai/utils/serializers.py
+  - src/livepeer_ai/utils/unmarshal_json_response.py
   - src/livepeer_ai/utils/url.py
   - src/livepeer_ai/utils/values.py
 examples:
@@ -169,7 +174,7 @@ examples:
         application/json: {"model_id": "", "loras": "", "prompt": "<value>", "height": 576, "width": 1024, "guidance_scale": 7.5, "negative_prompt": "", "safety_check": true, "num_inference_steps": 50, "num_images_per_prompt": 1}
       responses:
         "200":
-          application/json: {"images": [{"url": "https://hateful-cruelty.name", "seed": 857392, "nsfw": true}]}
+          application/json: {"images": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
@@ -179,10 +184,10 @@ examples:
   genImageToImage:
     speakeasy-default-gen-image-to-image:
       requestBody:
-        multipart/form-data: {"prompt": "<value>", "image": {"": "x-file: example.file"}, "model_id": "", "loras": "", "strength": 0.8, "guidance_scale": 7.5, "image_guidance_scale": 1.5, "negative_prompt": "", "safety_check": true, "num_inference_steps": 100, "num_images_per_prompt": 1}
+        multipart/form-data: {"prompt": "<value>", "image": "x-file: example.file", "model_id": "", "loras": "", "strength": 0.8, "guidance_scale": 7.5, "image_guidance_scale": 1.5, "negative_prompt": "", "safety_check": true, "num_inference_steps": 100, "num_images_per_prompt": 1}
       responses:
         "200":
-          application/json: {"images": [{"url": "https://selfish-operating.name/", "seed": 976514, "nsfw": false}]}
+          application/json: {"images": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
@@ -192,10 +197,10 @@ examples:
   genImageToVideo:
     speakeasy-default-gen-image-to-video:
       requestBody:
-        multipart/form-data: {"image": {"": "x-file: example.file"}, "model_id": "", "height": 576, "width": 1024, "fps": 6, "motion_bucket_id": 127, "noise_aug_strength": 0.02, "safety_check": true, "num_inference_steps": 25}
+        multipart/form-data: {"image": "x-file: example.file", "model_id": "", "height": 576, "width": 1024, "fps": 6, "motion_bucket_id": 127, "noise_aug_strength": 0.02, "safety_check": true, "num_inference_steps": 25}
       responses:
         "200":
-          application/json: {"images": [{"url": "https://low-handover.name/", "seed": 87160, "nsfw": true}]}
+          application/json: {"images": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
@@ -205,10 +210,10 @@ examples:
   genUpscale:
     speakeasy-default-gen-upscale:
       requestBody:
-        multipart/form-data: {"prompt": "<value>", "image": {"": "x-file: example.file"}, "model_id": "", "safety_check": true, "num_inference_steps": 75}
+        multipart/form-data: {"prompt": "<value>", "image": "x-file: example.file", "model_id": "", "safety_check": true, "num_inference_steps": 75}
       responses:
         "200":
-          application/json: {"images": [{"url": "https://bogus-typewriter.net", "seed": 311567, "nsfw": false}]}
+          application/json: {"images": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
@@ -218,10 +223,10 @@ examples:
   genAudioToText:
     speakeasy-default-gen-audio-to-text:
       requestBody:
-        multipart/form-data: {"audio": {"": "x-file: example.file"}, "model_id": "", "return_timestamps": "true"}
+        multipart/form-data: {"audio": "x-file: example.file", "model_id": "", "return_timestamps": "true"}
       responses:
         "200":
-          application/json: {"text": "<value>", "chunks": [{"timestamp": ["<value>", "<value>"], "text": "<value>"}, {"timestamp": [], "text": "<value>"}]}
+          application/json: {"text": "<value>", "chunks": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
@@ -231,7 +236,7 @@ examples:
   genSegmentAnything2:
     speakeasy-default-gen-segment-anything2:
       requestBody:
-        multipart/form-data: {"image": {"": "x-file: example.file"}, "model_id": "", "multimask_output": true, "return_logits": true, "normalize_coords": true}
+        multipart/form-data: {"image": "x-file: example.file", "model_id": "", "multimask_output": true, "return_logits": true, "normalize_coords": true}
       responses:
         "200":
           application/json: {"masks": "<value>", "scores": "<value>", "logits": "<value>"}
@@ -244,10 +249,10 @@ examples:
   genLLM:
     speakeasy-default-gen-LLM:
       requestBody:
-        application/json: {"messages": [], "model": "", "temperature": 0.7, "max_tokens": 256, "top_p": 1, "top_k": -1, "stream": false}
+        application/json: {"messages": [{"role": "<value>", "content": "<value>"}], "model": "", "temperature": 0.7, "max_tokens": 256, "top_p": 1, "top_k": -1, "stream": false}
       responses:
         "200":
-          application/json: {"id": "<id>", "model": "Expedition", "created": 755586, "usage": {"prompt_tokens": 348799, "completion_tokens": 332397, "total_tokens": 528534}, "choices": []}
+          application/json: {"id": "<id>", "model": "Explorer", "created": 166063, "usage": {"prompt_tokens": 213097, "completion_tokens": 185693, "total_tokens": 530500}, "choices": []}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
@@ -257,7 +262,7 @@ examples:
   genImageToText:
     speakeasy-default-gen-image-to-text:
       requestBody:
-        multipart/form-data: {"image": {"": "x-file: example.file"}, "prompt": "", "model_id": ""}
+        multipart/form-data: {"image": "x-file: example.file", "prompt": "", "model_id": ""}
       responses:
         "200":
           application/json: {"text": "<value>"}
@@ -270,10 +275,10 @@ examples:
   genLiveVideoToVideo:
     speakeasy-default-gen-live-video-to-video:
       requestBody:
-        application/json: {"subscribe_url": "https://soulful-lava.org/", "publish_url": "https://vain-tabletop.biz", "control_url": "", "events_url": "", "model_id": ""}
+        application/json: {"subscribe_url": "https://soulful-finding.biz", "publish_url": "https://monumental-representation.biz/", "control_url": "", "events_url": "", "model_id": "", "gateway_request_id": "", "manifest_id": "", "stream_id": ""}
       responses:
         "200":
-          application/json: {"subscribe_url": "https://vain-kiss.name", "publish_url": "https://frail-duffel.com", "control_url": "", "events_url": ""}
+          application/json: {"subscribe_url": "https://any-expense.com/", "publish_url": "https://early-abacus.org", "control_url": "", "events_url": "", "request_id": "", "manifest_id": ""}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
@@ -286,12 +291,13 @@ examples:
         application/json: {"model_id": "", "text": "", "description": "A male speaker delivers a slightly expressive and animated speech with a moderate speed and pitch."}
       responses:
         "200":
-          application/json: {"audio": {"url": "https://accurate-parsnip.net/"}}
+          application/json: {"audio": {"url": "https://slushy-elevation.net/"}}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":
           application/json: {}
         "500":
           application/json: {"detail": {"msg": "<value>"}}
-examplesVersion: 1.0.0
+examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes Detected:\n* `livepeer.generate.live_video_to_video()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n"
