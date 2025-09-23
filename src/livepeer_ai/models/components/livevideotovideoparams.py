@@ -27,6 +27,12 @@ class LiveVideoToVideoParamsTypedDict(TypedDict):
     r"""Name of the pipeline to run in the live video to video job. Notice that this is named model_id for consistency with other routes, but it does not refer to a Hugging Face model ID. The exact model(s) depends on the pipeline implementation and might be configurable via the `params` argument."""
     params: NotRequired[ParamsTypedDict]
     r"""Initial parameters for the pipeline."""
+    gateway_request_id: NotRequired[str]
+    r"""The ID of the Gateway request (for logging purposes)."""
+    manifest_id: NotRequired[str]
+    r"""The manifest ID from the orchestrator (for logging purposes)."""
+    stream_id: NotRequired[str]
+    r"""The Stream ID (for logging purposes)."""
 
 
 class LiveVideoToVideoParams(BaseModel):
@@ -47,3 +53,12 @@ class LiveVideoToVideoParams(BaseModel):
 
     params: Optional[Params] = None
     r"""Initial parameters for the pipeline."""
+
+    gateway_request_id: Optional[str] = ""
+    r"""The ID of the Gateway request (for logging purposes)."""
+
+    manifest_id: Optional[str] = ""
+    r"""The manifest ID from the orchestrator (for logging purposes)."""
+
+    stream_id: Optional[str] = ""
+    r"""The Stream ID (for logging purposes)."""
