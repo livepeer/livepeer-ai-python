@@ -17,7 +17,15 @@ Welcome to the [Livepeer AI](https://livepeer.ai/) Python! This library offers a
 >
 > Once a Python version reaches its [official end of life date](https://devguide.python.org/versions/), a 3-month grace period is provided for users to upgrade. Following this grace period, the minimum python version supported in the SDK will be updated.
 
-The SDK can be installed with either *pip* or *poetry* package managers.
+The SDK can be installed with *uv*, *pip*, or *poetry* package managers.
+
+### uv
+
+*uv* is a fast Python package installer and resolver, designed as a drop-in replacement for pip and pip-tools. It's recommended for its speed and modern Python tooling capabilities.
+
+```bash
+uv add livepeer-ai
+```
 
 ### PIP
 
@@ -34,6 +42,37 @@ pip install livepeer-ai
 ```bash
 poetry add livepeer-ai
 ```
+
+### Shell and script usage with `uv`
+
+You can use this SDK in a Python shell with [uv](https://docs.astral.sh/uv/) and the `uvx` command that comes with it like so:
+
+```shell
+uvx --from livepeer-ai python
+```
+
+It's also possible to write a standalone Python script without needing to set up a whole project like so:
+
+```python
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.9"
+# dependencies = [
+#     "livepeer-ai",
+# ]
+# ///
+
+from livepeer_ai import Livepeer
+
+sdk = Livepeer(
+  # SDK arguments
+)
+
+# Rest of script here...
+```
+
+Once that is saved to a file, you can run it with `uv run script.py` where
+`script.py` can be replaced with the actual file name.
 <!-- End SDK Installation [installation] -->
 
 <!-- Start IDE Support [idesupport] -->
@@ -55,21 +94,13 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 # Synchronous Example
 from livepeer_ai import Livepeer
 
+
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -80,28 +111,21 @@ with Livepeer(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
 from livepeer_ai import Livepeer
 
 async def main():
+
     async with Livepeer(
         http_bearer="<YOUR_BEARER_TOKEN_HERE>",
     ) as livepeer:
 
         res = await livepeer.generate.text_to_image_async(request={
             "prompt": "<value>",
-            "model_id": "",
-            "loras": "",
-            "height": 576,
-            "width": 1024,
-            "guidance_scale": 7.5,
-            "negative_prompt": "",
-            "safety_check": True,
-            "num_inference_steps": 50,
-            "num_images_per_prompt": 1,
         })
 
         assert res.image_response is not None
@@ -132,7 +156,6 @@ asyncio.run(main())
 * [live_video_to_video](docs/sdks/generate/README.md#live_video_to_video) - Live Video To Video
 * [text_to_speech](docs/sdks/generate/README.md#text_to_speech) - Text To Speech
 
-
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
@@ -149,6 +172,7 @@ Certain SDK methods accept file objects as part of a request body or multi-part 
 ```python
 from livepeer_ai import Livepeer
 
+
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
@@ -159,15 +183,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "loras": "",
-        "strength": 0.8,
-        "guidance_scale": 7.5,
-        "image_guidance_scale": 1.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 100,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -188,21 +203,13 @@ To change the default retry strategy for a single API call, simply provide a `Re
 from livepeer_ai import Livepeer
 from livepeer_ai.utils import BackoffStrategy, RetryConfig
 
+
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     },
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
@@ -218,6 +225,7 @@ If you'd like to override the default retry strategy for all operations that sup
 from livepeer_ai import Livepeer
 from livepeer_ai.utils import BackoffStrategy, RetryConfig
 
+
 with Livepeer(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
@@ -225,15 +233,6 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -247,31 +246,22 @@ with Livepeer(
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an exception.
+[`LivepeerError`](./src/livepeer_ai/models/errors/livepeererror.py) is the base class for all HTTP error responses. It has the following properties:
 
-By default, an API error will raise a errors.SDKError exception, which has the following properties:
-
-| Property        | Type             | Description           |
-|-----------------|------------------|-----------------------|
-| `.status_code`  | *int*            | The HTTP status code  |
-| `.message`      | *str*            | The error message     |
-| `.raw_response` | *httpx.Response* | The raw HTTP response |
-| `.body`         | *str*            | The response content  |
-
-When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `text_to_image_async` method may raise the following exceptions:
-
-| Error Type                 | Status Code | Content Type     |
-| -------------------------- | ----------- | ---------------- |
-| errors.HTTPError           | 400, 401    | application/json |
-| errors.HTTPValidationError | 422         | application/json |
-| errors.HTTPError           | 500         | application/json |
-| errors.SDKError            | 4XX, 5XX    | \*/\*            |
+| Property           | Type             | Description                                                                             |
+| ------------------ | ---------------- | --------------------------------------------------------------------------------------- |
+| `err.message`      | `str`            | Error message                                                                           |
+| `err.status_code`  | `int`            | HTTP response status code eg `404`                                                      |
+| `err.headers`      | `httpx.Headers`  | HTTP response headers                                                                   |
+| `err.body`         | `str`            | HTTP body. Can be empty string if no body is returned.                                  |
+| `err.raw_response` | `httpx.Response` | Raw HTTP response                                                                       |
+| `err.data`         |                  | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
 ### Example
-
 ```python
 from livepeer_ai import Livepeer
 from livepeer_ai.models import errors
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
@@ -281,15 +271,6 @@ with Livepeer(
 
         res = livepeer.generate.text_to_image(request={
             "prompt": "<value>",
-            "model_id": "",
-            "loras": "",
-            "height": 576,
-            "width": 1024,
-            "guidance_scale": 7.5,
-            "negative_prompt": "",
-            "safety_check": True,
-            "num_inference_steps": 50,
-            "num_images_per_prompt": 1,
         })
 
         assert res.image_response is not None
@@ -297,19 +278,40 @@ with Livepeer(
         # Handle response
         print(res.image_response)
 
-    except errors.HTTPError as e:
-        # handle e.data: errors.HTTPErrorData
-        raise(e)
-    except errors.HTTPValidationError as e:
-        # handle e.data: errors.HTTPValidationErrorData
-        raise(e)
-    except errors.HTTPError as e:
-        # handle e.data: errors.HTTPErrorData
-        raise(e)
-    except errors.SDKError as e:
-        # handle exception
-        raise(e)
+
+    except errors.LivepeerError as e:
+        # The base class for HTTP error responses
+        print(e.message)
+        print(e.status_code)
+        print(e.body)
+        print(e.headers)
+        print(e.raw_response)
+
+        # Depending on the method different errors may be thrown
+        if isinstance(e, errors.HTTPError):
+            print(e.data.detail)  # components.APIError
 ```
+
+### Error Classes
+**Primary errors:**
+* [`LivepeerError`](./src/livepeer_ai/models/errors/livepeererror.py): The base class for HTTP error responses.
+  * [`HTTPError`](./src/livepeer_ai/models/errors/httperror.py): HTTP error response model.
+  * [`HTTPValidationError`](./src/livepeer_ai/models/errors/httpvalidationerror.py): Validation Error. Status code `422`.
+
+<details><summary>Less common errors (5)</summary>
+
+<br />
+
+**Network errors:**
+* [`httpx.RequestError`](https://www.python-httpx.org/exceptions/#httpx.RequestError): Base class for request errors.
+    * [`httpx.ConnectError`](https://www.python-httpx.org/exceptions/#httpx.ConnectError): HTTP client was unable to make a request to a server.
+    * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
+
+
+**Inherit from [`LivepeerError`](./src/livepeer_ai/models/errors/livepeererror.py)**:
+* [`ResponseValidationError`](./src/livepeer_ai/models/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
+
+</details>
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -319,32 +321,24 @@ with Livepeer(
 
 You can override the default server globally by passing a server index to the `server_idx: int` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
 
-| #   | Server                                      |
-| --- | ------------------------------------------- |
-| 0   | `https://dream-gateway.livepeer.cloud`      |
-| 1   | `https://livepeer.studio/api/beta/generate` |
+| #   | Server                                      | Description                      |
+| --- | ------------------------------------------- | -------------------------------- |
+| 0   | `https://dream-gateway.livepeer.cloud`      | Livepeer Cloud Community Gateway |
+| 1   | `https://livepeer.studio/api/beta/generate` | Livepeer Studio Gateway          |
 
 #### Example
 
 ```python
 from livepeer_ai import Livepeer
 
+
 with Livepeer(
-    server_idx=1,
+    server_idx=0,
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -360,22 +354,14 @@ The default server can also be overridden globally by passing a URL to the `serv
 ```python
 from livepeer_ai import Livepeer
 
+
 with Livepeer(
-    server_url="https://dream-gateway.livepeer.cloud",
+    server_url="https://livepeer.studio/api/beta/generate",
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -482,21 +468,13 @@ To authenticate with the API the `http_bearer` parameter must be set when initia
 ```python
 from livepeer_ai import Livepeer
 
+
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -517,6 +495,7 @@ The `Livepeer` class implements the context manager protocol and registers a fin
 ```python
 from livepeer_ai import Livepeer
 def main():
+
     with Livepeer(
         http_bearer="<YOUR_BEARER_TOKEN_HERE>",
     ) as livepeer:
@@ -525,6 +504,7 @@ def main():
 
 # Or when using async:
 async def amain():
+
     async with Livepeer(
         http_bearer="<YOUR_BEARER_TOKEN_HERE>",
     ) as livepeer:
