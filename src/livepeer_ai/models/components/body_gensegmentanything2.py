@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 import io
-from livepeer_ai.types import BaseModel
+from livepeer_ai.types import BaseModel, UNSET_SENTINEL
 from livepeer_ai.utils import FieldMetadata, MultipartFormMetadata
 import pydantic
+from pydantic import model_serializer
 from typing import IO, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -31,6 +32,22 @@ class BodyGenSegmentAnything2Image(BaseModel):
         pydantic.Field(alias="Content-Type"),
         FieldMetadata(multipart=True),
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["contentType"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class BodyGenSegmentAnything2TypedDict(TypedDict):
@@ -84,3 +101,30 @@ class BodyGenSegmentAnything2(BaseModel):
 
     normalize_coords: Annotated[Optional[bool], FieldMetadata(multipart=True)] = True
     r"""If true, the point coordinates will be normalized to the range [0,1], with point_coords expected to be with respect to image dimensions."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "model_id",
+                "point_coords",
+                "point_labels",
+                "box",
+                "mask_input",
+                "multimask_output",
+                "return_logits",
+                "normalize_coords",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

@@ -1,5 +1,4 @@
 # Generate
-(*generate*)
 
 ## Overview
 
@@ -22,8 +21,10 @@ Generate images from text prompts.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="genTextToImage" method="post" path="/text-to-image" -->
 ```python
 from livepeer_ai import Livepeer
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
@@ -31,15 +32,6 @@ with Livepeer(
 
     res = livepeer.generate.text_to_image(request={
         "prompt": "<value>",
-        "model_id": "",
-        "loras": "",
-        "height": 576,
-        "width": 1024,
-        "guidance_scale": 7.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 50,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -75,8 +67,10 @@ Apply image transformations to a provided image.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="genImageToImage" method="post" path="/image-to-image" -->
 ```python
 from livepeer_ai import Livepeer
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
@@ -88,15 +82,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "loras": "",
-        "strength": 0.8,
-        "guidance_scale": 7.5,
-        "image_guidance_scale": 1.5,
-        "negative_prompt": "",
-        "safety_check": True,
-        "num_inference_steps": 100,
-        "num_images_per_prompt": 1,
     })
 
     assert res.image_response is not None
@@ -132,8 +117,10 @@ Generate a video from a provided image.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="genImageToVideo" method="post" path="/image-to-video" -->
 ```python
 from livepeer_ai import Livepeer
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
@@ -144,14 +131,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "height": 576,
-        "width": 1024,
-        "fps": 6,
-        "motion_bucket_id": 127,
-        "noise_aug_strength": 0.02,
-        "safety_check": True,
-        "num_inference_steps": 25,
     })
 
     assert res.video_response is not None
@@ -187,8 +166,10 @@ Upscale an image by increasing its resolution.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="genUpscale" method="post" path="/upscale" -->
 ```python
 from livepeer_ai import Livepeer
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
@@ -200,9 +181,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "safety_check": True,
-        "num_inference_steps": 75,
     })
 
     assert res.image_response is not None
@@ -238,8 +216,10 @@ Transcribe audio files to text.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="genAudioToText" method="post" path="/audio-to-text" -->
 ```python
 from livepeer_ai import Livepeer
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
@@ -250,8 +230,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "return_timestamps": "true",
     })
 
     assert res.text_response is not None
@@ -287,8 +265,10 @@ Segment objects in an image.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="genSegmentAnything2" method="post" path="/segment-anything-2" -->
 ```python
 from livepeer_ai import Livepeer
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
@@ -299,10 +279,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "model_id": "",
-        "multimask_output": True,
-        "return_logits": True,
-        "normalize_coords": True,
     })
 
     assert res.masks_response is not None
@@ -338,8 +314,10 @@ Generate text using a language model.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="genLLM" method="post" path="/llm" -->
 ```python
 from livepeer_ai import Livepeer
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
@@ -347,14 +325,11 @@ with Livepeer(
 
     res = livepeer.generate.llm(request={
         "messages": [
-
+            {
+                "role": "<value>",
+                "content": "<value>",
+            },
         ],
-        "model": "",
-        "temperature": 0.7,
-        "max_tokens": 256,
-        "top_p": 1,
-        "top_k": -1,
-        "stream": False,
     })
 
     assert res.llm_response is not None
@@ -390,8 +365,10 @@ Transform image files to text.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="genImageToText" method="post" path="/image-to-text" -->
 ```python
 from livepeer_ai import Livepeer
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
@@ -402,8 +379,6 @@ with Livepeer(
             "file_name": "example.file",
             "content": open("example.file", "rb"),
         },
-        "prompt": "",
-        "model_id": "",
     })
 
     assert res.image_to_text_response is not None
@@ -439,19 +414,18 @@ Apply transformations to a live video streamed to the returned endpoints.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="genLiveVideoToVideo" method="post" path="/live-video-to-video" -->
 ```python
 from livepeer_ai import Livepeer
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
 
     res = livepeer.generate.live_video_to_video(request={
-        "subscribe_url": "https://soulful-lava.org/",
-        "publish_url": "https://vain-tabletop.biz",
-        "control_url": "",
-        "events_url": "",
-        "model_id": "",
+        "subscribe_url": "https://soulful-finding.biz",
+        "publish_url": "https://monumental-representation.biz/",
     })
 
     assert res.live_video_to_video_response is not None
@@ -487,18 +461,16 @@ Generate a text-to-speech audio file based on the provided text input and speake
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="genTextToSpeech" method="post" path="/text-to-speech" -->
 ```python
 from livepeer_ai import Livepeer
+
 
 with Livepeer(
     http_bearer="<YOUR_BEARER_TOKEN_HERE>",
 ) as livepeer:
 
-    res = livepeer.generate.text_to_speech(request={
-        "model_id": "",
-        "text": "",
-        "description": "A male speaker delivers a slightly expressive and animated speech with a moderate speed and pitch.",
-    })
+    res = livepeer.generate.text_to_speech(request={})
 
     assert res.audio_response is not None
 

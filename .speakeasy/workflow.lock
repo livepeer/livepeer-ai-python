@@ -1,13 +1,12 @@
-speakeasyVersion: 1.480.0
+speakeasyVersion: 1.762.0
 sources:
     livepeer_ai-OAS:
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:0f47b792f474d38abc86f9276b065e4047dc61d6c0899a85a11008e48857db3a
-        sourceBlobDigest: sha256:7c0df39c1c5f0ffe580b63f5dc6cb0f81181f5361a80f63f41314cf81d0f3bf4
+        sourceRevisionDigest: sha256:15b7d77c46bd7e21150b2b318dc9fa86e302df4f6a24834b35fac8dd9b873eb8
+        sourceBlobDigest: sha256:01b32122fd60a9810d8bf8393688776805c64d60b9ce41e7c486582834976ab9
         tags:
             - latest
-            - speakeasy-sdk-regen-1736900210
-            - 0.0.0
+            - 0.14.1
 targets:
     livepeer-ai:
         source: livepeer_ai-OAS
@@ -17,10 +16,10 @@ targets:
     livepeer-ai-python:
         source: livepeer_ai-OAS
         sourceNamespace: livepeer-ai-oas
-        sourceRevisionDigest: sha256:0f47b792f474d38abc86f9276b065e4047dc61d6c0899a85a11008e48857db3a
-        sourceBlobDigest: sha256:7c0df39c1c5f0ffe580b63f5dc6cb0f81181f5361a80f63f41314cf81d0f3bf4
+        sourceRevisionDigest: sha256:15b7d77c46bd7e21150b2b318dc9fa86e302df4f6a24834b35fac8dd9b873eb8
+        sourceBlobDigest: sha256:01b32122fd60a9810d8bf8393688776805c64d60b9ce41e7c486582834976ab9
         codeSamplesNamespace: code-samples-python-livepeer-python
-        codeSamplesRevisionDigest: sha256:c8ec9be643b93d4a2f53b416df7270cf0cdb44cee849f5de6d2501edef3d2fa9
+        codeSamplesRevisionDigest: sha256:ca1fc2cc6a53b17accde367f06c45f433585476dea501153cd1b2fc122d1d92f
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

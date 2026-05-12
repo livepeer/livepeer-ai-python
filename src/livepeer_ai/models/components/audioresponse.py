@@ -10,11 +10,11 @@ class AudioResponseTypedDict(TypedDict):
     r"""Response model for audio generation."""
 
     audio: MediaURLTypedDict
-    r"""The generated audio."""
+    r"""A URL from which media can be accessed."""
 
 
 class AudioResponse(BaseModel):
     r"""Response model for audio generation."""
 
     audio: MediaURL
-    r"""The generated audio."""
+    r"""A URL from which media can be accessed."""

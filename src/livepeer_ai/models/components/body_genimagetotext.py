@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 import io
-from livepeer_ai.types import BaseModel
+from livepeer_ai.types import BaseModel, UNSET_SENTINEL
 from livepeer_ai.utils import FieldMetadata, MultipartFormMetadata
 import pydantic
+from pydantic import model_serializer
 from typing import IO, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -32,6 +33,22 @@ class BodyGenImageToTextImage(BaseModel):
         FieldMetadata(multipart=True),
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["contentType"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class BodyGenImageToTextTypedDict(TypedDict):
     image: BodyGenImageToTextImageTypedDict
@@ -54,3 +71,19 @@ class BodyGenImageToText(BaseModel):
 
     model_id: Annotated[Optional[str], FieldMetadata(multipart=True)] = ""
     r"""Hugging Face model ID used for transformation."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["prompt", "model_id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

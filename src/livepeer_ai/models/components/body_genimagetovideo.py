@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 import io
-from livepeer_ai.types import BaseModel
+from livepeer_ai.types import BaseModel, UNSET_SENTINEL
 from livepeer_ai.utils import FieldMetadata, MultipartFormMetadata
 import pydantic
+from pydantic import model_serializer
 from typing import IO, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -31,6 +32,22 @@ class BodyGenImageToVideoImage(BaseModel):
         pydantic.Field(alias="Content-Type"),
         FieldMetadata(multipart=True),
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["contentType"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class BodyGenImageToVideoTypedDict(TypedDict):
@@ -89,3 +106,31 @@ class BodyGenImageToVideo(BaseModel):
 
     num_inference_steps: Annotated[Optional[int], FieldMetadata(multipart=True)] = 25
     r"""Number of denoising steps. More steps usually lead to higher quality images but slower inference. Modulated by strength."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "model_id",
+                "height",
+                "width",
+                "fps",
+                "motion_bucket_id",
+                "noise_aug_strength",
+                "safety_check",
+                "seed",
+                "num_inference_steps",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

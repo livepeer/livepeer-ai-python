@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 import io
-from livepeer_ai.types import BaseModel
+from livepeer_ai.types import BaseModel, UNSET_SENTINEL
 from livepeer_ai.utils import FieldMetadata, MultipartFormMetadata
 import pydantic
+from pydantic import model_serializer
 from typing import IO, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -32,6 +33,22 @@ class Audio(BaseModel):
         FieldMetadata(multipart=True),
     ] = None
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["contentType"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class BodyGenAudioToTextTypedDict(TypedDict):
     audio: AudioTypedDict
@@ -51,3 +68,19 @@ class BodyGenAudioToText(BaseModel):
 
     return_timestamps: Annotated[Optional[str], FieldMetadata(multipart=True)] = "true"
     r"""Return timestamps for the transcribed text. Supported values: 'sentence', 'word', or a string boolean ('true' or 'false'). Default is 'true' ('sentence'). 'false' means no timestamps. 'word' means word-based timestamps."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["model_id", "return_timestamps"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

@@ -4,32 +4,59 @@ generation:
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
   useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: true
+    nameResolutionFeb2025: false
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
+    securityFeb2025: false
+    sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
+    nameOverrideFeb2026: false
   auth:
-    oAuth2ClientCredentialsEnabled: true
+    oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits: {}
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
 python:
-  version: 0.10.0
+  version: 0.11.0
   additionalDependencies:
     dev: {}
     main: {}
+  allowedRedefinedBuiltins:
+    - id
+    - object
+    - dir
+  asyncMode: both
   author: Livepeer
   authors:
     - Speakeasy
+  baseErrorName: LivepeerError
   clientServerStatusCodesAsErrors: true
+  constFieldCasing: upper
   defaultErrorName: SDKError
   description: Python Client SDK for the Livepeer AI API.
   enableCustomCodeRegions: false
   enumFormat: enum
   fixFlags:
+    asyncPaginationSep2025: false
+    conflictResistantModelImportsFeb2026: false
     responseRequiredSep2024: false
   flattenGlobalSecurity: true
   flattenRequests: false
   flatteningOrder: parameters-first
+  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleUnionsByDefault: "false"
   imports:
     option: openapi
     paths:
@@ -38,11 +65,21 @@ python:
       operations: models/operations
       shared: models/components
       webhooks: models/webhooks
+  inferUnionDiscriminators: true
   inputModelSuffix: input
+  license: ""
   maxMethodParams: 4
   methodArguments: require-security-and-request
+  moduleName: ""
+  multipartArrayFormat: legacy
   outputModelSuffix: output
+  packageManager: poetry
   packageName: livepeer-ai
+  preApplyUnionDiscriminators: false
   projectUrls: {}
+  pytestFilterWarnings: []
+  pytestTimeout: 0
   responseFormat: envelope-http
+  sseFlatResponse: false
   templateVersion: v2
+  useAsyncHooks: false

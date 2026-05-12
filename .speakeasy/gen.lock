@@ -1,33 +1,720 @@
 lockVersion: 2.0.0
 id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
-  docChecksum: 6657dd3e876a909472f364dc1fe34d72
-  docVersion: 0.0.0
-  speakeasyVersion: 1.480.0
-  generationVersion: 2.499.0
-  releaseVersion: 0.10.0
-  configChecksum: 2b2d2389ee9ff1be5cd354baf7c62739
+  docChecksum: ec9934c13ee59ba9e24e25deb2c1b55f
+  docVersion: 0.14.1
+  speakeasyVersion: 1.762.0
+  generationVersion: 2.882.0
+  releaseVersion: 0.11.0
+  configChecksum: 5356a9e0f0b03b092cc9bfaea19a21ab
   repoURL: https://github.com/livepeer/livepeer-ai-python.git
   installationURL: https://github.com/livepeer/livepeer-ai-python.git
   published: true
+persistentEdits:
+  generation_id: 1372efeb-c581-4f26-82f2-d9a3f22fb52a
+  pristine_commit_hash: 8ed7421237ce919acdf764bc36e0ac99a90b7226
+  pristine_tree_hash: 5f943c8a608402cae7ae1a58ca5207cf3dc4ec27
 features:
   python:
     additionalDependencies: 1.0.0
-    constsAndDefaults: 1.0.5
-    core: 5.10.7
+    constsAndDefaults: 1.0.7
+    core: 6.0.21
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
-    globalSecurity: 3.0.2
+    globalSecurity: 3.0.7
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
-    globalServerURLs: 3.1.0
+    globalServerURLs: 3.2.1
     multipartFileContentType: 1.0.0
-    nameOverrides: 3.0.1
-    responseFormat: 1.0.1
-    retries: 3.0.2
-    sdkHooks: 1.0.0
-    unions: 3.0.4
+    nameOverrides: 3.0.3
+    responseFormat: 1.1.0
+    retries: 3.0.5
+    sdkHooks: 1.2.1
+    unions: 3.1.5
     uploadStreams: 1.0.0
+trackedFiles:
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:53134de3ada576f37c22276901e1b5b6d85cd2da
+    pristine_git_object: 4d75d59008e4d8609876d263419a9dc56c8d6f3a
+  .vscode/settings.json:
+    id: 89aa447020cd
+    last_write_checksum: sha1:f84632c81029fcdda8c3b0c768d02b836fc80526
+    pristine_git_object: 8d79f0abb72526f1fb34a4c03e5bba612c6ba2ae
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:039d6bf3cb7bac33e25b55675e1c7ce09eb216c7
+    pristine_git_object: 57b043d4e0d01c615cfe2f2b06584b92fd0440c7
+  docs/models/components/apierror.md:
+    id: 1584564daba7
+    last_write_checksum: sha1:6acb21f4e682c7e67f904222cadb6a2aad320d25
+    pristine_git_object: fdd254a64b53754b508f3ea703ac0455798be221
+  docs/models/components/audio.md:
+    id: 1b1c899c9a2d
+    last_write_checksum: sha1:1471e31775fc819aad560de79bf920528d05966c
+    pristine_git_object: 436f3b4a9ff16aef2abcfcf03eb5dc240daf628b
+  docs/models/components/audioresponse.md:
+    id: b543248e127c
+    last_write_checksum: sha1:ffcd5bbe8b85e87960b6d536b6d042dcc1c4b1a7
+    pristine_git_object: a2b6c52be63cfbc4dfd6daa6cd4e65c2601a1ef6
+  docs/models/components/bodygenaudiototext.md:
+    id: 9362c37916d9
+    last_write_checksum: sha1:e0c07ad37df995b0054e23336dff12cbb2b67398
+    pristine_git_object: a8b04bf251cbb0120d0015e23f21ea2bdb903099
+  docs/models/components/bodygenimagetoimage.md:
+    id: a5789751ccb3
+    last_write_checksum: sha1:27df9100fb27ee657c46d21e3e0f13cb7640999e
+    pristine_git_object: b285c88fc528fda80c89a8ee4518d319c638d645
+  docs/models/components/bodygenimagetotext.md:
+    id: 45db91c96740
+    last_write_checksum: sha1:791d4138eca253a669e0efd501bb4251567e1835
+    pristine_git_object: 8d02a0817c908286e30d6fc273313f6eb286d584
+  docs/models/components/bodygenimagetotextimage.md:
+    id: 6ef3b2b2c6e5
+    last_write_checksum: sha1:7184b5fca82e3c54064f5cea7e044fd7ed4622f2
+    pristine_git_object: c76024f563ed85c6af39329915eb8a37a7e158c6
+  docs/models/components/bodygenimagetovideo.md:
+    id: 5af02b9cf1db
+    last_write_checksum: sha1:dff43064b56cf5e3ca61181c8275dab55102f9a3
+    pristine_git_object: 93b0c88c575c7041887b915859d87fcf32699c71
+  docs/models/components/bodygenimagetovideoimage.md:
+    id: 269a51cc944b
+    last_write_checksum: sha1:83c5ac7f41942402fa21957288e8bd549bf84635
+    pristine_git_object: f5652de1ba5c9dfe799e637a3d912a5c668ac812
+  docs/models/components/bodygensegmentanything2.md:
+    id: 8aa7334e03d9
+    last_write_checksum: sha1:84e95eb2449e1d772a26a0624f1d99b711ed1267
+    pristine_git_object: 288c1a6d669529e9ecc0721fe9c9c73858f2c61b
+  docs/models/components/bodygensegmentanything2image.md:
+    id: cbfe495ea3f9
+    last_write_checksum: sha1:1ed7d6d9eeeefacda7ad98777555f3b95fd4a2d5
+    pristine_git_object: 5d94cfe10102a50a3a7874927c3549667c6e9203
+  docs/models/components/bodygenupscale.md:
+    id: 4214e4b6bd65
+    last_write_checksum: sha1:52e8eaf69db1e152ada9f744d1d734e76e1e07bb
+    pristine_git_object: 424493cc56dcb83e88fe0a30f5669212b7fbccce
+  docs/models/components/bodygenupscaleimage.md:
+    id: 2b03091a59db
+    last_write_checksum: sha1:3262d6729fe79f71d7575868d1d741cca8a8ce22
+    pristine_git_object: 68477d35cf599e650685637398109abc32897a92
+  docs/models/components/chunk.md:
+    id: 987dc739f874
+    last_write_checksum: sha1:86998f700e185379bb3600b8ffa5f4a140244118
+    pristine_git_object: 7296b7f817759404937715474c3e5d3670d63468
+  docs/models/components/httpmetadata.md:
+    id: 728948c70168
+    last_write_checksum: sha1:09d9c91cf41e3b9e867647becda4e437f4f3e3c8
+    pristine_git_object: 2c187164ad5f4bf5cc49203cbb81b64b240247a6
+  docs/models/components/image.md:
+    id: b6e3c524af76
+    last_write_checksum: sha1:8dd48df607292f6397f45d63fe0801a7d0906433
+    pristine_git_object: 9c367b985be700e176683bd5342176be17be5260
+  docs/models/components/imageresponse.md:
+    id: b21ae170eafd
+    last_write_checksum: sha1:dfcea9485178b9b1cb794cdcf939dee72f3f585a
+    pristine_git_object: b7aaebf0ee6647e41f53f5fb73d2d2dbdfb38038
+  docs/models/components/imagetotextresponse.md:
+    id: d11591b62bbb
+    last_write_checksum: sha1:c9fc1a2e51875d56f0432da8c2955c899f826c66
+    pristine_git_object: 0b1a93c643ab12906cd0edf4632b4123b8f9085c
+  docs/models/components/livevideotovideoparams.md:
+    id: 1d99a273f812
+    last_write_checksum: sha1:bf0c7c2a733a825b54c5291f05f4f5110c200a55
+    pristine_git_object: 100da605d584b9bc0de957cdd09fddbd32e15c26
+  docs/models/components/livevideotovideoresponse.md:
+    id: 42f4bb3c377e
+    last_write_checksum: sha1:74048e9a3776a51d1ca6e7a97f94f2963ad4c834
+    pristine_git_object: a0a3620c88591baaa09521599f97e3726970df4b
+  docs/models/components/llmchoice.md:
+    id: 7d9b9677d6f4
+    last_write_checksum: sha1:0c224a5ba427314aca4cff404bfb41125da02352
+    pristine_git_object: e52e6258c805194aef892416572576fc1f97e745
+  docs/models/components/llmmessage.md:
+    id: 9a73d65080b9
+    last_write_checksum: sha1:50dd9f61c684f0e404177d5ed12dcc5850c493f0
+    pristine_git_object: d3ab16af895153f9f86b35c1fbd875edfdc969bd
+  docs/models/components/llmrequest.md:
+    id: c0ea5e3f371c
+    last_write_checksum: sha1:bf366ae7e1281b0cd49e49463c915a5901b1cffa
+    pristine_git_object: dc7ca0c6166288ed40adbad1dde7031830133c1a
+  docs/models/components/llmresponse.md:
+    id: "606012074749"
+    last_write_checksum: sha1:ef54fff6b9c951e2297e3b5189457eaad59f40b2
+    pristine_git_object: f1409787c878150a429c51580ed5ae799ed7c797
+  docs/models/components/llmtokenusage.md:
+    id: c0b919d00d05
+    last_write_checksum: sha1:871a8907a6b8946f11f48b2b0ac7b8ec87ec63c2
+    pristine_git_object: be6cfc4107e4bb620c550f8519ce3ebe0e21d6ce
+  docs/models/components/loc.md:
+    id: 18d5ad9b7905
+    last_write_checksum: sha1:09a04749333ab50ae806c3ac6adcaa90d54df0f1
+    pristine_git_object: d6094ac2c6e0326c039dad2f6b89158694ef6aa7
+  docs/models/components/masksresponse.md:
+    id: 24a67b9f3a54
+    last_write_checksum: sha1:2801af5236469e71ed2d03ba42d261151869c3dc
+    pristine_git_object: 8b4c2d1b6d571640996f57b4d259dff22eb573e6
+  docs/models/components/media.md:
+    id: 1edc1dd9711b
+    last_write_checksum: sha1:4a8abe9804776dbd7e0a90fc1236df92149710d8
+    pristine_git_object: b107bed9f6410efa801497fb0c2f4b6c6929e36b
+  docs/models/components/mediaurl.md:
+    id: df40db10f357
+    last_write_checksum: sha1:2ab27bb25f1d526698344b766c5f1da3c449f64c
+    pristine_git_object: de17260f5da34bf3bfc2d6699d6454de9e104768
+  docs/models/components/security.md:
+    id: 54906b49ea28
+    last_write_checksum: sha1:fcc71b9fbf2c78d89674289f26bf0a7dffe14251
+    pristine_git_object: 1133267c16529e7a75341ff38dc81b73153bdece
+  docs/models/components/textresponse.md:
+    id: 8729a7fbaa12
+    last_write_checksum: sha1:ed68be652ec77dac9f62c3aaaf7b1780345c8101
+    pristine_git_object: 9d8d47dcb25b5f606bf28fd0f21a39b824124319
+  docs/models/components/texttoimageparams.md:
+    id: 4892e8ca5108
+    last_write_checksum: sha1:1d77726af80343e99da077667c8d0d753c376c17
+    pristine_git_object: fb3111c24d457b6dd013eb03d6845f5eb9d05b8a
+  docs/models/components/texttospeechparams.md:
+    id: 34b9a67bb521
+    last_write_checksum: sha1:91b560a934f306e88b4a9818a9d54816eb180350
+    pristine_git_object: 2eccbdd2e5b7a8da7e332fa28aed361453158e1d
+  docs/models/components/validationerror.md:
+    id: 23910fc567b1
+    last_write_checksum: sha1:259c32ece2a67dc59b4cfa58e0020894ecd7afc2
+    pristine_git_object: fe535e36357b4f1f67c9a1229114a3fa249556a5
+  docs/models/components/videoresponse.md:
+    id: b12fda83c19e
+    last_write_checksum: sha1:fea3d68795d3ee8787c8d54cea8c9a751d7e4e04
+    pristine_git_object: b3c2501c775c0de7bf657128034fc47e8ce309eb
+  docs/models/errors/httperror.md:
+    id: 5e9f21cb342f
+    last_write_checksum: sha1:199367cf706d43bea9a4b12b0f6c51715125860f
+    pristine_git_object: 4d753e3fcd3183ad7ebff3222e9125dc3a695d82
+  docs/models/errors/httpvalidationerror.md:
+    id: 9365601abbd7
+    last_write_checksum: sha1:c569603480752cb4c870e0502971b5dadd839baf
+    pristine_git_object: 5cf28a6acddb114e74138e7056f719a3a35747a1
+  docs/models/operations/genaudiototextresponse.md:
+    id: 930cf28bfca0
+    last_write_checksum: sha1:20b2dd4f6e4fa658254a8eb608f8e3702d4634e0
+    pristine_git_object: af62698f3283ca9ccebd05e233e18a6489e06ec8
+  docs/models/operations/genimagetoimageresponse.md:
+    id: 22ce83b63958
+    last_write_checksum: sha1:bab74f5b4d433f67383e97edab1e03f375dcdca0
+    pristine_git_object: b43ba759f45b37387ec0a1ee991eca60f27bfd41
+  docs/models/operations/genimagetotextresponse.md:
+    id: d5d3e866d918
+    last_write_checksum: sha1:a44fbdfb3a1575411ec583f77997ace0cd591df1
+    pristine_git_object: ffd2da588c3bdf4b6901bb4491a98dab6ed69866
+  docs/models/operations/genimagetovideoresponse.md:
+    id: 6505d3f9b564
+    last_write_checksum: sha1:b6b74985f2c6e88568255a89784e679dcdadcf98
+    pristine_git_object: 98df3b7b916e0c08c8d67b96091f26f9127c2ad8
+  docs/models/operations/genlivevideotovideoresponse.md:
+    id: 15ed2df7736e
+    last_write_checksum: sha1:48481ef4eddc9d4ab036879589824836bbed8741
+    pristine_git_object: 74fd47f362015acf92b2da10b375f0f7b72fcc0e
+  docs/models/operations/genllmresponse.md:
+    id: 883feee38362
+    last_write_checksum: sha1:62a666c9625866243c3800fbb209732f740a134c
+    pristine_git_object: 74e92e1d369103e279505520a9a0fb1a548c64f2
+  docs/models/operations/gensegmentanything2response.md:
+    id: f2aba5413fee
+    last_write_checksum: sha1:b8e93997b759e4c66925c3508590d28d7491250d
+    pristine_git_object: 984f3baf420ff4fed5c3bbfbcc8beb024398d9f9
+  docs/models/operations/gentexttoimageresponse.md:
+    id: a6cee3040be7
+    last_write_checksum: sha1:9f63e1a0e25195d14590fb781c28a2534cd57b68
+    pristine_git_object: 03fedf5de48ba90b7ef5d221a4421e277d7067c7
+  docs/models/operations/gentexttospeechresponse.md:
+    id: d4261f775655
+    last_write_checksum: sha1:5e13b3dbcddc1eb98bee7aba32c6ee640ccbe9c9
+    pristine_git_object: a6adbfa6eef5e8d47c254ed8543375c4dba569dc
+  docs/models/operations/genupscaleresponse.md:
+    id: 43c29e7ef9dd
+    last_write_checksum: sha1:317eca199dc6ae768f90b4d651679e2e985c3a44
+    pristine_git_object: f503a1c16987e535154337cefb1d7a4fa90a8b9d
+  docs/models/utils/retryconfig.md:
+    id: 4343ac43161c
+    last_write_checksum: sha1:562c0f21e308ad10c27f85f75704c15592c6929d
+    pristine_git_object: 69dd549ec7f5f885101d08dd502e25748183aebf
+  docs/sdks/generate/README.md:
+    id: 394329dfd6e7
+    last_write_checksum: sha1:7f0b997c85fc36fcdf560c4f2683598a26130b8e
+    pristine_git_object: 5f7b2e64e2f75a82e71dc3e1c82c0c50f20afab0
+  poetry.toml:
+    id: a81ade82122a
+    last_write_checksum: sha1:2242305e29dc6921bdf5b200aea5d4bf67830230
+    pristine_git_object: cd3492ac9dc870fdcf23dbd94fd1d40cc753cc8e
+  py.typed:
+    id: 258c3ed47ae4
+    last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
+    pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
+  pylintrc:
+    id: 7ce8b9f946e6
+    last_write_checksum: sha1:02d374417b71ebbc1bfa08d3e2bb8855b2299bc7
+    pristine_git_object: f4af620789217ae70ea020db1c3cf0687bb9b0ae
+  pyproject.toml:
+    id: 5d07e7d72637
+    last_write_checksum: sha1:9c682f9037283365fa16353a55c7a83a62824a0a
+    pristine_git_object: 670590cd74f4240d78381c690a6aabaaf1ba69ab
+  scripts/prepare_readme.py:
+    id: e0c5957a6035
+    last_write_checksum: sha1:fd74b2667a20d40326ca4d7f21b10a8352d2e229
+    pristine_git_object: 687bd4e545de958f1ffeb874bb4610df61ac7387
+  scripts/publish.sh:
+    id: fe273b08f514
+    last_write_checksum: sha1:b31bafc19c15ab5ea925fdf8d5d4adce2b115a63
+    pristine_git_object: 2a3ead70ccc6228cbae1c5c8a319b1399f3804ea
+  src/livepeer_ai/__init__.py:
+    id: ac57ae7d8096
+    last_write_checksum: sha1:da077c0bdfcef64a4a5aea91a17292f72fa2b088
+    pristine_git_object: 833c68cd526fe34aab2b7e7c45f974f7f4b9e120
+  src/livepeer_ai/_hooks/__init__.py:
+    id: 2dd2ae57051c
+    last_write_checksum: sha1:45a380490e968d8d95994dd97554ac60eeb6ae60
+    pristine_git_object: e763be4b171bbcf9c16caeaf381f8c92ce8d8e6e
+  src/livepeer_ai/_hooks/sdkhooks.py:
+    id: b7f9bcf106de
+    last_write_checksum: sha1:4df21785fab8cbe0b4399b7f697e28d78719b94c
+    pristine_git_object: 93c9da5402348af72d33ce4ecf1b02f782ffffca
+  src/livepeer_ai/_hooks/types.py:
+    id: 6540a33da277
+    last_write_checksum: sha1:82e8fe71d435f8292bec5d9c37968d17b3fa8a45
+    pristine_git_object: ddc06c753aa7f44f09d32431252ec1779588ea98
+  src/livepeer_ai/_version.py:
+    id: 193ff93e480c
+    last_write_checksum: sha1:5fd0ef385129aeb1ca1dbada5a3ce2b3e3916c1d
+    pristine_git_object: 04749799a9b46a685f0fb90d164fadfd1e9e2c38
+  src/livepeer_ai/basesdk.py:
+    id: 89b5d99e00cc
+    last_write_checksum: sha1:6a21b25db3c1ae555f1c34f0d4aa8b837d3d4526
+    pristine_git_object: b811f3bb1ab597e3d7550d362d3dca066e9ac7c4
+  src/livepeer_ai/generate.py:
+    id: 4593ebc50bdf
+    last_write_checksum: sha1:83d1c4a813721bdcdc807eb8e4e3256c3be3f0f5
+    pristine_git_object: 11264da83fd8dc04df9f729feb07776fb20081f7
+  src/livepeer_ai/httpclient.py:
+    id: a300d34b88bc
+    last_write_checksum: sha1:5e55338d6ee9f01ab648cad4380201a8a3da7dd7
+    pristine_git_object: 89560b566073785535643e694c112bedbd3db13d
+  src/livepeer_ai/models/__init__.py:
+    id: 2ca0d267c145
+    last_write_checksum: sha1:664a0ec339fa84ad649a8ee56882801f4a8bd2a2
+    pristine_git_object: 09ad057a34bb0a8658ea839393134062895785d5
+  src/livepeer_ai/models/components/__init__.py:
+    id: 835d8768497d
+    last_write_checksum: sha1:e07a17e37fb03a67e0c2a7c1a3b51dd121cd837c
+    pristine_git_object: ec69ce066e1c32ff3392787bde85195362f094ab
+  src/livepeer_ai/models/components/apierror.py:
+    id: 8b793c599b8a
+    last_write_checksum: sha1:546530472da383250bee1193fc4105a1a7f0ec1c
+    pristine_git_object: 9fe49e5c1b2870730e0d1dd9d1b1f57f7514bbe1
+  src/livepeer_ai/models/components/audioresponse.py:
+    id: 40043355b2f8
+    last_write_checksum: sha1:76f2640af22db4001d84f17ed6a40af949803bcd
+    pristine_git_object: d50c7cf84d538f5822029a091d3bef4d4a8cb2e7
+  src/livepeer_ai/models/components/body_genaudiototext.py:
+    id: 3b2c20b388d0
+    last_write_checksum: sha1:ff68f32c81a6f03f0538056a98d1a78516330cf8
+    pristine_git_object: 20e4843d45da52604dfc21a2a86346814d8b4d64
+  src/livepeer_ai/models/components/body_genimagetoimage.py:
+    id: 7afbaabbdf66
+    last_write_checksum: sha1:053e10369c0e52e6e92f50f2249014749d011236
+    pristine_git_object: 6c7075856c86a91fe9b10d653d667e2823a958aa
+  src/livepeer_ai/models/components/body_genimagetotext.py:
+    id: b03665bfb3a5
+    last_write_checksum: sha1:edc3202224a8597c18623c7852cb145904e39701
+    pristine_git_object: 92bff602ead8448086d75e1ea1bf287fbc8b7f5e
+  src/livepeer_ai/models/components/body_genimagetovideo.py:
+    id: 767f959f10cb
+    last_write_checksum: sha1:2ef5ee6b929093428f7179a9d49326790cb15bcb
+    pristine_git_object: ac2453a1f1c9a7f82a21b67070b6ee3d074b5cc6
+  src/livepeer_ai/models/components/body_gensegmentanything2.py:
+    id: 6922701827f6
+    last_write_checksum: sha1:17419c04c7617003d2ecbcd2282acbba28ae54a7
+    pristine_git_object: 66b0efc8e5050691a1bac8a23cdb0674415ea2e7
+  src/livepeer_ai/models/components/body_genupscale.py:
+    id: 114cd4a5dbf9
+    last_write_checksum: sha1:2a9647ff43513f69faa20108f4d25c0e60d24983
+    pristine_git_object: 1bd21d7234593de948b9898cdf25398daa07da81
+  src/livepeer_ai/models/components/chunk.py:
+    id: d3975f01e8e8
+    last_write_checksum: sha1:b9a0a514f54b8df77b8d61b954f5c902fa0d2e9e
+    pristine_git_object: ee398c9e5e2abe1ef497bccdfa943d535f4a90fd
+  src/livepeer_ai/models/components/httpmetadata.py:
+    id: c587250fd48e
+    last_write_checksum: sha1:f0a8d4cfa6223f1c6dfc2cc5386e229688252425
+    pristine_git_object: f22b6043e313e0bdff66bce471f4da39677b8a6f
+  src/livepeer_ai/models/components/imageresponse.py:
+    id: c76fe91515ea
+    last_write_checksum: sha1:1d8fcd126d8221ed3f24fac0b519e0f027b3f96f
+    pristine_git_object: 723fd8f2de34a14fd17623693d8bcd4bb8272204
+  src/livepeer_ai/models/components/imagetotextresponse.py:
+    id: 842552036df4
+    last_write_checksum: sha1:95cc432cc97ace01714a57377afbec02d78f38dd
+    pristine_git_object: c6d4180a440ecc440f9fcc78fe37c8ddb4d446ab
+  src/livepeer_ai/models/components/livevideotovideoparams.py:
+    id: 1fb78ef42537
+    last_write_checksum: sha1:d74064424119c78af1c231aeb791586aa1d911a2
+    pristine_git_object: 7bad6396801555c364127cde0b9d83aabd6790d8
+  src/livepeer_ai/models/components/livevideotovideoresponse.py:
+    id: d1f50efa75ab
+    last_write_checksum: sha1:b65db1ff93b15c5f6d938df9e9bec8c171e3ed28
+    pristine_git_object: e462d78af078d0ed5ea610cafbc2962101c2d5a9
+  src/livepeer_ai/models/components/llmchoice.py:
+    id: b7fe1a217241
+    last_write_checksum: sha1:8c35070805c5a443057bd78e86fccbc407bbc36f
+    pristine_git_object: 98a9b82570076f5862a05b8b545613afc5fe6783
+  src/livepeer_ai/models/components/llmmessage.py:
+    id: 7c2cd5cf05ef
+    last_write_checksum: sha1:f486f7bd0dd64d8067818ae0df37fdf876047319
+    pristine_git_object: e242a3efd78a9d65598e95c16e9716d5a566283f
+  src/livepeer_ai/models/components/llmrequest.py:
+    id: aa6f863a5860
+    last_write_checksum: sha1:e7413494bb3b7c0da450578e7a59d0687bdc1607
+    pristine_git_object: ea5654f2cd2ee9743c60a53583c131c906f3e02b
+  src/livepeer_ai/models/components/llmresponse.py:
+    id: 8f8df43a3734
+    last_write_checksum: sha1:82060d9d5618254a738e818b0c1e3e8a5d46400d
+    pristine_git_object: dd9fe016c12ff10c0f2d7758ea3fc0d65444639f
+  src/livepeer_ai/models/components/llmtokenusage.py:
+    id: 40cc30d93be8
+    last_write_checksum: sha1:657ac0d9995e179fde0d09e40f3a46467d95d48c
+    pristine_git_object: 6f8b9cd1aaafa7c04af104d39c9ee99b4635bc19
+  src/livepeer_ai/models/components/masksresponse.py:
+    id: 21dea449f869
+    last_write_checksum: sha1:62867f96119ed2964c7cbdaadbb18dec556c9914
+    pristine_git_object: 4ec6a749a76cf5c765ab17a55182f80f3dec2a2a
+  src/livepeer_ai/models/components/media.py:
+    id: 0ee32e8d4309
+    last_write_checksum: sha1:1bec21014112c2140af7d70e0686e5cb6aeee821
+    pristine_git_object: 458852efe295e46e34e7bfeaaf98e7de7781b9a9
+  src/livepeer_ai/models/components/mediaurl.py:
+    id: d44913f87793
+    last_write_checksum: sha1:263e355aec7d7e1f16aa0391065ab6d9218d301d
+    pristine_git_object: 845f71edc2796f5ba128316acf3219e9862db7de
+  src/livepeer_ai/models/components/security.py:
+    id: a7556f63e512
+    last_write_checksum: sha1:fc0decdf6648a87528ad5906e52ef579cf3522ef
+    pristine_git_object: c8c6d3bebcc7e90aa33df6d3a80e78ae383973bf
+  src/livepeer_ai/models/components/textresponse.py:
+    id: 7b5d4e0f132e
+    last_write_checksum: sha1:51826701542ce2817ad97aefcbc3663bba7a8cf7
+    pristine_git_object: b98e23a89ee3389ad75aa0d593535bd22d33c4c0
+  src/livepeer_ai/models/components/texttoimageparams.py:
+    id: a229219d630c
+    last_write_checksum: sha1:c2f30ba48500171ec6850c8fded124fef5ab8584
+    pristine_git_object: a1d31e1dc2cd5e90e65c08e2c1b9ff3cc1926bb9
+  src/livepeer_ai/models/components/texttospeechparams.py:
+    id: 0ae713d3c18d
+    last_write_checksum: sha1:38fb39f821032c3242ec1ab6794cf2d2afda13e6
+    pristine_git_object: b76a151f47eaf8b2618897501162dc20a9ffd38e
+  src/livepeer_ai/models/components/validationerror.py:
+    id: d79c2c52471f
+    last_write_checksum: sha1:a63b2373a4b0d3b0f313e2eaa225fa0bfc8de54c
+    pristine_git_object: b74c2ebe435434acdf00609dfa3b166f1e5c0418
+  src/livepeer_ai/models/components/videoresponse.py:
+    id: a7fb6a61473f
+    last_write_checksum: sha1:f8cd45f3d6d1202e81138f7177ad1c9b528102f8
+    pristine_git_object: 00ee4b428f3a559ff9bb2f743a303632d13adfe2
+  src/livepeer_ai/models/errors/__init__.py:
+    id: e9a2498ebf9b
+    last_write_checksum: sha1:732cde912e9a2c1e364875c9d6fe9ca1bd9209f4
+    pristine_git_object: e8cdc26e5a7c38938b9921d9cc1e34f662865faa
+  src/livepeer_ai/models/errors/httperror.py:
+    id: efd24ecfb4da
+    last_write_checksum: sha1:0fd77f48d002648e3882308014ca00b44485b1b3
+    pristine_git_object: 7425badfec5f22007ebe61483f8fc170d0d148cf
+  src/livepeer_ai/models/errors/httpvalidationerror.py:
+    id: aebf4910670f
+    last_write_checksum: sha1:70e462a0816aaa9537da7a05eb7c365f22d2ca34
+    pristine_git_object: 62ad2118db40353ac8647eb58473a01abcb3e5ac
+  src/livepeer_ai/models/errors/livepeererror.py:
+    id: c99efcc77687
+    last_write_checksum: sha1:42cb7c87ad76bd3643297cfa3b8ce69f8a1a7c28
+    pristine_git_object: 1754d94eda8f81eeb644c0363a6b53ff4792a8d0
+  src/livepeer_ai/models/errors/no_response_error.py:
+    id: 705c48473b89
+    last_write_checksum: sha1:7f326424a7d5ae1bcd5c89a0d6b3dbda9138942f
+    pristine_git_object: 1deab64bc43e1e65bf3c412d326a4032ce342366
+  src/livepeer_ai/models/errors/responsevalidationerror.py:
+    id: 42be3024e717
+    last_write_checksum: sha1:567b170c1545904206607446bdb7ec64047fa66d
+    pristine_git_object: 82eb7ea0d272951dba50297ba5750da81c6a2d1d
+  src/livepeer_ai/models/errors/sdkerror.py:
+    id: 5705c4e8da9f
+    last_write_checksum: sha1:579e89cdcc699cb8b3ffe4a94c3d47b6215d4492
+    pristine_git_object: d4e2dd19ca6e5b4feb0b7b8e2d3d778c2becd130
+  src/livepeer_ai/models/operations/__init__.py:
+    id: a1f21211e470
+    last_write_checksum: sha1:bc14d86ece90e2f2d2effa80b81b5e7f108cbec4
+    pristine_git_object: 2be061d0aa40d62b2f9c0a51d59f0da60533fd6b
+  src/livepeer_ai/models/operations/genaudiototext.py:
+    id: 7b435663935f
+    last_write_checksum: sha1:58fb8917868754f95a384d52112ea8ff4a4ab522
+    pristine_git_object: be02e161a51c744eaf05e04256f11da066314bf7
+  src/livepeer_ai/models/operations/genimagetoimage.py:
+    id: a47fbbecaf14
+    last_write_checksum: sha1:9a11b9fd1dcb08efacbf3e45b92902121dbe28fd
+    pristine_git_object: 929c0ece06a06e8fa0318e65f23cc11c229892d3
+  src/livepeer_ai/models/operations/genimagetotext.py:
+    id: e47faf72fd8d
+    last_write_checksum: sha1:b0b04772753c61fad0986a1a8ea5f6ce1912ea97
+    pristine_git_object: 9490ba46d2eae71dba02f98e31bf39b604cedcf2
+  src/livepeer_ai/models/operations/genimagetovideo.py:
+    id: 3b3d17ced063
+    last_write_checksum: sha1:9533452dcb187a96408afb71ab9b0df6583b94a1
+    pristine_git_object: d52084def479cc32284b311952bbc6327069b705
+  src/livepeer_ai/models/operations/genlivevideotovideo.py:
+    id: 7da7bff3a417
+    last_write_checksum: sha1:cf96945808e6e5fea868db90dd6cab481d5ab087
+    pristine_git_object: 1664e0626a9fdc8ef0eb577ddcef996e8198ee63
+  src/livepeer_ai/models/operations/genllm.py:
+    id: dc59b2c054b7
+    last_write_checksum: sha1:22bc583eba096fc06fe24b6a127ed760e72f621b
+    pristine_git_object: 2431b608ec659c89ddc186603f601c7e22d9b6bd
+  src/livepeer_ai/models/operations/gensegmentanything2.py:
+    id: 023388594fed
+    last_write_checksum: sha1:27c3fdeb77e64f73aeeada7f58fcebe35acd3879
+    pristine_git_object: 12195f129bff3c310f42b369c3ffab75125437b9
+  src/livepeer_ai/models/operations/gentexttoimage.py:
+    id: cb2510c11833
+    last_write_checksum: sha1:b7aa27035a227217bd6632ede8be9c4890be3a04
+    pristine_git_object: f4420ee4437ecd1139ec044abf39ab90b763b342
+  src/livepeer_ai/models/operations/gentexttospeech.py:
+    id: a99691639412
+    last_write_checksum: sha1:1c0960c1ff84f8f2582cc95637bd5a062c012eb9
+    pristine_git_object: 1a54c237f3a876acd00ac7b1c3ec64c2c60d4751
+  src/livepeer_ai/models/operations/genupscale.py:
+    id: 0cc7b07817d9
+    last_write_checksum: sha1:351598054e8e6a7d5c902b8f33981fe3b16fecea
+    pristine_git_object: 2bc5a3724a05ed2039c75e389ec23e7a17518a3a
+  src/livepeer_ai/py.typed:
+    id: 2a4e2dd0a353
+    last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
+    pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
+  src/livepeer_ai/sdk.py:
+    id: 5fcb54b7cb39
+    last_write_checksum: sha1:9eac88d26a2f75b5dfc23f4843a3a374d0cf64d9
+    pristine_git_object: 6e527136f8db78b4af745984ef8387dbe1bde3ee
+  src/livepeer_ai/sdkconfiguration.py:
+    id: 1296f1660a90
+    last_write_checksum: sha1:286203d5ea376d261dc1fd3b6cfdd38686465e8e
+    pristine_git_object: d7115a5e80788e429138352b83b062b9111dbf65
+  src/livepeer_ai/types/__init__.py:
+    id: ec37bec91124
+    last_write_checksum: sha1:140ebdd01a46f92ffc710c52c958c4eba3cf68ed
+    pristine_git_object: fc76fe0c5505e29859b5d2bb707d48fd27661b8c
+  src/livepeer_ai/types/basemodel.py:
+    id: 84aeeb84af6e
+    last_write_checksum: sha1:10d84aedeb9d35edfdadf2c3020caa1d24d8b584
+    pristine_git_object: a9a640a1a7048736383f96c67c6290c86bf536ee
+  src/livepeer_ai/utils/__init__.py:
+    id: 6692a4d2442a
+    last_write_checksum: sha1:1970816f2234ecb8785798240b0edced961de971
+    pristine_git_object: 0498cb8dabf249b39609f81fb10cddc30f1b78b5
+  src/livepeer_ai/utils/annotations.py:
+    id: 5dc8a752e351
+    last_write_checksum: sha1:a4824ad65f730303e4e1e3ec1febf87b4eb46dbc
+    pristine_git_object: 12e0aa4f1151bb52474cc02e88397329b90703f6
+  src/livepeer_ai/utils/datetimes.py:
+    id: c0c82e1b89c8
+    last_write_checksum: sha1:c721e4123000e7dc61ec52b28a739439d9e17341
+    pristine_git_object: a6c52cd61bbe2d459046c940ce5e8c469f2f0664
+  src/livepeer_ai/utils/dynamic_imports.py:
+    id: c9f6f6c7561e
+    last_write_checksum: sha1:a1940c63feb8eddfd8026de53384baf5056d5dcc
+    pristine_git_object: 673edf82a97d0fea7295625d3e092ea369a36b79
+  src/livepeer_ai/utils/enums.py:
+    id: f9bfec832b70
+    last_write_checksum: sha1:bc8c3c1285ae09ba8a094ee5c3d9c7f41fa1284d
+    pristine_git_object: 3324e1bc2668c54c4d5f5a1a845675319757a828
+  src/livepeer_ai/utils/eventstreaming.py:
+    id: 6790d47491ae
+    last_write_checksum: sha1:620d78a8b4e3b854e08d136e02e40a01a786bd70
+    pristine_git_object: 3bdcd6d3d4fc772cb7f5fca8685dcdc8c85e13e8
+  src/livepeer_ai/utils/forms.py:
+    id: 8f06b0d7720d
+    last_write_checksum: sha1:15fa7e9ab1611e062a9984cf06cb20969713d295
+    pristine_git_object: f961e76beaf0a8b1fe0dda44754a74eebd3608e7
+  src/livepeer_ai/utils/headers.py:
+    id: 63ece885297b
+    last_write_checksum: sha1:7c6df233ee006332b566a8afa9ce9a245941d935
+    pristine_git_object: 37864cbbbc40d1a47112bbfdd3ba79568fc8818a
+  src/livepeer_ai/utils/logger.py:
+    id: 1ce9785c9ac6
+    last_write_checksum: sha1:f3fdb154a3f09b8cc43d74c7e9c02f899f8086e4
+    pristine_git_object: b661aff65d38b77d035149699aea09b2785d2fc6
+  src/livepeer_ai/utils/metadata.py:
+    id: 9dde7d0b7eb0
+    last_write_checksum: sha1:e703e5cbb5255144aacf86898d1420529afaaff8
+    pristine_git_object: 5abddd588837ac297050ca3b543627faadb350a9
+  src/livepeer_ai/utils/queryparams.py:
+    id: 136df481a13f
+    last_write_checksum: sha1:b94c3f314fd3da0d1d215afc2731f48748e2aa59
+    pristine_git_object: c04e0db82b68eca041f2cb2614d748fbac80fd41
+  src/livepeer_ai/utils/requestbodies.py:
+    id: 050d3ea16e4f
+    last_write_checksum: sha1:41e2d2d2d3ecc394c8122ca4d4b85e1c3e03f054
+    pristine_git_object: 1de32b6d26f46590232f398fdba6ce0072f1659c
+  src/livepeer_ai/utils/retries.py:
+    id: 7ca216649bd7
+    last_write_checksum: sha1:471372f5c5d1dd5583239c9cf3c75f1b636e5d87
+    pristine_git_object: af07d4e941007af4213c5ec9047ef8a2fca04e5e
+  src/livepeer_ai/utils/security.py:
+    id: 0c05167bc45f
+    last_write_checksum: sha1:c11eef495b6aaa249178c24c796940cc540b7a00
+    pristine_git_object: 42d8d78e9981eed7507670014d99588e27ab325a
+  src/livepeer_ai/utils/serializers.py:
+    id: 0f5cac079a22
+    last_write_checksum: sha1:61009f2e4ef6613a1a5af813fe020373dae5a492
+    pristine_git_object: d2149f8b909cb96628db140ac3cddb1b1e981367
+  src/livepeer_ai/utils/unmarshal_json_response.py:
+    id: 24c56b19e840
+    last_write_checksum: sha1:aee8feab4466e9a7f6a5baddcf868fa4f29740da
+    pristine_git_object: cfab6acf42c405622c88aa11f29eb5a1e1407460
+  src/livepeer_ai/utils/url.py:
+    id: 952e3d8c215b
+    last_write_checksum: sha1:6479961baa90432ca25626f8e40a7bbc32e73b41
+    pristine_git_object: c78ccbae426ce6d385709d97ce0b1c2813ea2418
+  src/livepeer_ai/utils/values.py:
+    id: bce615016bd3
+    last_write_checksum: sha1:acaa178a7c41ddd000f58cc691e4632d925b2553
+    pristine_git_object: dae01a44384ac3bc13ae07453a053bf6c898ebe3
+examples:
+  genTextToImage:
+    speakeasy-default-gen-text-to-image:
+      requestBody:
+        application/json: {"model_id": "", "loras": "", "prompt": "<value>", "height": 576, "width": 1024, "guidance_scale": 7.5, "negative_prompt": "", "safety_check": true, "num_inference_steps": 50, "num_images_per_prompt": 1}
+      responses:
+        "200":
+          application/json: {"images": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+  genImageToImage:
+    speakeasy-default-gen-image-to-image:
+      requestBody:
+        multipart/form-data: {"prompt": "<value>", "image": "x-file: example.file", "model_id": "", "loras": "", "strength": 0.8, "guidance_scale": 7.5, "image_guidance_scale": 1.5, "negative_prompt": "", "safety_check": true, "num_inference_steps": 100, "num_images_per_prompt": 1}
+      responses:
+        "200":
+          application/json: {"images": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+  genImageToVideo:
+    speakeasy-default-gen-image-to-video:
+      requestBody:
+        multipart/form-data: {"image": "x-file: example.file", "model_id": "", "height": 576, "width": 1024, "fps": 6, "motion_bucket_id": 127, "noise_aug_strength": 0.02, "safety_check": true, "num_inference_steps": 25}
+      responses:
+        "200":
+          application/json: {"images": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+  genUpscale:
+    speakeasy-default-gen-upscale:
+      requestBody:
+        multipart/form-data: {"prompt": "<value>", "image": "x-file: example.file", "model_id": "", "safety_check": true, "num_inference_steps": 75}
+      responses:
+        "200":
+          application/json: {"images": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+  genAudioToText:
+    speakeasy-default-gen-audio-to-text:
+      requestBody:
+        multipart/form-data: {"audio": "x-file: example.file", "model_id": "", "return_timestamps": "true"}
+      responses:
+        "200":
+          application/json: {"text": "<value>", "chunks": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+  genSegmentAnything2:
+    speakeasy-default-gen-segment-anything2:
+      requestBody:
+        multipart/form-data: {"image": "x-file: example.file", "model_id": "", "multimask_output": true, "return_logits": true, "normalize_coords": true}
+      responses:
+        "200":
+          application/json: {"masks": "<value>", "scores": "<value>", "logits": "<value>"}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+  genLLM:
+    speakeasy-default-gen-LLM:
+      requestBody:
+        application/json: {"messages": [{"role": "<value>", "content": "<value>"}], "model": "", "temperature": 0.7, "max_tokens": 256, "top_p": 1, "top_k": -1, "stream": false}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "model": "Explorer", "created": 166063, "usage": {"prompt_tokens": 213097, "completion_tokens": 185693, "total_tokens": 530500}, "choices": []}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+  genImageToText:
+    speakeasy-default-gen-image-to-text:
+      requestBody:
+        multipart/form-data: {"image": "x-file: example.file", "prompt": "", "model_id": ""}
+      responses:
+        "200":
+          application/json: {"text": "<value>"}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+  genLiveVideoToVideo:
+    speakeasy-default-gen-live-video-to-video:
+      requestBody:
+        application/json: {"subscribe_url": "https://soulful-finding.biz", "publish_url": "https://monumental-representation.biz/", "control_url": "", "events_url": "", "model_id": "", "gateway_request_id": "", "manifest_id": "", "stream_id": ""}
+      responses:
+        "200":
+          application/json: {"subscribe_url": "https://any-expense.com/", "publish_url": "https://early-abacus.org", "control_url": "", "events_url": "", "request_id": "", "manifest_id": ""}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+  genTextToSpeech:
+    speakeasy-default-gen-text-to-speech:
+      requestBody:
+        application/json: {"model_id": "", "text": "", "description": "A male speaker delivers a slightly expressive and animated speech with a moderate speed and pitch."}
+      responses:
+        "200":
+          application/json: {"audio": {"url": "https://slushy-elevation.net/"}}
+        "400":
+          application/json: {"detail": {"msg": "<value>"}}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": {"msg": "<value>"}}
+examplesVersion: 1.0.2
+generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `livepeer.generate.live_video_to_video()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - .python-version
@@ -162,136 +849,3 @@ generatedFiles:
   - src/livepeer_ai/utils/serializers.py
   - src/livepeer_ai/utils/url.py
   - src/livepeer_ai/utils/values.py
-examples:
-  genTextToImage:
-    speakeasy-default-gen-text-to-image:
-      requestBody:
-        application/json: {"model_id": "", "loras": "", "prompt": "<value>", "height": 576, "width": 1024, "guidance_scale": 7.5, "negative_prompt": "", "safety_check": true, "num_inference_steps": 50, "num_images_per_prompt": 1}
-      responses:
-        "200":
-          application/json: {"images": [{"url": "https://hateful-cruelty.name", "seed": 857392, "nsfw": true}]}
-        "400":
-          application/json: {"detail": {"msg": "<value>"}}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": {"msg": "<value>"}}
-  genImageToImage:
-    speakeasy-default-gen-image-to-image:
-      requestBody:
-        multipart/form-data: {"prompt": "<value>", "image": {"": "x-file: example.file"}, "model_id": "", "loras": "", "strength": 0.8, "guidance_scale": 7.5, "image_guidance_scale": 1.5, "negative_prompt": "", "safety_check": true, "num_inference_steps": 100, "num_images_per_prompt": 1}
-      responses:
-        "200":
-          application/json: {"images": [{"url": "https://selfish-operating.name/", "seed": 976514, "nsfw": false}]}
-        "400":
-          application/json: {"detail": {"msg": "<value>"}}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": {"msg": "<value>"}}
-  genImageToVideo:
-    speakeasy-default-gen-image-to-video:
-      requestBody:
-        multipart/form-data: {"image": {"": "x-file: example.file"}, "model_id": "", "height": 576, "width": 1024, "fps": 6, "motion_bucket_id": 127, "noise_aug_strength": 0.02, "safety_check": true, "num_inference_steps": 25}
-      responses:
-        "200":
-          application/json: {"images": [{"url": "https://low-handover.name/", "seed": 87160, "nsfw": true}]}
-        "400":
-          application/json: {"detail": {"msg": "<value>"}}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": {"msg": "<value>"}}
-  genUpscale:
-    speakeasy-default-gen-upscale:
-      requestBody:
-        multipart/form-data: {"prompt": "<value>", "image": {"": "x-file: example.file"}, "model_id": "", "safety_check": true, "num_inference_steps": 75}
-      responses:
-        "200":
-          application/json: {"images": [{"url": "https://bogus-typewriter.net", "seed": 311567, "nsfw": false}]}
-        "400":
-          application/json: {"detail": {"msg": "<value>"}}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": {"msg": "<value>"}}
-  genAudioToText:
-    speakeasy-default-gen-audio-to-text:
-      requestBody:
-        multipart/form-data: {"audio": {"": "x-file: example.file"}, "model_id": "", "return_timestamps": "true"}
-      responses:
-        "200":
-          application/json: {"text": "<value>", "chunks": [{"timestamp": ["<value>", "<value>"], "text": "<value>"}, {"timestamp": [], "text": "<value>"}]}
-        "400":
-          application/json: {"detail": {"msg": "<value>"}}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": {"msg": "<value>"}}
-  genSegmentAnything2:
-    speakeasy-default-gen-segment-anything2:
-      requestBody:
-        multipart/form-data: {"image": {"": "x-file: example.file"}, "model_id": "", "multimask_output": true, "return_logits": true, "normalize_coords": true}
-      responses:
-        "200":
-          application/json: {"masks": "<value>", "scores": "<value>", "logits": "<value>"}
-        "400":
-          application/json: {"detail": {"msg": "<value>"}}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": {"msg": "<value>"}}
-  genLLM:
-    speakeasy-default-gen-LLM:
-      requestBody:
-        application/json: {"messages": [], "model": "", "temperature": 0.7, "max_tokens": 256, "top_p": 1, "top_k": -1, "stream": false}
-      responses:
-        "200":
-          application/json: {"id": "<id>", "model": "Expedition", "created": 755586, "usage": {"prompt_tokens": 348799, "completion_tokens": 332397, "total_tokens": 528534}, "choices": []}
-        "400":
-          application/json: {"detail": {"msg": "<value>"}}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": {"msg": "<value>"}}
-  genImageToText:
-    speakeasy-default-gen-image-to-text:
-      requestBody:
-        multipart/form-data: {"image": {"": "x-file: example.file"}, "prompt": "", "model_id": ""}
-      responses:
-        "200":
-          application/json: {"text": "<value>"}
-        "400":
-          application/json: {"detail": {"msg": "<value>"}}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": {"msg": "<value>"}}
-  genLiveVideoToVideo:
-    speakeasy-default-gen-live-video-to-video:
-      requestBody:
-        application/json: {"subscribe_url": "https://soulful-lava.org/", "publish_url": "https://vain-tabletop.biz", "control_url": "", "events_url": "", "model_id": ""}
-      responses:
-        "200":
-          application/json: {"subscribe_url": "https://vain-kiss.name", "publish_url": "https://frail-duffel.com", "control_url": "", "events_url": ""}
-        "400":
-          application/json: {"detail": {"msg": "<value>"}}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": {"msg": "<value>"}}
-  genTextToSpeech:
-    speakeasy-default-gen-text-to-speech:
-      requestBody:
-        application/json: {"model_id": "", "text": "", "description": "A male speaker delivers a slightly expressive and animated speech with a moderate speed and pitch."}
-      responses:
-        "200":
-          application/json: {"audio": {"url": "https://accurate-parsnip.net/"}}
-        "400":
-          application/json: {"detail": {"msg": "<value>"}}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": {"msg": "<value>"}}
-examplesVersion: 1.0.0
-generatedTests: {}

@@ -5,8 +5,9 @@ from livepeer_ai.models.components import (
     audioresponse as components_audioresponse,
     httpmetadata as components_httpmetadata,
 )
-from livepeer_ai.types import BaseModel
+from livepeer_ai.types import BaseModel, UNSET_SENTINEL
 import pydantic
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -24,3 +25,19 @@ class GenTextToSpeechResponse(BaseModel):
 
     audio_response: Optional[components_audioresponse.AudioResponse] = None
     r"""Successful Response"""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["AudioResponse"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

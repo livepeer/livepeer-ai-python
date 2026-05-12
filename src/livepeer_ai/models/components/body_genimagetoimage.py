@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 import io
-from livepeer_ai.types import BaseModel
+from livepeer_ai.types import BaseModel, UNSET_SENTINEL
 from livepeer_ai.utils import FieldMetadata, MultipartFormMetadata
 import pydantic
+from pydantic import model_serializer
 from typing import IO, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -31,6 +32,22 @@ class Image(BaseModel):
         pydantic.Field(alias="Content-Type"),
         FieldMetadata(multipart=True),
     ] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["contentType"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class BodyGenImageToImageTypedDict(TypedDict):
@@ -98,3 +115,32 @@ class BodyGenImageToImage(BaseModel):
 
     num_images_per_prompt: Annotated[Optional[int], FieldMetadata(multipart=True)] = 1
     r"""Number of images to generate per prompt."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            [
+                "model_id",
+                "loras",
+                "strength",
+                "guidance_scale",
+                "image_guidance_scale",
+                "negative_prompt",
+                "safety_check",
+                "seed",
+                "num_inference_steps",
+                "num_images_per_prompt",
+            ]
+        )
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
