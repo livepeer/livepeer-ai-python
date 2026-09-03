@@ -1,6 +1,6 @@
 [project]
 name = "livepeer-ai"
-version = "0.10.0"
+version = "0.11.0"
 description = "Python Client SDK for the Livepeer AI API."
 authors = [{ name = "Speakeasy" },]
 readme = "README-PYPI.md"

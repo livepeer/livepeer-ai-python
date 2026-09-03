@@ -17,6 +17,10 @@ class LiveVideoToVideoResponseTypedDict(TypedDict):
     r"""URL for updating the live video-to-video generation"""
     events_url: NotRequired[str]
     r"""URL for subscribing to events for pipeline status and logs"""
+    request_id: NotRequired[str]
+    r"""The ID generated for this request"""
+    manifest_id: NotRequired[str]
+    r"""Orchestrator manifest ID for this request"""
 
 
 class LiveVideoToVideoResponse(BaseModel):
@@ -33,3 +37,9 @@ class LiveVideoToVideoResponse(BaseModel):
 
     events_url: Optional[str] = ""
     r"""URL for subscribing to events for pipeline status and logs"""
+
+    request_id: Optional[str] = ""
+    r"""The ID generated for this request"""
+
+    manifest_id: Optional[str] = ""
+    r"""Orchestrator manifest ID for this request"""

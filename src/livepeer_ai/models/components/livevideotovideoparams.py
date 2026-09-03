@@ -2,16 +2,8 @@
 
 from __future__ import annotations
 from livepeer_ai.types import BaseModel
-from typing import Optional
+from typing import Any, Dict, Optional
 from typing_extensions import NotRequired, TypedDict
-
-
-class ParamsTypedDict(TypedDict):
-    r"""Initial parameters for the pipeline."""
-
-
-class Params(BaseModel):
-    r"""Initial parameters for the pipeline."""
 
 
 class LiveVideoToVideoParamsTypedDict(TypedDict):
@@ -25,8 +17,14 @@ class LiveVideoToVideoParamsTypedDict(TypedDict):
     r"""URL for publishing events via Trickle protocol for pipeline status and logs."""
     model_id: NotRequired[str]
     r"""Name of the pipeline to run in the live video to video job. Notice that this is named model_id for consistency with other routes, but it does not refer to a Hugging Face model ID. The exact model(s) depends on the pipeline implementation and might be configurable via the `params` argument."""
-    params: NotRequired[ParamsTypedDict]
+    params: NotRequired[Dict[str, Any]]
     r"""Initial parameters for the pipeline."""
+    gateway_request_id: NotRequired[str]
+    r"""The ID of the Gateway request (for logging purposes)."""
+    manifest_id: NotRequired[str]
+    r"""The manifest ID from the orchestrator (for logging purposes)."""
+    stream_id: NotRequired[str]
+    r"""The Stream ID (for logging purposes)."""
 
 
 class LiveVideoToVideoParams(BaseModel):
@@ -45,5 +43,14 @@ class LiveVideoToVideoParams(BaseModel):
     model_id: Optional[str] = ""
     r"""Name of the pipeline to run in the live video to video job. Notice that this is named model_id for consistency with other routes, but it does not refer to a Hugging Face model ID. The exact model(s) depends on the pipeline implementation and might be configurable via the `params` argument."""
 
-    params: Optional[Params] = None
+    params: Optional[Dict[str, Any]] = None
     r"""Initial parameters for the pipeline."""
+
+    gateway_request_id: Optional[str] = ""
+    r"""The ID of the Gateway request (for logging purposes)."""
+
+    manifest_id: Optional[str] = ""
+    r"""The manifest ID from the orchestrator (for logging purposes)."""
+
+    stream_id: Optional[str] = ""
+    r"""The Stream ID (for logging purposes)."""

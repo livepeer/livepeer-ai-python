@@ -10,10 +10,10 @@ generation:
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
   auth:
-    oAuth2ClientCredentialsEnabled: true
+    oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 python:
-  version: 0.10.0
+  version: 0.11.0
   additionalDependencies:
     dev: {}
     main: {}
