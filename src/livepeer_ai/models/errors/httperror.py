@@ -8,7 +8,7 @@ from livepeer_ai.types import BaseModel
 
 class HTTPErrorData(BaseModel):
     detail: components_apierror.APIError
-    r"""Detailed error information."""
+    r"""API error response model."""
 
 
 class HTTPError(Exception):

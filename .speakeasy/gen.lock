@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2d5dbf5a-62be-411a-9c7b-bc7b6dc79e13
 management:
-  docChecksum: 6657dd3e876a909472f364dc1fe34d72
-  docVersion: 0.0.0
+  docChecksum: ec9934c13ee59ba9e24e25deb2c1b55f
+  docVersion: 0.14.1
   speakeasyVersion: 1.480.0
   generationVersion: 2.499.0
-  releaseVersion: 0.10.0
-  configChecksum: 2b2d2389ee9ff1be5cd354baf7c62739
+  releaseVersion: 0.11.0
+  configChecksum: bef910848bdb13f733479db35377041f
   repoURL: https://github.com/livepeer/livepeer-ai-python.git
   installationURL: https://github.com/livepeer/livepeer-ai-python.git
   published: true
@@ -62,7 +62,6 @@ generatedFiles:
   - docs/models/components/masksresponse.md
   - docs/models/components/media.md
   - docs/models/components/mediaurl.md
-  - docs/models/components/params.md
   - docs/models/components/security.md
   - docs/models/components/textresponse.md
   - docs/models/components/texttoimageparams.md
@@ -270,10 +269,10 @@ examples:
   genLiveVideoToVideo:
     speakeasy-default-gen-live-video-to-video:
       requestBody:
-        application/json: {"subscribe_url": "https://soulful-lava.org/", "publish_url": "https://vain-tabletop.biz", "control_url": "", "events_url": "", "model_id": ""}
+        application/json: {"subscribe_url": "https://soulful-lava.org/", "publish_url": "https://vain-tabletop.biz", "control_url": "", "events_url": "", "model_id": "", "gateway_request_id": "", "manifest_id": "", "stream_id": ""}
       responses:
         "200":
-          application/json: {"subscribe_url": "https://vain-kiss.name", "publish_url": "https://frail-duffel.com", "control_url": "", "events_url": ""}
+          application/json: {"subscribe_url": "https://vain-kiss.name", "publish_url": "https://frail-duffel.com", "control_url": "", "events_url": "", "request_id": "", "manifest_id": ""}
         "400":
           application/json: {"detail": {"msg": "<value>"}}
         "422":

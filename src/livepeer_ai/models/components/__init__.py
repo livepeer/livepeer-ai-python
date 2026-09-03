@@ -45,8 +45,6 @@ from .imagetotextresponse import ImageToTextResponse, ImageToTextResponseTypedDi
 from .livevideotovideoparams import (
     LiveVideoToVideoParams,
     LiveVideoToVideoParamsTypedDict,
-    Params,
-    ParamsTypedDict,
 )
 from .livevideotovideoresponse import (
     LiveVideoToVideoResponse,
@@ -132,8 +130,6 @@ __all__ = [
     "MediaTypedDict",
     "MediaURL",
     "MediaURLTypedDict",
-    "Params",
-    "ParamsTypedDict",
     "Security",
     "SecurityTypedDict",
     "TextResponse",

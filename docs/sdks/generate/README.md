@@ -452,6 +452,9 @@ with Livepeer(
         "control_url": "",
         "events_url": "",
         "model_id": "",
+        "gateway_request_id": "",
+        "manifest_id": "",
+        "stream_id": "",
     })
 
     assert res.live_video_to_video_response is not None
